@@ -1571,6 +1571,6 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
 .profile-bio a { color: var(--navy); text-decoration: underline; text-decoration-color: rgba(31, 47, 77, 0.35); text-underline-offset: 3px; }
 .profile-bio a:hover { text-decoration-color: currentColor; }
 
-/* People cards: no border around the card, just the soft shadow */
-.participant-card,
-.participant-card.has-cutout { border: 0; }
+/* No focus ring around the popup itself (the browser's default dark outline when the popup takes focus) */
+.profile-dialog:focus,
+.profile-dialog:focus-visible { outline: none; }
