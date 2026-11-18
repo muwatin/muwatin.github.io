@@ -1570,3 +1570,7 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
 /* Links inside a bio (e.g. institutes): navy text, light underline */
 .profile-bio a { color: var(--navy); text-decoration: underline; text-decoration-color: rgba(31, 47, 77, 0.35); text-underline-offset: 3px; }
 .profile-bio a:hover { text-decoration-color: currentColor; }
+
+/* People cards: no border around the card, just the soft shadow */
+.participant-card,
+.participant-card.has-cutout { border: 0; }

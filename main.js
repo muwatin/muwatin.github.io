@@ -416,6 +416,30 @@ const PROFILES = {
       en: 'Nadia Hindi Mediavilla is a Spanish-Iraqi scholar, researcher, and professor in the Department of Semitic Studies at the University of Granada in Spain. Born in Baghdad in 1977, she specializes in Arab and Islamic studies with a particular focus on feminist movements in the Arab world.',
     },
   },
+  'حسن ايوب': {
+    photo: 'assets/people/ayoub.png',
+    cutout: true,
+    bio: {
+      ar: 'رئيس دائرة العلوم السياسية في جامعة النجاح الوطنية. تتركّز أبحاثه على التحوّلات في النظام السياسي الدولي، والسياسة الخارجية الأمريكية، والسياسة الفلسطينية، ويعمل في التدريب المهني في مجالات حلّ النزاعات والحكم الرشيد والديمقراطية وحقوق الإنسان. عمل في العام الأكاديمي 2020–2021 باحثاً زائراً في مركز دراسات الشرق الأوسط في جامعة دنفر، حيث صمّم مساقاً عن السلام والنزاع في الشرق الأوسط ودرّسه. ومن أبحاثه الحديثة «سياسات إدارة ترامب تجاه فلسطين: ذروة قوة الصهيونية المسيحية» المنشور في مجلة «دراسات» الصادرة عن الجامعة الأردنية.',
+      en: 'Head of the Political Science Department at An-Najah National University. His research focuses on shifts in the international political system, American foreign policy and Palestinian politics, and he is active in professional training on conflict resolution, good governance, democracy and human rights. In the 2020–2021 academic year he was a visiting scholar at the Centre for Middle East Studies at the University of Denver, where he designed and taught a course on peace and conflict in the Middle East. His recent work includes “Trump Administration Policies Toward Palestine: The Climax of Christian-Zionist Power”, published in Dirasat, the University of Jordan journal.',
+    },
+  },
+  'Belén Habboob Martos': {
+    photo: 'assets/people/habboob-martos.png',
+    cutout: true,
+    bio: {
+      ar: 'باحثة إسبانية في مرحلة ما قبل الدكتوراه وأنثروبولوجية اجتماعية في [جامعة غرناطة](http://www.ugr.es/en/staff/belen-habboob-martos)، تتخصّص في فلسطين وبلاد الشام ودراسات المرأة والنوع الاجتماعي. تعمل ضمن الكادر التدريسي والبحثي قيد التأهيل (بعقد ما قبل الدكتوراه FPU) في قسم الأنثروبولوجيا الاجتماعية.',
+      en: 'Belén Habboob Martos is a Spanish predoctoral researcher and social anthropologist at the [University of Granada (UGR)](http://www.ugr.es/en/staff/belen-habboob-martos), specializing in Palestine, the Levant, and women\'s and gender studies. She works as a teaching and research staff member in training (FPU predoctoral contract) in the Department of Social Anthropology.',
+    },
+  },
+  'Basil Farraj': {
+    photo: 'assets/people/farraj.png',
+    cutout: true,
+    bio: {
+      ar: 'مدير معهد إبراهيم أبو لغد للدراسات الدولية، وأستاذ مساعد في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت. نال الدكتوراه في الأنثروبولوجيا وعلم الاجتماع من معهد جنيف للدراسات العليا، وتتناول أبحاثه تقاطعات الذاكرة والمقاومة والفن لدى الأسرى وغيرهم ممّن يقع عليهم العنف. أجرى أبحاثاً في عدّة بلدان، منها تشيلي وكولومبيا وفلسطين.',
+      en: 'Basil Farraj is the Director of the Ibrahim Abu Lughod Institute of International Studies and an assistant professor at the Department of Philosophy and Cultural Studies at Birzeit University. He holds a PhD in Anthropology and Sociology from the Geneva Graduate Institute, and his research addresses the intersections of memory, resistance, and art by prisoners and others at the receiving end of violence. Basil has conducted research in several countries, including Chile, Colombia, and Palestine.',
+    },
+  },
 };
 
 // Bio text with [text](url) links: as HTML links (popup), or as plain text (cards)
