@@ -1544,3 +1544,7 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
 }
 .abstract-back:hover { color: var(--wine); }
 @media (max-width: 640px) { .abstract-back { top: 20px; inset-inline-start: 92px; } }
+
+/* Links inside a bio (e.g. institutes): navy text, light underline */
+.profile-bio a { color: var(--navy); text-decoration: underline; text-decoration-color: rgba(31, 47, 77, 0.35); text-underline-offset: 3px; }
+.profile-bio a:hover { text-decoration-color: currentColor; }

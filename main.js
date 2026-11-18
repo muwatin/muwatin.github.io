@@ -271,7 +271,7 @@ const OTHER_PARTICIPANTS = [
   'طلال شهوان',
   'مضر قسيس',
   // Keynote speakers
-  'Andrea Sangiovanni', 'Salim Valley',
+  'Andrea Sangiovanni', 'Salim Vally',
   // Session chairs, in programme order
   'Basem Izbidi', 'George Giacaman', 'Basil Farraj', 'Lena Meari', 'Rahaf Salahat', 'Ahmad Attallah',
 ];
@@ -287,7 +287,7 @@ const PROFILES = {
     cutout: true,
     bio: {
       ar: 'عضو الهيئة الأكاديمية في دائرة الفلسفة والدراسات الثقافية بجامعة بيرزيت، ومدير معهد مواطن للديمقراطية وحقوق الإنسان، وبرنامج الماجستير في الديمقراطية وحقوق الإنسان. تنطلق اهتماماته البحثية الراهنة من تراث فلسفة الممارسة، وتركّز على قضايا التحوّل الديمقراطي، ونزع الاستعمار والتحرّر، ومفهوم الكرامة والحياة اليومية، وأخلاقيات البحث العلمي، والفساد السياسي، والشعبوية.',
-      en: 'He is a faculty member in the Department of Philosophy and Cultural Studies at Birzeit University, and Director of the Muwatin Institute for Democracy and Human Rights and the Master’s Program in Democracy and Human Rights. His current research interests are grounded in the tradition of the philosophy of praxis and focus on democratisation, decolonisation and emancipation, the concepts of dignity and everyday life, research ethics, political corruption, and populism.',
+      en: 'Faculty member in the Department of Philosophy and Cultural Studies at Birzeit University, and Director of the Muwatin Institute for Democracy and Human Rights and the Master’s Programme in Democracy and Human Rights. His current research interests are grounded in the tradition of the philosophy of praxis and focus on democratisation, decolonisation and emancipation, the concepts of dignity and everyday life, research ethics, political corruption, and populism.',
     },
   },
   'خالدة جرار': {
@@ -296,7 +296,7 @@ const PROFILES = {
     cutout: true,
     bio: {
       ar: 'باحثة متطوعة في معهد مواطن للديمقراطية وحقوق الإنسان، تعمل على بحث بعنوان "الأبعاد الطبقية والنوع اجتماعية للحركة الأسيرة وانعكاساتها في المشروع التحرري"، وأسيرة سابقة.',
-      en: 'A volunteer researcher at the Muwatin Institute, working on a study titled “The Class and Gender Dimensions of the Prisoner Movement and Their Reflections on the Liberation Project.” She is a former detainee in Israeli prisons.',
+      en: 'Volunteer researcher at the Muwatin Institute. She is working on a study titled “The Class and Gender Dimensions of the Prisoner Movement and Their Reflections on the Liberation Project.” She is a former detainee in Israeli prisons.',
     },
   },
   'أسيل حسين': {
@@ -305,7 +305,7 @@ const PROFILES = {
     cutout: true,
     bio: {
       ar: 'طالبة ماجستير في برنامج الديمقراطية وحقوق الإنسان في جامعة بيرزيت. تعمل حالياً على إعداد دراسة بعنوان: "مستقبل منظومة حقوق الإنسان وإمكاناتها في سياق التحولات والأزمات المعاصرة للنظام العالمي"، التي تبحث في التحديات التي تواجه منظومة حقوق الإنسان في ظل التحولات الجيوسياسية والأزمات المتصاعدة في النظام العالمي، وإمكانات إعادة التفكير في أدوارها ووظائفها ضمن نظام عالمي متغير ومتحول.',
-      en: 'Master’s student in the Democracy and Human Rights Program at Birzeit University. She is currently preparing a study entitled “The Future of the Human Rights System and Its Possibilities in the Context of Contemporary Transformations and Crises in the World Order.” The study examines the challenges facing the human rights system amid ongoing geopolitical transformations and escalating crises, and explores possibilities for rethinking its roles and functions within a changing global order.',
+      en: 'Master’s student in the Democracy and Human Rights Programme at Birzeit University. She is currently preparing a study entitled “The Future of the Human Rights System and Its Possibilities in the Context of Contemporary Transformations and Crises in the World Order.” The study examines the challenges facing the human rights system amid ongoing geopolitical transformations and escalating crises, and explores possibilities for rethinking its roles and functions within a changing global order.',
     },
   },
   'Tareq Sadeq': {
@@ -323,7 +323,7 @@ const PROFILES = {
     cutout: true,
     bio: {
       ar: 'عضو الهيئة الأكاديمية في دائرة العلوم المالية والمصرفية في جامعة بيرزيت منذ عام 2016. أنهت الدكتوراه في جامعة بوند في أستراليا. تَرتكز اهتماماتها البحثية في النظريات القانونية للتنمية المالية. عملت مديرة للتحليل المالي في قطاع الاتصالات وتكنولوجيا المعلومات قبل أن تلتحق بالحقل الأكاديمي. وهي كذلك ناشطة في حماية حقوق الحيوان.',
-      en: 'Faculty member at the Department of Banking and Finance at Birzeit University since 2016. She finished her PhD studies at Bond University in Australia. Her research focuses on Legal Theories of Financial Development. She served as a Director of Financial Analysis in the ICT sector for three years before joining the academic field. She is also an animal rights activist.',
+      en: 'Faculty member at the Department of Banking and Finance at Birzeit University since 2016. She completed her PhD at Bond University in Australia. Her research focuses on legal theories of financial development. She served as Director of Financial Analysis in the ICT sector for three years before joining the academic field. She is also an animal rights activist.',
     },
   },
   'Thalia Kruger': {
@@ -335,14 +335,44 @@ const PROFILES = {
       en: 'Professor of Private International Law at the Law & Development Research Group of the University of Antwerp. Her interests are cross-border legal issues and the role the law can play to enhance or endanger the protection of human rights for people in marginalised positions. In this context she has worked in international family law as well as international contracts and international procedural law.',
     },
   },
+  'Salim Vally': {
+    bio: {
+      ar: 'مدير مركز حقوق التعليم والتحوّل، ويشغل كرسيّ تعليم المجتمع والكبار والعمّال، وهو أستاذ زائر في جامعة نيلسون مانديلا. نال الدكتوراه من جامعة كوازولو-ناتال، بعد دراسته في جامعتَي ويتواترسراند ويورك، ودرّس محاضراً زائراً في جامعات يورك وكولومبيا وفيرجينيا وفورت هير. تتناول اهتماماته البحثية السياسات التعليمية والاجتماعية في صلتها بحقوق الإنسان والديمقراطية والعدالة الاجتماعية والاقتصادية.',
+      en: 'Director of the Centre for Education Rights and Transformation and Chair in Community, Adult and Worker Education. He is also a visiting professor at the Nelson Mandela Metropolitan University. He studied at Wits and York universities and completed his doctorate at UKZN, and has been a visiting lecturer at the universities of York, Columbia, Virginia and Fort Hare. His scholarly interests include educational and social policy as they relate to human rights, democracy and socio-economic justice.',
+    },
+  },
+  // Links in a bio are written [text](url): they open in the popup; the short bio on a card shows the text only
+  'Jannis Julien Grimm': {
+    bio: {
+      ar: 'مدير مجموعة البحث [الفضاءات الراديكالية](https://www.interact.fu-berlin.de/en/nwg/Radical-Spaces/index.html) في [مركز INTERACT للأبحاث متعدّدة التخصّصات في السلام والنزاع](https://www.interact.fu-berlin.de/en/index.html) في جامعة برلين الحرّة، وباحث مشارك في [معهد دراسات الاحتجاج والحركات الاجتماعية](https://protestinstitut.eu/) (ipb) في برلين. يتناول عمله ديناميّات العنف السياسي وقمع الدولة، وظروف السياسة الراديكالية وآثارها، والمقاومة العنيفة واللاعنفية، وعمليّات التعبئة العابرة للحدود في مواجهة العنف. نال الدكتوراه في العلوم السياسية من [مدرسة برلين للدراسات العليا في الثقافات والمجتمعات المسلمة](http://www.bgsmcs.fu-berlin.de/). وبعدها شارك في إدارة مشروع [SAFEResearch](https://gld.gu.se/en/projects/saferesearch/) في جامعة غوتنبرغ لوضع معايير لإجراء بحث آمن وأخلاقي في سياقات النزاع. وبين عامَي 2019 و2020 عمل منسّقاً إقليمياً لـ[مشروع النقابات العالمي لمؤسسة فريدريش إيبرت](https://www.fes.de/themenportal-gewerkschaften-und-gute-arbeit/gewerkschaften-international) في الشرق الأوسط وشمال أفريقيا. ومن محطّاته السابقة المعهد الألماني للدراسات الشرقية في إسطنبول، و[مركز COSMOS لدراسات الحركات الاجتماعية](http://cosmos.sns.it/) في المدرسة العليا (SNS) في فلورنسا، و[مركز سياسات الشرق الأوسط وشمال أفريقيا](https://www.polsoz.fu-berlin.de/en/polwiss/forschung/international/vorderer-orient/index.html) في جامعة برلين الحرّة، و[المعهد الألماني للشؤون الدولية والأمنية (SWP)](https://www.swp-berlin.org/) في برلين.',
+      en: 'Director of the Research Group [Radical Spaces](https://www.interact.fu-berlin.de/en/nwg/Radical-Spaces/index.html) at the [INTERACT Center for Interdisciplinary Peace and Conflict Research](https://www.interact.fu-berlin.de/en/index.html) at Freie Universität Berlin and an associate researcher at the [Institute for the Study of Protest and Social Movements](https://protestinstitut.eu/) (ipb) in Berlin. His work focuses on the dynamics of political violence and state repression, the condition and effects of radical politics and (non)violent resistance as well as transnational mobilization processes in response to violence. He holds a PhD in political science from the [Berlin Graduate Muslim Cultures and Societies](http://www.bgsmcs.fu-berlin.de/). After his doctoral studies, he served as a co-director of the [SAFEResearch](https://gld.gu.se/en/projects/saferesearch/) project at the University of Gothenburg to develop standards for the conduct of safe and ethical research in conflict contexts. Between 2019-2020, he served as Regional Coordinator of the [FES Global Trade Union Project](https://www.fes.de/themenportal-gewerkschaften-und-gute-arbeit/gewerkschaften-international) in the Middle East and North Africa. Other previous postings include the Orient Institute Istanbul, the [COSMOS Center on Social Movement Studies](http://cosmos.sns.it/) at SNS Florence, the [Center for Middle Eastern and North African Politics](https://www.polsoz.fu-berlin.de/en/polwiss/forschung/international/vorderer-orient/index.html) at Freie Universität Berlin, and the German Institute for International and Security Affairs, [SWP Berlin](https://www.swp-berlin.org/).',
+    },
+  },
+  'Anarim Chahabi': {
+    bio: {
+      ar: 'باحثة دكتوراه في المشروع البحثي CONFINED: «تفكيك الحيوات المقيَّدة – نحو أجندة بحثية عالمية حول تقاطع التهميش الحضري والتهجير والسجن». يجمع بحثها للدكتوراه بين المنهج الإثنوغرافي والمقاربات القانونية-الاجتماعية لدراسة التقييد والتهجير والشبكات العائلية لدى عائلات فلسطينية في الدنمارك وفي مخيّمات اللاجئين الفلسطينيين في لبنان. ويتتبّع عملها كيف يُعاش التقييد ويُفاوَض عليه عبر النوع الاجتماعي والأجيال والحدود، وهو تقييد تتشابك جذوره في اضطهادات متقاطعة وفي التهميش والتهجير والسجن وانعدام الجنسية، ويمتدّ من التهميش الحضري في الدنمارك إلى الحياة في مخيّمات اللاجئين في لبنان.',
+      en: 'PhD Fellow in the research project CONFINED: Unpacking confined lives – Generating a global research agenda on the intersection of urban marginality, displacement, and incarceration. Her PhD research combines ethnographic methods and socio-legal approaches to examine confinement, displacement and family networks among Palestinian families in Denmark and in Palestinian refugee camps in Lebanon. Her work explores how confinement—rooted in intersectional oppressions, marginalisation, displacement, incarceration, and statelessness—is navigated and negotiated across gender, generations and borders, encompassing forms of confinement that range from urban marginalisation in Denmark to life in Palestinian refugee camps in Lebanon.',
+    },
+  },
+  'Diego Checa Hidalgo': {
+    bio: {
+      ar: 'مؤرّخ وأكاديمي إسباني، أستاذ في دائرة التاريخ المعاصر ومدير [معهد دراسات السلام والنزاعات](http://www.ugr.es/en/staff/diego-checa-hidalgo) في جامعة غرناطة. تتناول أبحاثه تاريخ المقاومة اللاعنفية، وبناء السلام، وتحويل النزاعات الدولية.',
+      en: 'Spanish historian, professor in the Department of Contemporary History and director of the [Institute of Peace and Conflict Studies](http://www.ugr.es/en/staff/diego-checa-hidalgo) at the University of Granada. His research focuses on the history of nonviolent resistance, peacebuilding, and international conflict transformation.',
+    },
+  },
 };
+
+// Bio text with [text](url) links: as HTML links (popup), or as plain text (cards)
+const BIO_LINK = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+const bioPlain = (s) => String(s).replace(BIO_LINK, '$1');
+const bioLinked = (s) => escName(s).replace(BIO_LINK, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 
 // Everyone's name in both languages, spelt as in the final programme. Keys are the names used above.
 const NAMES = {
   'مضر قسيس': ['مضر قسّيس', 'Mudar Kassis'],
   'طلال شهوان': ['طلال شهوان', 'Talal Shahwan'],
   'Andrea Sangiovanni': ['أندريا سانجوفاني', 'Andrea Sangiovanni'],
-  'Salim Valley': ['سليم فالي', 'Salim Valley'],
+  'Salim Vally': ['سليم فالي', 'Salim Vally'],
   'Basem Izbidi': ['باسم الزبيدي', 'Basem Izbidi'],
   'George Giacaman': ['جورج جقمان', 'George Giacaman'],
   'Basil Farraj': ['باسل فرّاج', 'Basil Farraj'],
@@ -392,7 +422,7 @@ const cardBio = (p) => {
   if (!p.bio) return '';
   const one = (lang) => {
     const b = typeof p.bio === 'string' ? { text: p.bio, lang: null } : bioFor(p, lang);
-    return b ? `<span class="card-bio" data-i18n="${lang}"${b.lang ? ` lang="${b.lang}" dir="${b.lang === 'ar' ? 'rtl' : 'ltr'}"` : ''}>${escName(b.text)}</span>` : '';
+    return b ? `<span class="card-bio" data-i18n="${lang}"${b.lang ? ` lang="${b.lang}" dir="${b.lang === 'ar' ? 'rtl' : 'ltr'}"` : ''}>${escName(bioPlain(b.text))}</span>` : '';
   };
   return one('ar') + one('en');
 };
@@ -465,7 +495,7 @@ const bioFor = (p, lang) => {
       : `<div class="profile-photo profile-initial" aria-hidden="true">${esc(initialOf(shown))}</div>`;
     const nameLang = p.name ? lang : a.lang;
     const nameTag = `<h3 class="profile-name" lang="${nameLang}" dir="${dirOf(nameLang)}">${esc(shown)}</h3>`;
-    const bioTag = bio ? `<p class="profile-bio"${bio.lang ? ` lang="${bio.lang}" dir="${dirOf(bio.lang)}"` : ''}>${esc(bio.text)}</p>` : '';
+    const bioTag = bio ? `<p class="profile-bio"${bio.lang ? ` lang="${bio.lang}" dir="${dirOf(bio.lang)}"` : ''}>${bioLinked(bio.text)}</p>` : '';
     // "Intervention": the paper title, which opens its abstract
     const t = a.noPaper ? null : titleIn(a, lang);
     const role = a.noPaper ? roleOf(person, lang) : null;
@@ -710,7 +740,7 @@ const bioFor = (p, lang) => {
       en: 'Second Day - Wednesday, 16 December 2026',
       items: [
         { time: '9:30', ar: 'قهوة', en: 'Morning Coffee and Registration' },
-        { time: '10:00', keynote: true, ar: 'كلمة {{Salim Valley}} المفتاحيّة', en: 'Keynote Address by {{Salim Valley}}' },
+        { time: '10:00', keynote: true, ar: 'كلمة {{Salim Vally}} المفتاحيّة', en: 'Keynote Address by {{Salim Vally}}' },
         { time: '10:45', chair: 'Lena Meari',
           ar: { label: 'الجلسة الرابعة:', title: 'التضامن حول الحقوق', chairLabel: 'رئيسة الجلسة:' },
           en: { label: 'Session IV:', title: 'Solidarity Around Rights', chairLabel: 'Chair:' },
