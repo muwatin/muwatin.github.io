@@ -1574,3 +1574,10 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
 /* No focus ring around the popup itself (the browser's default dark outline when the popup takes focus) */
 .profile-dialog:focus,
 .profile-dialog:focus-visible { outline: none; }
+
+/* Phones: a person popup can't grow wider to avoid scrolling (the desktop trick), so when a long
+   bio makes it taller than the screen, let it scroll inside the card instead of spilling off-screen.
+   The abstract popup already scrolls as a full page, so it is left out. */
+@media (max-width: 760px) {
+  .profile-dialog:not(.abstract-dialog) { max-height: 92vh; overflow-y: auto; }
+}
