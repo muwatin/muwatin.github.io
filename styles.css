@@ -1464,9 +1464,14 @@ button.abstract-card:hover { background-color: rgba(244, 237, 225, 0.08); }
    Long abstracts make the sheet longer and the whole view scrolls like a page (no box scrolling inside a box). */
 .profile-dialog.abstract-dialog {
   position: fixed;
-  inset: 0;
+  top: 0;
+  inset-inline: 0;
+  bottom: auto;
   width: 100%;
-  height: 100%;
+  /* Dynamic viewport height: on phones this excludes the browser toolbars, so a long abstract
+     scrolls to its end instead of the last lines hiding behind the toolbar / spilling out. */
+  height: 100vh;
+  height: 100dvh;
   max-width: none;
   max-height: none;
   margin: 0;
@@ -1579,5 +1584,5 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
    bio makes it taller than the screen, let it scroll inside the card instead of spilling off-screen.
    The abstract popup already scrolls as a full page, so it is left out. */
 @media (max-width: 760px) {
-  .profile-dialog:not(.abstract-dialog) { max-height: 92vh; overflow-y: auto; }
+  .profile-dialog:not(.abstract-dialog) { max-height: 92vh; max-height: 92dvh; overflow-y: auto; }
 }
