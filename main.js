@@ -745,8 +745,8 @@ initAccordions(document);
     return x - Math.floor(x);
   };
 
-  // Threads come in scattered from the left and gather into the outlines of overlapping profiles,
-  // each face drawn by a bundle of threads in one colour. Past the faces they run on, loose, under the title.
+  // Threads come in scattered from the left and gather into one line that draws a row of people,
+  // joined by loops like a pen that is never lifted; each thread wanders a little, so the people look sketched.
   // Every thread is a polyline: a scattered version and a gathered version with the same number of points.
   let W = 0;
   let H = 0;
@@ -755,24 +755,29 @@ initAccordions(document);
   let lite = false; // switched on automatically if frames get expensive
   let costEma = 0;
 
-  // A profile facing right, base of the neck at y = 262 (original drawing, 220 x 262 units)
-  const PROFILE = 'M40 262C44 226 32 204 24 178C10 130 14 66 60 34C100 6 162 10 182 56C190 74 191 90 189 102C192 118 204 134 211 148C214 155 207 159 199 159C202 165 205 170 201 175C198 178 203 183 200 189C197 196 197 206 187 212C177 218 162 216 152 221C149 236 150 250 152 262';
-  const PROFILE_PTS = (() => {
-    const n = PROFILE.match(/-?\d+(\.\d+)?/g).map(Number);
-    const pts = [[n[0], n[1]]];
-    for (let i = 2; i + 5 < n.length; i += 6) {
-      const [x0, y0] = pts[pts.length - 1];
-      for (let s = 1; s <= 24; s++) {
-        const t = s / 24;
-        const u = 1 - t;
-        pts.push([
-          u * u * u * x0 + 3 * u * u * t * n[i] + 3 * u * t * t * n[i + 2] + t * t * t * n[i + 4],
-          u * u * u * y0 + 3 * u * u * t * n[i + 1] + 3 * u * t * t * n[i + 3] + t * t * t * n[i + 5],
-        ]);
-      }
-    }
-    return pts;
-  })();
+  // Half-figures (head, neck, shoulders) in a unit box: x from 0 (left shoulder) to 1 (right shoulder),
+  // y up from 0 (shoulders' base) to about 1.15 (top of the head). Each is a list of cubic segments.
+  const FIGURES = {
+    front: [
+      [0, 0.12], [0.06, 0.36], [0.24, 0.48], [0.4, 0.52],
+      [0.44, 0.58], [0.44, 0.66], [0.42, 0.74],
+      [0.33, 0.8], [0.34, 1.12], [0.5, 1.14],
+      [0.66, 1.12], [0.67, 0.8], [0.58, 0.74],
+      [0.56, 0.66], [0.56, 0.58], [0.6, 0.52],
+      [0.76, 0.48], [0.94, 0.36], [1, 0.12],
+    ],
+    // Facing right: back of the head on the left, a small nose and chin on the right
+    side: [
+      [0, 0.12], [0.06, 0.36], [0.22, 0.48], [0.38, 0.52],
+      [0.41, 0.6], [0.39, 0.68], [0.36, 0.76],
+      [0.3, 0.92], [0.4, 1.14], [0.55, 1.12],
+      [0.66, 1.11], [0.69, 1.02], [0.67, 0.94],
+      [0.71, 0.9], [0.72, 0.87], [0.69, 0.85],
+      [0.67, 0.81], [0.68, 0.77], [0.62, 0.74],
+      [0.59, 0.69], [0.6, 0.6], [0.63, 0.53],
+      [0.78, 0.48], [0.95, 0.36], [1, 0.12],
+    ],
+  };
 
   const cubic = (p0, c1, c2, p3, steps) => {
     const out = [];
@@ -787,8 +792,31 @@ initAccordions(document);
     return out;
   };
 
-  // Shift a polyline sideways (along its normal) so a bundle of threads reads as a ribbon.
-  // `d` is a function of the point's index, so threads in a bundle can wander and cross each other.
+  // A figure as screen points, drawn left to right: `x` is its left shoulder, `base` the shoulders' line,
+  // `w` the shoulder width, `h` the height, `face` -1 (looking left), 0 (front) or 1 (looking right), `lean` a slight tilt
+  const figurePoints = (x, base, w, h, face, lean) => {
+    const c = face === 0 ? FIGURES.front : FIGURES.side;
+    let pts = [c[0]];
+    for (let i = 1; i + 2 < c.length; i += 3) pts.push(...cubic(pts[pts.length - 1], c[i], c[i + 1], c[i + 2], 14));
+    if (face === -1) pts = pts.map(([u, v]) => [1 - u, v]).reverse();
+    return pts.map(([u, v]) => [x + (u + lean * v) * w, base - (v * h) / 1.15]);
+  };
+
+  // Between two figures the line dips under the shoulders and loops back on itself, like a pen not lifted
+  const linkPoints = (p, q, depth, r, steps = 48) => {
+    const out = [];
+    for (let s = 1; s <= steps; s++) {
+      const t = s / steps;
+      out.push([
+        p[0] + (q[0] - p[0]) * t - r * Math.sin(2 * Math.PI * t),
+        p[1] + (q[1] - p[1]) * t + depth * Math.sin(Math.PI * t),
+      ]);
+    }
+    return out;
+  };
+
+  // Shift a polyline sideways (along its normal); `d` is a function of the point's index,
+  // so each thread wanders across the bundle and the figures read as sketched in many strokes
   const offsetLine = (pts, d) => pts.map((p, i) => {
     const a = pts[Math.max(0, i - 1)];
     const b = pts[Math.min(pts.length - 1, i + 1)];
@@ -820,14 +848,60 @@ initAccordions(document);
     return out;
   };
 
-  // Faces: colour index into COLORS, drawn back to front. The remaining colour stays as loose threads.
-  const FACES = [
-    { k: 2, s: 0.92, lift: 0.06 },
-    { k: 1, s: 1.04, lift: 0 },
-    { k: 5, s: 0.96, lift: 0.08 },
-    { k: 0, s: 1.06, lift: 0.02 },
-    { k: 4, s: 0.9, lift: 0.1 },
-  ];
+  // One colour's line: in from the left, then a row of people joined by loops, out to the right.
+  // Each colour draws its own people (seeded by `g`), so the six lines overlap into a crowd.
+  // Figures are taller where the title leaves room (the left on desktop) and small under the title.
+  const route = (mobile, g) => {
+    const gap = clamp(H * 0.11, 68, 104); // keep in step with --gap in the CSS
+    const Y0 = H * (mobile ? 0.5 : 0.56);
+    const base = mobile ? H * 0.8 : Y0 + gap * 0.55;
+    const free = mobile ? W : W * 0.3; // where the title leaves the full height free
+    const tall = mobile ? H * 0.62 : Math.min(H * 0.42, base - 120);
+    const short = mobile ? tall : gap * 1.5 - 10;
+    const maxH = (x) => short + (tall - short) * (1 - smooth(clamp((x - free * 0.55) / (free * 0.45))));
+    const R = (n, k) => rnd(n + g * 53, k + g * 7);
+
+    const pts = [[-40, base]];
+    let x = W * 0.02 + R(0, 30) * maxH(0) * 0.5;
+    pts.push(...cubic(pts[0], [x * 0.5, base], [x * 0.7, base], [x, base], 8));
+    let n = 0;
+    // People only where there is room for them; under the title the line runs on as a loose thread
+    const stop = mobile ? W + 20 : free * 0.95;
+    while (x < stop) {
+      const h = maxH(x) * (0.78 + R(n, 21) * 0.22);
+      const w = h * (0.78 + R(n, 22) * 0.2);
+      const roll = R(n, 23);
+      const face = roll < 0.4 ? 1 : roll < 0.75 ? -1 : 0;
+      const lean = (R(n, 24) - 0.5) * 0.12;
+      const fig = figurePoints(x, base, w, h, face, lean);
+      if (n === 0) pts.push(...cubic(pts[pts.length - 1], [x - 10, base], [x - 4, fig[0][1] + 10], fig[0], 10));
+      pts.push(...fig);
+      // The next figure overlaps this one a little or stands a little apart
+      const next = x + w * (0.72 + R(n, 25) * 0.45);
+      const nh = maxH(next) * (0.78 + R(n + 1, 21) * 0.22);
+      const start = [next, base - 0.12 * nh / 1.15];
+      const loop = R(n, 26) < 0.7;
+      // Loops stay clear of the dates under the title
+      const depth = Math.min(h * (loop ? 0.3 + R(n, 29) * 0.15 : 0.12), maxH(x) * (mobile ? 0.3 : 0.28));
+      pts.push(...linkPoints(fig[fig.length - 1], start, depth, loop ? w * (0.14 + R(n, 27) * 0.1) : 0));
+      x = next;
+      n++;
+    }
+    if (mobile) {
+      pts.push(...cubic(pts[pts.length - 1], [x + 20, base], [W + 40, base], [W + 60, base], 6));
+      return pts;
+    }
+    const last = pts[pts.length - 1];
+    const yOut = Y0 + (R(0, 31) - 0.5) * gap * 0.3;
+    const amp = gap * (0.05 + R(0, 32) * 0.07);
+    const lam = W * (0.12 + R(0, 33) * 0.08);
+    const ph = R(0, 34) * Math.PI * 2;
+    const wave = (xx) => yOut + amp * Math.sin(xx / lam + ph);
+    const x1 = last[0] + W * 0.08;
+    pts.push(...cubic(last, [last[0] + 30, Math.max(last[1], Y0)], [x1 - 40, wave(x1)], [x1, wave(x1)], 20));
+    for (let xx = x1 + 8; xx <= W + 60; xx += 8) pts.push([xx, wave(xx)]);
+    return pts;
+  };
 
   const build = () => {
     W = visual.clientWidth;
@@ -841,57 +915,27 @@ initAccordions(document);
     const mobile = mobileQuery.matches;
     ambient = !reduce;
 
-    const Y0 = H * (mobile ? 0.62 : 0.56); // keep in step with --cable-y in the CSS
+    const Y0 = H * (mobile ? 0.5 : 0.56);
     const band = H * (mobile ? 0.36 : 0.17);
     const XS = -40;
     const XE = W + 60;
-    // The faces sit in the part of the screen the title leaves free (on the left, in both languages)
-    const left = mobile ? W * 0.06 : W * 0.04;
-    const right = mobile ? W * 0.94 : W * 0.34;
-    const overlap = 0.6; // each face starts this far (in face widths) after the previous one
-    const span = 1 + overlap * (FACES.length - 1);
-    const hh = Math.min(H * (mobile ? 0.52 : 0.38), (right - left) / (span * 0.81)); // head height
-    const unit = hh / 262;
-    const RIB = clamp(hh * 0.022, 2.5, 6); // half-width of a face's ribbon of threads
+    const lines = COLORS.map((_, g) => route(mobile, g));
+    const RIB = clamp(H * 0.0035, 1.4, 3); // how far a colour's threads spread around its line
 
     threads = [];
     for (let i = 0; i < N; i++) {
       const k = i % K;
-      const fi = FACES.findIndex((f) => f.k === k);
-      const face = FACES[fi];
-      const slot = Math.floor(i / K); // 0..5 within its colour
-      const off = (slot / 5 - 0.5) * 2 * RIB + (rnd(i, 12) - 0.5) * RIB * 0.6;
-      const ph = rnd(i, 4) * Math.PI * 2;
-      // Past the faces: a loose, gently waving bundle (no braid)
-      const flow = (x) => Y0 + off * 1.6 + clamp(H * 0.012, 4, 9) * Math.sin(x / clamp(W * 0.09, 70, 140) + ph);
-
-      // Gathered path
-      let pts;
-      if (face) {
-        const fx = left + fi * overlap * 211 * unit;
-        const base = Y0 - face.lift * hh;
-        const outline = PROFILE_PTS.map(([x, y]) => [fx + x * unit * face.s, base - (262 - y) * unit * face.s]);
-        const p0 = outline[0];
-        const p1 = outline[outline.length - 1];
-        const yIn = Y0 + off * 2 + (rnd(i, 1) - 0.5) * RIB * 3;
-        const lead = cubic([XS, yIn], [p0[0] * 0.55, yIn], [p0[0] - 30 * unit, p0[1] + 6], p0, 40);
-        const outX = Math.max(p1[0] + 60, right);
-        const exit = cubic(p1, [p1[0] + 10, p1[1] + 18], [outX - 30, flow(outX)], [outX, flow(outX)], 30);
-        const tail = [];
-        for (let x = outX + 8; x <= XE; x += 8) tail.push([x, flow(x)]);
-        // Each thread drifts across its bundle as it goes round the face, so the threads cross loosely
-        const wob = rnd(i, 18) * Math.PI * 2;
-        const wf = 0.035 + rnd(i, 19) * 0.03;
-        pts = [[XS, yIn], ...lead, ...offsetLine(outline, (j) => off * 0.6 + RIB * 0.9 * Math.sin(j * wf + wob)), ...exit, ...tail];
-      } else {
-        // Loose threads: the ground line everyone rises out of
-        pts = [];
-        for (let x = XS; x <= XE; x += 8) pts.push([x, flow(x) + (rnd(i, 9) - 0.5) * RIB * 4]);
-      }
-      const tg = resample(pts, 5);
+      // Each thread wanders around the line at its own slow pace
+      const a = (rnd(i, 12) - 0.5) * 2 * RIB;
+      const b = RIB * (0.6 + rnd(i, 13) * 0.9);
+      const f1 = 0.008 + rnd(i, 18) * 0.012;
+      const f2 = 0.03 + rnd(i, 19) * 0.03;
+      const ph1 = rnd(i, 20) * Math.PI * 2;
+      const ph2 = rnd(i, 28) * Math.PI * 2;
+      const tg = resample(offsetLine(lines[k], (j) => a + b * Math.sin(j * f1 + ph1) + b * 0.4 * Math.sin(j * f2 + ph2)), 5);
       const M = tg.length;
 
-      // Scattered path: same number of points, spread across the screen with a slow drift
+      // Scattered: same number of points, spread across the screen with a slow drift
       const yStart = Y0 + (rnd(i, 7) - 0.5) * 2 * band * 0.85;
       const tilt = (rnd(i, 3) - 0.5) * 2 * band * 0.8;
       const a1 = band * (0.15 + rnd(i, 5) * 0.25);
@@ -913,17 +957,15 @@ initAccordions(document);
         px: new Float32Array(M),
         py: new Float32Array(M),
         jmax: 0,
-        order: face ? fi + 1 : 0,
         color: COLORS[k],
-        width: (face ? 1.5 : 1.2) + rnd(i, 6) * 0.9,
-        alpha: 0.82 + rnd(i, 10) * 0.18,
+        width: 0.7 + rnd(i, 6) * 0.6,
+        alpha: 0.6 + rnd(i, 10) * 0.35,
         ph: rnd(i, 15) * Math.PI * 2,
         delay: 0.12 * rnd(i, 16),
         dur: 0.28 + rnd(i, 17) * 0.2,
         stag: rnd(i, 11) * 0.05,
       });
     }
-    threads.sort((a, b) => a.order - b.order); // loose threads at the back, then the faces back to front
     return true;
   };
 
@@ -938,7 +980,7 @@ initAccordions(document);
       th.jmax = Math.floor(h * (th.M - 1));
       for (let j = 0; j <= th.jmax; j++) {
         const f = j / (th.M - 1);
-        // The threads gather into place sweeping left to right, so the faces form one after another
+        // The threads gather into place sweeping left to right, so the people appear one after another
         const g = smooth(clamp((p - 0.12 - th.stag - 0.34 * f) / 0.34));
         th.px[j] = th.sx[j] + (th.tx[j] - th.sx[j]) * g;
         let y = th.sy[j] + (th.ty[j] - th.sy[j]) * g;
