@@ -770,7 +770,7 @@ initAccordions(document);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const mobile = mobileQuery.matches;
-    ambient = !reduce && !mobile;
+    ambient = !reduce;
 
     const Y0 = H * (mobile ? 0.5 : 0.56); // keep in step with --cable-y in the CSS
     const band = H * (mobile ? 0.36 : 0.17);
@@ -946,8 +946,12 @@ initAccordions(document);
   const measure = () => {
     heroTotal = hero.offsetHeight - window.innerHeight;
   };
+  // Phones have no pinned scroll, so there the threads play on their own when the page opens
+  const INTRO_DELAY = 250;
+  const INTRO_LEN = 3600;
   const progress = () => {
-    if (reduce || mobileQuery.matches) return 1;
+    if (reduce) return 1;
+    if (mobileQuery.matches) return clamp((performance.now() - loadedAt - INTRO_DELAY) / INTRO_LEN);
     // The page opens already partly drawn (START), so the first screen is never empty
     return heroTotal > 0 ? START + (1 - START) * clamp(window.scrollY / heroTotal) : 1;
   };
@@ -998,7 +1002,7 @@ initAccordions(document);
 
   measure();
   if (!build()) return;
-  current = reduce || mobileQuery.matches ? progress() : 0; // desktop: ease in from empty on load
+  current = reduce ? progress() : 0; // ease in from empty on load (desktop: towards the scroll position; phones: the intro)
   redraw();
 
   // Scroll sets the target; a time-based spring carries the drawing there, so wheel steps blend into one motion
