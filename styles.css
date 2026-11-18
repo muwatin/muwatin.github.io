@@ -1118,11 +1118,23 @@ body[data-lang="en"] .has-cutout .card-more [data-i18n="ar"] { display: none; }
 }
 .has-cutout .cutout[src*="sadeq.png"] { width: auto; height: 185px; object-fit: contain; object-position: 0 100%; }
 
-/* Wide photos (Jannis, Andrea, Salim, Diego): shown whole, not cropped at the sides, flush bottom-left */
-.has-cutout .cutout[src*="checa-hidalgo.png"],
-.has-cutout .cutout[src*="grimm.png"],
-.has-cutout .cutout[src*="sangiovanni.png"],
-.has-cutout .cutout[src*="vally.png"] { width: 160px; height: 185px; object-fit: contain; object-position: 0 100%; }
+/* Photo cards: the name on top, then the whole photo (never cropped) in the left corner, and the bio
+   wrapping around the person's outline. The photo is a float whose shape is the photo itself. */
+.participant-card.has-cutout .person-btn { display: flow-root; height: 100%; padding: 20px 20px 0; }
+.participant-card.has-cutout .person-btn .name { margin: 0 0 6px; text-align: center; }
+.participant-card.has-cutout .person-btn .cutout {
+  position: static;
+  float: left;
+  width: auto;
+  height: 190px;
+  margin: 0 10px 0 -20px;
+  object-fit: fill;
+  shape-margin: 10px;
+  shape-image-threshold: 0.3;
+}
+.participant-card.has-cutout .person-btn .card-bio { display: block; margin: 0; overflow: visible; -webkit-line-clamp: unset; }
+.participant-card.has-cutout .person-btn .card-more { margin: 6px 0 16px; }
+.profile-dialog.has-cutout .profile-cutout[src*="chahabi.png"],
 .profile-dialog.has-cutout .profile-cutout[src*="checa-hidalgo.png"],
 .profile-dialog.has-cutout .profile-cutout[src*="grimm.png"],
 .profile-dialog.has-cutout .profile-cutout[src*="sangiovanni.png"],

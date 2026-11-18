@@ -353,6 +353,8 @@ const PROFILES = {
     },
   },
   'Anarim Chahabi': {
+    photo: 'assets/people/chahabi.png',
+    cutout: true,
     bio: {
       ar: 'باحثة دكتوراه في المشروع البحثي CONFINED: «تفكيك الحيوات المقيَّدة – نحو أجندة بحثية عالمية حول تقاطع التهميش الحضري والتهجير والسجن». يجمع بحثها للدكتوراه بين المنهج الإثنوغرافي والمقاربات القانونية-الاجتماعية لدراسة التقييد والتهجير والشبكات العائلية لدى عائلات فلسطينية في الدنمارك وفي مخيّمات اللاجئين الفلسطينيين في لبنان. ويتتبّع عملها كيف يُعاش التقييد ويُفاوَض عليه عبر النوع الاجتماعي والأجيال والحدود، وهو تقييد تتشابك جذوره في اضطهادات متقاطعة وفي التهميش والتهجير والسجن وانعدام الجنسية، ويمتدّ من التهميش الحضري في الدنمارك إلى الحياة في مخيّمات اللاجئين في لبنان.',
       en: 'PhD Fellow in the research project CONFINED: Unpacking confined lives – Generating a global research agenda on the intersection of urban marginality, displacement, and incarceration. Her PhD research combines ethnographic methods and socio-legal approaches to examine confinement, displacement and family networks among Palestinian families in Denmark and in Palestinian refugee camps in Lebanon. Her work explores how confinement—rooted in intersectional oppressions, marginalisation, displacement, incarceration, and statelessness—is navigated and negotiated across gender, generations and borders, encompassing forms of confinement that range from urban marginalisation in Denmark to life in Palestinian refugee camps in Lebanon.',
@@ -367,6 +369,8 @@ const PROFILES = {
     },
   },
   'Tamara Tamimi': {
+    photo: 'assets/people/tamimi.png',
+    cutout: true,
     bio: {
       ar: 'باحثة ومستشارة فلسطينية من مواليد القدس. حاصلة على الماجستير في قانون حقوق الإنسان من كلية الدراسات الشرقية والأفريقية (SOAS) في جامعة لندن، وتُعدّ حالياً أطروحة دكتوراه في القانون الدولي والقضية الفلسطينية في كلية الحقوق بجامعة كوينز في بلفاست. تقدّم استشارات لمؤسسات فلسطينية ودولية في البحث والمناصرة وتحليل الاقتصاد السياسي، وفي تطوير البرامج وتقييمها في مجالات المساواة بين الجنسين والقانون الدولي وحقوق الإنسان. ويتركّز عملها على الحق في التعليم، وحقوق الإقامة، والتراث الثقافي، والتحوّل الديمقراطي، والسياسات الاجتماعية.',
       en: 'Palestinian researcher and consultant, born in Jerusalem. She holds an MA in Human Rights Law from SOAS, University of London, and is pursuing a PhD in international law and the Palestine question at Queen’s University Belfast School of Law. She advises Palestinian and international organisations on research, advocacy and political economy analysis, and on programme development and evaluation in gender equality, international law and human rights. Her work focuses on the right to education, residency rights, cultural heritage, democratisation and social policy.',
@@ -381,9 +385,11 @@ const PROFILES = {
     },
   },
   'القسيس منذر اسحق': {
+    photo: 'assets/people/isaac.png',
+    cutout: true,
     bio: {
-      ar: 'قسّ ولاهوتي فلسطيني مسيحي، يرعى كنيسة الميلاد الإنجيلية اللوثرية في بيت لحم والكنيسة اللوثرية في بيت ساحور. وهو العميد الأكاديمي لكلية بيت لحم للكتاب المقدّس، ومدير مؤتمرات «المسيح عند الحاجز» المعروفة والمؤثّرة، وتُعنى اهتماماته باللاهوت الفلسطيني. يحاضر محلياً ودولياً، وله مقالات عديدة في لاهوت الأرض، والمسيحيين الفلسطينيين واللاهوت الفلسطيني، والرسالة الجامعة والمصالحة. ومن مؤلّفاته «الجدار الآخر»، و«من أرض إلى أرضين: من عدن إلى الأرض المتجدّدة»، و«مقدّمة في اللاهوت الفلسطيني»، وتفسير لسفر دانيال، وكتاب حديث عن سيامة النساء في الكنيسة. وهو عضو في مجلس إدارة «كايروس فلسطين»، ومنخرط في منتديات عديدة للمصالحة والحوار بين الأديان. درس الهندسة المدنية في جامعة بيرزيت، ثم نال الماجستير في الدراسات الكتابية من كلية وستمنستر اللاهوتية، والدكتوراه من مركز أكسفورد لدراسات الرسالة.',
-      en: 'Palestinian Christian pastor and theologian. He pastors the Evangelical Lutheran Christmas Church in Bethlehem and the Lutheran Church in Beit Sahour, is academic dean of Bethlehem Bible College, and directs the acclaimed and influential Christ at the Checkpoint conferences. He speaks locally and internationally and has published widely on the theology of the land, Palestinian Christians, holistic mission and reconciliation. He is the author of “The Other Side of the Wall”, “From Land to Lands, from Eden to the Renewed Earth”, “An Introduction to Palestinian Theology” (in Arabic), a commentary on the book of Daniel (in Arabic) and, more recently, a book on women’s ordination (also in Arabic). He serves on the Kairos Palestine board and takes part in many reconciliation and interfaith forums. He originally studied civil engineering at Birzeit University, then earned a Master in Biblical Studies from Westminster Theological Seminary and a PhD from the Oxford Centre for Mission Studies.',
+      ar: 'قسّ ولاهوتي فلسطيني مسيحي، يرعى اليوم كنيسة الميلاد الإنجيلية اللوثرية في بيت لحم والكنيسة اللوثرية في بيت ساحور. وهو العميد الأكاديمي لكلية بيت لحم للكتاب المقدّس، ومدير مؤتمرات «المسيح عند الحاجز» المعروفة والمؤثّرة، وتشغله قضايا اللاهوت الفلسطيني. درس الهندسة المدنية في جامعة بيرزيت، ثم نال الماجستير في الدراسات الكتابية من كلية وستمنستر اللاهوتية، والدكتوراه من مركز أكسفورد لدراسات الرسالة.',
+      en: 'Munther Isaac is a Palestinian Christian pastor and theologian. He now pastors the Evangelical Lutheran Christmas Church in Bethlehem and the Lutheran Church in Beit Sahour. He is also the academic dean of Bethlehem Bible College, and is the director of the highly acclaimed and influential Christ at the Checkpoint conferences. Munther is passionate about issues related to the Palestinian theology. Munther originally studied civil engineering in Birzeit University in Palestine. He then obtained a Master in Biblical Studies from Westminster Theological Seminary and then a PhD from the Oxford Centre for Mission Studies.',
     },
   },
 };
@@ -444,11 +450,17 @@ const nameHtml = (person) => {
 const nameIn = (person, lang) => (PROFILES[person] && PROFILES[person].name && PROFILES[person].name[lang]) || person;
 
 // The first lines of the bio on a photo card, in both languages (the toggle shows one; CSS trims it to a few lines)
+// The opening of a bio for a card: cut at a word boundary so it fits beside the photo (the popup has the rest)
+const cardSnippet = (text, max = 85) => {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[\s،,.;:]+$/, '') + '…';
+};
 const cardBio = (p) => {
   if (!p.bio) return '';
   const one = (lang) => {
     const b = typeof p.bio === 'string' ? { text: p.bio, lang: null } : bioFor(p, lang);
-    return b ? `<span class="card-bio" data-i18n="${lang}"${b.lang ? ` lang="${b.lang}" dir="${b.lang === 'ar' ? 'rtl' : 'ltr'}"` : ''}>${escName(bioPlain(b.text))}</span>` : '';
+    return b ? `<span class="card-bio" data-i18n="${lang}"${b.lang ? ` lang="${b.lang}" dir="${b.lang === 'ar' ? 'rtl' : 'ltr'}"` : ''}>${escName(cardSnippet(bioPlain(b.text)))}</span>` : '';
   };
   return one('ar') + one('en');
 };
@@ -672,7 +684,8 @@ const bioFor = (p, lang) => {
         card.className = 'participant-card';
         const prof = PROFILES[person];
         const media = prof && prof.cutout
-          ? `<img class="cutout" src="${esc(prof.photo)}" alt="" loading="lazy">`
+          // The photo floats under the name and the bio wraps around the person's outline (shape-outside)
+          ? `<img class="cutout" src="${esc(prof.photo)}" alt="" style="shape-outside: url('${esc(prof.photo)}')">`
           : prof && prof.photo
           ? `<img class="avatar avatar-photo" src="${esc(prof.photo)}" alt="" loading="lazy">`
           : `<span class="avatar" aria-hidden="true"><span data-i18n="ar">${esc(initialOf(nameIn(person, 'ar')))}</span><span data-i18n="en">${esc(initialOf(nameIn(person, 'en')))}</span></span>`;
@@ -681,7 +694,7 @@ const bioFor = (p, lang) => {
           <button class="person-btn" type="button">
             ${prof && prof.cutout ? '' : media}
             <span class="name" lang="${a.lang}" dir="${dirOf(a.lang)}">${nameHtml(person)}</span>
-            ${prof && prof.cutout ? `${cardBio(prof)}${prof.bio ? `<span class="card-more"><span data-i18n="ar">المزيد</span><span data-i18n="en" lang="en" dir="ltr">Read more</span></span>` : ''}${media}` : ''}
+            ${prof && prof.cutout ? `${media}${cardBio(prof)}${prof.bio ? `<span class="card-more"><span data-i18n="ar">المزيد</span><span data-i18n="en" lang="en" dir="ltr">Read more</span></span>` : ''}` : ''}
           </button>`;
         card.querySelector('.person-btn').addEventListener('click', () => openProfile(person, a));
         participantsEl.appendChild(card);
