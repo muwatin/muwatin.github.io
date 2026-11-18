@@ -736,8 +736,6 @@ initAccordions(document);
   const COLORS = ['#6B1E2E', '#1F2F4D', '#5E7A8C', '#7A8F7A', '#1B8A3F', '#C9962E'];
   const K = COLORS.length;
   const N = 36;
-  const STEP = 5; // horizontal spacing between samples, in px
-  const CHUNK = 10; // samples per depth-sorted piece of the cable
 
   const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
   const smooth = (t) => t * t * t * (t * (t * 6 - 15) + 10);
@@ -747,18 +745,89 @@ initAccordions(document);
     return x - Math.floor(x);
   };
 
-  // Every thread is a smooth function y(x) across the whole screen, with gentle curvature only.
-  // Scattered: a slow, wide drift. Gathered: one long taper into the middle that runs straight into the
-  // twist (no flat stretch in between). The gathering sweeps left to right, blending the two.
+  // Threads come in scattered from the left and gather into the outlines of overlapping profiles,
+  // each face drawn by a bundle of threads in one colour. Past the faces they run on, loose, under the title.
+  // Every thread is a polyline: a scattered version and a gathered version with the same number of points.
   let W = 0;
   let H = 0;
-  let M = 0;
-  let xs = [];
   let threads = [];
-  let pieces = [];
   let ambient = false;
   let lite = false; // switched on automatically if frames get expensive
   let costEma = 0;
+
+  // A profile facing right, base of the neck at y = 262 (original drawing, 220 x 262 units)
+  const PROFILE = 'M40 262C44 226 32 204 24 178C10 130 14 66 60 34C100 6 162 10 182 56C190 74 191 90 189 102C192 118 204 134 211 148C214 155 207 159 199 159C202 165 205 170 201 175C198 178 203 183 200 189C197 196 197 206 187 212C177 218 162 216 152 221C149 236 150 250 152 262';
+  const PROFILE_PTS = (() => {
+    const n = PROFILE.match(/-?\d+(\.\d+)?/g).map(Number);
+    const pts = [[n[0], n[1]]];
+    for (let i = 2; i + 5 < n.length; i += 6) {
+      const [x0, y0] = pts[pts.length - 1];
+      for (let s = 1; s <= 24; s++) {
+        const t = s / 24;
+        const u = 1 - t;
+        pts.push([
+          u * u * u * x0 + 3 * u * u * t * n[i] + 3 * u * t * t * n[i + 2] + t * t * t * n[i + 4],
+          u * u * u * y0 + 3 * u * u * t * n[i + 1] + 3 * u * t * t * n[i + 3] + t * t * t * n[i + 5],
+        ]);
+      }
+    }
+    return pts;
+  })();
+
+  const cubic = (p0, c1, c2, p3, steps) => {
+    const out = [];
+    for (let s = 1; s <= steps; s++) {
+      const t = s / steps;
+      const u = 1 - t;
+      out.push([
+        u * u * u * p0[0] + 3 * u * u * t * c1[0] + 3 * u * t * t * c2[0] + t * t * t * p3[0],
+        u * u * u * p0[1] + 3 * u * u * t * c1[1] + 3 * u * t * t * c2[1] + t * t * t * p3[1],
+      ]);
+    }
+    return out;
+  };
+
+  // Shift a polyline sideways (along its normal) so a bundle of threads reads as a ribbon.
+  // `d` is a function of the point's index, so threads in a bundle can wander and cross each other.
+  const offsetLine = (pts, d) => pts.map((p, i) => {
+    const a = pts[Math.max(0, i - 1)];
+    const b = pts[Math.min(pts.length - 1, i + 1)];
+    const dx = b[0] - a[0];
+    const dy = b[1] - a[1];
+    const len = Math.hypot(dx, dy) || 1;
+    const o = d(i);
+    return [p[0] - (dy / len) * o, p[1] + (dx / len) * o];
+  });
+
+  // Resample to points spaced `step` px apart along the line
+  const resample = (pts, step) => {
+    const out = [pts[0]];
+    let carry = 0;
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1];
+      const [x1, y1] = pts[i];
+      const seg = Math.hypot(x1 - x0, y1 - y0);
+      if (!seg) continue;
+      let d = step - carry;
+      while (d <= seg) {
+        const t = d / seg;
+        out.push([x0 + (x1 - x0) * t, y0 + (y1 - y0) * t]);
+        d += step;
+      }
+      carry = seg - (d - step);
+    }
+    out.push(pts[pts.length - 1]);
+    return out;
+  };
+
+  // Faces: colour index into COLORS, drawn back to front. The remaining colour stays as loose threads.
+  const FACES = [
+    { k: 2, s: 0.92, lift: 0.06 },
+    { k: 1, s: 1.04, lift: 0 },
+    { k: 5, s: 0.96, lift: 0.08 },
+    { k: 0, s: 1.06, lift: 0.02 },
+    { k: 4, s: 0.9, lift: 0.1 },
+  ];
 
   const build = () => {
     W = visual.clientWidth;
@@ -772,157 +841,126 @@ initAccordions(document);
     const mobile = mobileQuery.matches;
     ambient = !reduce;
 
-    const Y0 = H * (mobile ? 0.5 : 0.56); // keep in step with --cable-y in the CSS
+    const Y0 = H * (mobile ? 0.62 : 0.56); // keep in step with --cable-y in the CSS
     const band = H * (mobile ? 0.36 : 0.17);
-    const X0 = W * (mobile ? 0.5 : 0.46); // where the threads have fully gathered
-    const XA = X0 - W * 0.14; // the twist begins to appear here, while the taper is still closing
-    const XB = X0 + W * 0.1; // ...and is fully formed here
     const XS = -40;
     const XE = W + 60;
-    const AMP = clamp(H * 0.05, 14, 42);
-    const LAMBDA = clamp(W * 0.12, 96, 170);
-    const RIB = AMP * 0.3; // half-width of a strand's ribbon of threads
-    // Loose threads stay below the title: above the cable they may only rise as far as the gap to the title
-    const up = mobile ? band : Math.min(band, clamp(H * 0.11, 68, 104) - 6);
-    const lim = (dy) => (dy < 0 ? dy * (up / band) : dy);
-
-    M = Math.ceil((XE - XS) / STEP) + 1;
-    xs = Array.from({ length: M }, (_, j) => XS + j * STEP);
-    const jRamp = Math.floor((XA - XS) / STEP);
-
-    // Each strand orbits the cable's axis: y is its height, z (depth) decides who is in front
-    const angle = (k, x) => ((x - X0) / LAMBDA) * Math.PI * 2 + (k / K) * Math.PI * 2;
+    // The faces sit in the part of the screen the title leaves free (on the left, in both languages)
+    const left = mobile ? W * 0.06 : W * 0.04;
+    const right = mobile ? W * 0.94 : W * 0.34;
+    const overlap = 0.6; // each face starts this far (in face widths) after the previous one
+    const span = 1 + overlap * (FACES.length - 1);
+    const hh = Math.min(H * (mobile ? 0.52 : 0.38), (right - left) / (span * 0.81)); // head height
+    const unit = hh / 262;
+    const RIB = clamp(hh * 0.022, 2.5, 6); // half-width of a face's ribbon of threads
 
     threads = [];
-    pieces = [];
-
     for (let i = 0; i < N; i++) {
       const k = i % K;
-      const off = (rnd(i, 12) - 0.5) * 2 * RIB;
-      const yStart = Y0 + (rnd(i, 1) - 0.5) * 2 * band;
+      const fi = FACES.findIndex((f) => f.k === k);
+      const face = FACES[fi];
+      const slot = Math.floor(i / K); // 0..5 within its colour
+      const off = (slot / 5 - 0.5) * 2 * RIB + (rnd(i, 12) - 0.5) * RIB * 0.6;
+      const ph = rnd(i, 4) * Math.PI * 2;
+      // Past the faces: a loose, gently waving bundle (no braid)
+      const flow = (x) => Y0 + off * 1.6 + clamp(H * 0.012, 4, 9) * Math.sin(x / clamp(W * 0.09, 70, 140) + ph);
 
-      // Scattered: slow drift, no small wiggles
-      const base = Y0 + (rnd(i, 7) - 0.5) * 2 * band * 0.85;
+      // Gathered path
+      let pts;
+      if (face) {
+        const fx = left + fi * overlap * 211 * unit;
+        const base = Y0 - face.lift * hh;
+        const outline = PROFILE_PTS.map(([x, y]) => [fx + x * unit * face.s, base - (262 - y) * unit * face.s]);
+        const p0 = outline[0];
+        const p1 = outline[outline.length - 1];
+        const yIn = Y0 + off * 2 + (rnd(i, 1) - 0.5) * RIB * 3;
+        const lead = cubic([XS, yIn], [p0[0] * 0.55, yIn], [p0[0] - 30 * unit, p0[1] + 6], p0, 40);
+        const outX = Math.max(p1[0] + 60, right);
+        const exit = cubic(p1, [p1[0] + 10, p1[1] + 18], [outX - 30, flow(outX)], [outX, flow(outX)], 30);
+        const tail = [];
+        for (let x = outX + 8; x <= XE; x += 8) tail.push([x, flow(x)]);
+        // Each thread drifts across its bundle as it goes round the face, so the threads cross loosely
+        const wob = rnd(i, 18) * Math.PI * 2;
+        const wf = 0.035 + rnd(i, 19) * 0.03;
+        pts = [[XS, yIn], ...lead, ...offsetLine(outline, (j) => off * 0.6 + RIB * 0.9 * Math.sin(j * wf + wob)), ...exit, ...tail];
+      } else {
+        // Loose threads: the ground line everyone rises out of
+        pts = [];
+        for (let x = XS; x <= XE; x += 8) pts.push([x, flow(x) + (rnd(i, 9) - 0.5) * RIB * 4]);
+      }
+      const tg = resample(pts, 5);
+      const M = tg.length;
+
+      // Scattered path: same number of points, spread across the screen with a slow drift
+      const yStart = Y0 + (rnd(i, 7) - 0.5) * 2 * band * 0.85;
       const tilt = (rnd(i, 3) - 0.5) * 2 * band * 0.8;
       const a1 = band * (0.15 + rnd(i, 5) * 0.25);
       const w1 = W * (1.4 + rnd(i, 6) * 1.2);
-      const p1 = rnd(i, 4) * Math.PI * 2;
-
-      const sc = new Float32Array(M); // scattered
-      const fn = new Float32Array(M); // gathered into the middle, no twist yet
-      const tw = new Float32Array(M); // the twist, added once the threads have gathered
-      const Z = new Float32Array(M);
+      const p1 = rnd(i, 14) * Math.PI * 2;
+      const sx = new Float32Array(M);
+      const sy = new Float32Array(M);
+      const tx = new Float32Array(M);
+      const ty = new Float32Array(M);
       for (let j = 0; j < M; j++) {
-        const x = xs[j];
-        sc[j] = Y0 + lim(base + tilt * (x / W - 0.5) + a1 * Math.sin((2 * Math.PI * x) / w1 + p1) - Y0);
-
-        const u = smooth(clamp((x - XS) / (X0 - XS)));
-        const ramp = smooth(clamp((x - XA) / (XB - XA)));
-        const z = Math.cos(angle(k, x));
-        Z[j] = z;
-        fn[j] = Y0 + lim(yStart - Y0) * (1 - u);
-        tw[j] = AMP * ramp * Math.sin(angle(k, x)) + off * ramp * (0.55 + 0.45 * z); // the ribbon narrows as the strand turns away
+        const x = XS + ((XE - XS) * j) / (M - 1);
+        sx[j] = x;
+        sy[j] = yStart + tilt * (x / W - 0.5) + a1 * Math.sin((2 * Math.PI * x) / w1 + p1);
+        tx[j] = tg[j][0];
+        ty[j] = tg[j][1];
       }
-
-      const th = {
-        sc,
-        fn,
-        tw,
-        Z,
+      threads.push({
+        M, sx, sy, tx, ty,
+        px: new Float32Array(M),
         py: new Float32Array(M),
-        cc: new Float32Array(M),
         jmax: 0,
+        order: face ? fi + 1 : 0,
         color: COLORS[k],
-        width: 1.3 + rnd(i, 6) * 1.0,
+        width: (face ? 1.5 : 1.2) + rnd(i, 6) * 0.9,
         alpha: 0.82 + rnd(i, 10) * 0.18,
         ph: rnd(i, 15) * Math.PI * 2,
         delay: 0.12 * rnd(i, 16),
         dur: 0.28 + rnd(i, 17) * 0.2,
         stag: rnd(i, 11) * 0.05,
-      };
-      threads.push(th);
-
-      // The approach is one piece; the cable is cut into short chunks that are depth-sorted across threads
-      pieces.push({ th, j0: 0, j1: jRamp, z: -2, cable: false });
-      for (let j0 = jRamp; j0 < M - 1; j0 += CHUNK) {
-        const j1 = Math.min(M - 1, j0 + CHUNK);
-        let z = 0;
-        for (let j = j0; j <= j1; j++) z += Z[j];
-        pieces.push({ th, j0, j1, z: z / (j1 - j0 + 1), cable: true });
-      }
+      });
     }
-
-    pieces.sort((a, b) => a.z - b.z);
+    threads.sort((a, b) => a.order - b.order); // loose threads at the back, then the faces back to front
     return true;
   };
 
   const draw = (p, now) => {
     ctx.clearRect(0, 0, W, H);
     const t = ambient ? now * 0.001 : 0;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
 
     for (const th of threads) {
       const h = smooth(clamp((p - th.delay) / th.dur));
-      th.jmax = Math.floor(h * (M - 1));
+      th.jmax = Math.floor(h * (th.M - 1));
       for (let j = 0; j <= th.jmax; j++) {
-        const f = j / (M - 1);
-        // 1) the threads gather, sweeping left to right; 2) only then does the twist unwind out of the bundle
-        const gather = smooth(clamp((p - 0.1 - th.stag - 0.26 * f) / 0.28));
-        const twist = smooth(clamp((p - 0.42 - 0.26 * f) / 0.26));
-        th.cc[j] = twist;
-        let y = th.sc[j] + (th.fn[j] - th.sc[j]) * gather + th.tw[j] * twist;
-        // A faint sway while the threads are still loose; it settles as they gather
-        if (ambient) y += (1 - gather) * 4 * Math.sin(t * 0.6 + xs[j] * 0.003 + th.ph);
+        const f = j / (th.M - 1);
+        // The threads gather into place sweeping left to right, so the faces form one after another
+        const g = smooth(clamp((p - 0.12 - th.stag - 0.34 * f) / 0.34));
+        th.px[j] = th.sx[j] + (th.tx[j] - th.sx[j]) * g;
+        let y = th.sy[j] + (th.ty[j] - th.sy[j]) * g;
+        if (ambient) y += (1 - g) * 4 * Math.sin(t * 0.6 + th.sx[j] * 0.003 + th.ph);
         th.py[j] = y;
       }
     }
 
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-
-    const trace = (th, j0, end) => {
+    for (const th of threads) {
+      if (th.jmax < 1) continue;
       const path = new Path2D();
-      path.moveTo(xs[j0], th.py[j0]);
-      for (let j = j0 + 1; j <= end; j++) path.lineTo(xs[j], th.py[j]);
-      return path;
-    };
-
-    // Soft sheen under the loose part of each thread
-    ctx.globalAlpha = 0.09;
-    for (const pc of pieces) {
-      if (lite || pc.cable) continue;
-      const end = Math.min(pc.j1, pc.th.jmax);
-      if (end - pc.j0 < 1) continue;
-      ctx.strokeStyle = pc.th.color;
-      ctx.lineWidth = pc.th.width * 3.4;
-      ctx.stroke(trace(pc.th, pc.j0, end));
-    }
-
-    // Threads. In the cable, depth decides who is in front: nearer pieces are fuller and brighter and cast
-    // a faint shadow on what they cross, so the strands read as turning around each other.
-    for (const pc of pieces) {
-      const { th } = pc;
-      const end = Math.min(pc.j1, th.jmax);
-      if (end - pc.j0 < 1) continue;
-      const path = trace(th, pc.j0, end);
-
-      let width = th.width;
-      let alpha = th.alpha;
-      if (pc.cable) {
-        const s = th.cc[Math.min(end, pc.j0 + (pc.j1 - pc.j0 >> 1))];
-        const z = pc.z;
-        width = th.width * (1 + s * 0.28 * z);
-        alpha = th.alpha * (1 - s * 0.22 * (1 - z) * 0.5);
-        const edge = s * (z + 1) * 0.5;
-        if (!lite && edge > 0.12) {
-          ctx.globalAlpha = 0.16 * edge;
-          ctx.strokeStyle = '#1E1B17';
-          ctx.lineWidth = width + 1.8;
-          ctx.stroke(path);
-        }
+      path.moveTo(th.px[0], th.py[0]);
+      for (let j = 1; j <= th.jmax; j++) path.lineTo(th.px[j], th.py[j]);
+      if (!lite) {
+        ctx.globalAlpha = 0.08;
+        ctx.strokeStyle = th.color;
+        ctx.lineWidth = th.width * 3.4;
+        ctx.stroke(path);
       }
-      ctx.globalAlpha = alpha;
+      ctx.globalAlpha = th.alpha;
       ctx.strokeStyle = th.color;
-      ctx.lineWidth = width;
+      ctx.lineWidth = th.width;
       ctx.stroke(path);
     }
     ctx.globalAlpha = 1;
