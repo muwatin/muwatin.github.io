@@ -392,6 +392,30 @@ const PROFILES = {
       en: 'Munther Isaac is a Palestinian Christian pastor and theologian. He now pastors the Evangelical Lutheran Christmas Church in Bethlehem and the Lutheran Church in Beit Sahour. He is also the academic dean of Bethlehem Bible College, and is the director of the highly acclaimed and influential Christ at the Checkpoint conferences. Munther is passionate about issues related to the Palestinian theology. Munther originally studied civil engineering in Birzeit University in Palestine. He then obtained a Master in Biblical Studies from Westminster Theological Seminary and then a PhD from the Oxford Centre for Mission Studies.',
     },
   },
+  'رفعت قسيس': {
+    photo: 'assets/people/rifat-kassis.png',
+    cutout: true,
+    bio: {
+      ar: 'ناشط فلسطيني في مجال حقوق الإنسان، وناشط سياسي ومجتمعي، وكاتب ومحاضر. اعتقلته إسرائيل وسجنته مرّات عدّة. وُلد في بيت ساحور لعائلة فلسطينية مسيحية، وأسّس عام 1991 الفرع الفلسطيني للمنظمة الدولية لحقوق الطفل، الحركة العالمية للدفاع عن الأطفال (DCI)، وانتُخب عام 2005 رئيساً للحركة الدولية، ثم أُعيد انتخابه لولاية أخرى في تشرين الأول/أكتوبر 2008. وفي عام 2014 أنهى عمله مديراً عاماً للحركة العالمية للدفاع عن الأطفال – فلسطين، وانتقل مؤقتاً إلى الأردن لقيادة برنامج الاتحاد اللوثري العالمي هناك.',
+      en: 'Rifat Kassis is a Palestinian human rights and political and community activist. He is an author and speaker. He has been arrested and imprisoned several times by Israel. Born in Beit Sahour to a Palestinian Christian family, he founded in 1991 the Palestinian section of the international child rights organization, Defence for Children International (DCI) and in 2005 he was elected President of the international movement. In October 2008, he was re-elected President for another term. In 2014, he concluded his work as General Director of Defense for Children International Palestine and moved temporarily to Jordan to lead the Lutheran World Federation program there.',
+    },
+  },
+  'Sardar Saadi': {
+    photo: 'assets/people/saadi.png',
+    cutout: true,
+    bio: {
+      ar: 'أنثروبولوجي اجتماعي ثقافي متخصّص في الشرق الأوسط، ويركّز خصوصاً على السياسة والمجتمع الكرديّين. نال الدكتوراه في الأنثروبولوجيا الاجتماعية الثقافية من جامعة تورنتو عام 2020، بدعم من منحة جوزيف-أرمان بومباردييه من مجلس أبحاث العلوم الاجتماعية والإنسانية الكندي (SSHRC). تناولت أطروحته الديناميّات الحضرية للنضال الكردي من أجل تقرير المصير في ديار بكر، كردستان، وتنظر في انتقال المواجهة بين الحركة الكردية والدولة التركية من الجبال إلى المدينة، وكيف حوّل ذلك السياسة الكردية نحو إقامة حكم ذاتي ديمقراطي كردي في المنطقة وتطوير أشكال جديدة من التعامل مع الدولة.',
+      en: 'Sociocultural anthropologist specializing in the Middle East, with a particular focus on Kurdish politics and society. He earned his PhD in Sociocultural Anthropology from the University of Toronto in 2020, supported by a SSHRC Joseph-Armand Bombardier scholarship. His dissertation examined the urban dynamics of the Kurdish struggle for self-determination in Diyarbakir, Kurdistan. This study looks at the shift of confrontation between the Kurdish movement and the Turkish state from mountains to the city, and how it has transformed Kurdish politics toward establishing a Kurdish democratic autonomy in the region and developing new forms of engagement with the state.',
+    },
+  },
+  'Nadia Hindi Mediavilla': {
+    photo: 'assets/people/hindi-mediavilla.png',
+    cutout: true,
+    bio: {
+      ar: 'باحثة وأكاديمية إسبانية-عراقية، وأستاذة في قسم الدراسات السامية في جامعة غرناطة في إسبانيا. وُلدت في بغداد عام 1977، وتتخصّص في الدراسات العربية والإسلامية، مع تركيز خاص على الحركات النسوية في العالم العربي.',
+      en: 'Nadia Hindi Mediavilla is a Spanish-Iraqi scholar, researcher, and professor in the Department of Semitic Studies at the University of Granada in Spain. Born in Baghdad in 1977, she specializes in Arab and Islamic studies with a particular focus on feminist movements in the Arab world.',
+    },
+  },
 };
 
 // Bio text with [text](url) links: as HTML links (popup), or as plain text (cards)
