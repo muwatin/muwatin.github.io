@@ -893,7 +893,7 @@ body[data-lang="en"] .participant-card, body[data-lang="en"] .abstract-card { di
 .profile-dialog:not(.has-cutout) .profile-paper { text-align: start; }
 
 /* Person popup: name, bio, and a small "Speaking on" link to their abstract. It never scrolls: it grows wider instead. */
-.profile-dialog { width: min(560px, 94vw); max-height: none; overflow: visible; padding: 36px 32px 28px; }
+.profile-dialog { width: min(640px, 94vw); max-height: none; overflow: visible; padding: 36px 32px 28px; }
 .profile-bio { border-bottom: 0; padding-bottom: 0; margin: 8px 0 20px; font-size: 16px; }
 .profile-speaking {
   display: inline-flex;
