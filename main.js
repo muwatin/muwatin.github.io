@@ -360,6 +360,12 @@ const PROFILES = {
       en: 'Spanish historian, professor in the Department of Contemporary History and director of the [Institute of Peace and Conflict Studies](http://www.ugr.es/en/staff/diego-checa-hidalgo) at the University of Granada. His research focuses on the history of nonviolent resistance, peacebuilding, and international conflict transformation.',
     },
   },
+  'Tamara Tamimi': {
+    bio: {
+      ar: 'باحثة ومستشارة فلسطينية من مواليد القدس. حاصلة على الماجستير في قانون حقوق الإنسان من كلية الدراسات الشرقية والأفريقية (SOAS) في جامعة لندن، وتُعدّ حالياً أطروحة دكتوراه في القانون الدولي والقضية الفلسطينية في كلية الحقوق بجامعة كوينز في بلفاست. تقدّم استشارات لمؤسسات فلسطينية ودولية في البحث والمناصرة وتحليل الاقتصاد السياسي، وفي تطوير البرامج وتقييمها في مجالات المساواة بين الجنسين والقانون الدولي وحقوق الإنسان. ويتركّز عملها على الحق في التعليم، وحقوق الإقامة، والتراث الثقافي، والتحوّل الديمقراطي، والسياسات الاجتماعية.',
+      en: 'Palestinian researcher and consultant, born in Jerusalem. She holds an MA in Human Rights Law from SOAS, University of London, and is pursuing a PhD in international law and the Palestine question at Queen’s University Belfast School of Law. She advises Palestinian and international organisations on research, advocacy and political economy analysis, and on programme development and evaluation in gender equality, international law and human rights. Her work focuses on the right to education, residency rights, cultural heritage, democratisation and social policy.',
+    },
+  },
 };
 
 // Bio text with [text](url) links: as HTML links (popup), or as plain text (cards)
