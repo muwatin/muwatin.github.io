@@ -1270,7 +1270,7 @@ body[data-lang="en"] .profile-paper-card:hover .profile-paper-go [aria-hidden] {
 .profile-paper-quote {
   font-size: 20px;
   line-height: 1.5;
-  color: var(--green);
+  color: var(--navy);
   text-align: center;
   text-wrap: balance;
 }
@@ -1524,3 +1524,23 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
   body[data-lang="en"] .abstract-sheet .profile-close { right: 12px; left: auto; }
 }
 @media (prefers-reduced-motion: reduce) { .abstract-sheet { animation: none; } }
+
+/* Abstract sheet sits in the middle of the screen; long ones still scroll as a page */
+.profile-dialog.abstract-dialog[open] { display: flex; flex-direction: column; }
+.abstract-sheet { margin: auto; }
+/* "Back to <name>" when the abstract was opened from someone's card */
+.abstract-back {
+  position: absolute;
+  top: 16px;
+  inset-inline-start: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+}
+.abstract-back:hover { color: var(--wine); }
+@media (max-width: 640px) { .abstract-back { top: 20px; inset-inline-start: 92px; } }

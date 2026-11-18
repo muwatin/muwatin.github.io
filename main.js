@@ -343,8 +343,8 @@ const bioFor = (p, lang) => {
   const participantsEl = document.getElementById('participants-list');
   const dirOf = (lang) => (lang === 'ar' ? 'rtl' : 'ltr');
   const T = {
-    ar: { speaking: 'المداخلة', abstract: 'الملخص', close: 'إغلاق', prev: 'السابق', next: 'التالي', readAbstract: 'الملخص', prevAbs: 'الملخص السابق', nextAbs: 'الملخص التالي' },
-    en: { speaking: 'Intervention', abstract: 'Abstract', close: 'Close', prev: 'Previous participant', next: 'Next participant', readAbstract: 'Abstract', prevAbs: 'Previous abstract', nextAbs: 'Next abstract' },
+    ar: { speaking: 'المداخلة', abstract: 'الملخص', close: 'إغلاق', prev: 'السابق', next: 'التالي', readAbstract: 'الملخص', back: 'العودة إلى', prevAbs: 'الملخص السابق', nextAbs: 'الملخص التالي' },
+    en: { speaking: 'Intervention', abstract: 'Abstract', close: 'Close', prev: 'Previous participant', next: 'Next participant', readAbstract: 'Abstract', back: 'Back to', prevAbs: 'Previous abstract', nextAbs: 'Next abstract' },
   };
   const uiLang = () => document.body.dataset.lang || 'ar';
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -383,7 +383,7 @@ const bioFor = (p, lang) => {
   };
 
   // A person's card. `a` is their paper (or { noPaper: true } for hosts, chairs and keynote speakers).
-  const openProfile = (person, a = { noPaper: true, lang: 'ar' }, fromAbstract = false) => {
+  const openProfile = (person, a = { noPaper: true, lang: 'ar' }) => {
     const p = PROFILES[person] || {};
     const lang = uiLang();
     const ui = T[lang];
@@ -399,7 +399,12 @@ const bioFor = (p, lang) => {
     const bioTag = bio ? `<p class="profile-bio"${bio.lang ? ` lang="${bio.lang}" dir="${dirOf(bio.lang)}"` : ''}>${esc(bio.text)}</p>` : '';
     // "Intervention": the paper title, which opens its abstract
     const t = a.noPaper ? null : titleIn(a, lang);
-    const paperTag = fromAbstract || a.noPaper ? '' : `
+    const role = a.noPaper ? roleOf(person, lang) : null;
+    const paperTag = a.noPaper ? (role ? `
+      <div class="profile-paper-card is-role">
+        <span class="profile-kicker">${ui.speaking}</span>
+        <span class="profile-paper-quote">${esc(role)}</span>
+      </div>` : '') : `
       <a class="profile-paper-card" href="#abs-${a.id}">
         <span class="profile-kicker">${ui.speaking}</span>
         <span class="profile-paper-quote" lang="${t ? t.lang : lang}" dir="${dirOf(t ? t.lang : lang)}">${esc(t ? t.text : pendingLabel[lang])}</span>
@@ -431,14 +436,36 @@ const bioFor = (p, lang) => {
     } else {
       dlg.onkeydown = null;
     }
-    dlg.querySelector('.profile-paper-card')?.addEventListener('click', (e) => { e.preventDefault(); openAbstract(a); });
+    dlg.querySelector('.profile-paper-card')?.addEventListener('click', (e) => { e.preventDefault(); openAbstract(a, person); });
     show();
     const img = dlg.querySelector('.profile-body .profile-cutout');
     if (img) { fitFloat(); if (!img.complete) img.addEventListener('load', fitFloat, { once: true }); }
   };
 
-  // An abstract's card: title, the authors (each opens their card), and the abstract itself
-  const openAbstract = (a) => {
+  // What someone without a paper does at the conference, read from the programme below
+  // (opening remarks, a keynote, or chairing a session), in the given language
+  const roleOf = (person, lang) => {
+    const tag = `{{${person}}}`;
+    for (const day of DAYS) {
+      for (const item of day.items) {
+        if (item.chair === person) {
+          const s = item[lang];
+          return lang === 'ar'
+            ? `رئاسة ${s.label.replace(/:$/, '')}: ${s.title}`
+            : `Chair, ${s.label.replace(/:$/, '')}: ${s.title}`;
+        }
+        if (item.keynote && item.ar.includes(tag)) {
+          return lang === 'ar' ? item.ar.replace(`كلمة ${tag} `, 'الكلمة ') : item.en.replace(` by ${tag}`, '');
+        }
+        if (item.lines && item.lines.ar.some((l) => l.includes(tag))) return lang === 'ar' ? 'كلمة افتتاحيّة' : item.en;
+      }
+    }
+    return null;
+  };
+
+  // An abstract's card: title, the authors (each opens their card), and the abstract itself.
+  // `from` is the person whose card it was opened from; the sheet then offers a way back to that card.
+  const openAbstract = (a, from = null) => {
     const lang = uiLang();
     const ui = T[lang];
     const t = titleIn(a, lang);
@@ -451,6 +478,7 @@ const bioFor = (p, lang) => {
     dlg.innerHTML = `
       <article class="abstract-sheet">
         <button class="profile-close" type="button" aria-label="${ui.close}">×</button>
+        ${from ? `<button class="abstract-back" type="button"><span aria-hidden="true" dir="ltr">${lang === 'ar' ? '›' : '‹'}</span> ${ui.back} ${esc(nameIn(from, lang))}</button>` : ''}
         <header class="abstract-head">
           <span class="profile-kicker">${ui.abstract}</span>
           <h3 class="abstract-title" lang="${t ? t.lang : lang}" dir="${dirOf(t ? t.lang : lang)}">${esc(t ? t.text : pendingLabel[lang])}</h3>
@@ -460,8 +488,9 @@ const bioFor = (p, lang) => {
       </article>`;
     dlg.scrollTop = 0;
     dlg.querySelectorAll('.abstract-names .person-link').forEach((b) => {
-      b.addEventListener('click', () => openProfile(b.dataset.person, a, true));
+      b.addEventListener('click', () => openProfile(b.dataset.person, a));
     });
+    dlg.querySelector('.abstract-back')?.addEventListener('click', () => openProfile(from, a));
     const idx = ABSTRACTS.indexOf(a);
     addNav([ui.prevAbs, ui.nextAbs], (step) => openAbstract(ABSTRACTS[(idx + step + ABSTRACTS.length) % ABSTRACTS.length]));
     show();
