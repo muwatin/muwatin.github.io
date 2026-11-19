@@ -1318,8 +1318,43 @@ body[data-lang="en"] .profile-paper-card:hover .profile-paper-go [aria-hidden] {
 .profile-dialog.has-cutout,
 .profile-dialog.has-cutout:not(.x) { background: #FDFBF7; }
 
-/* ===== Participants, final layout: an even grid of photo cards; small cards (no photo yet) underneath ===== */
-#participants-list { display: block; }
+/* ===== Participants: one even grid — a single alphabetical list of photo cards and placeholder cards ===== */
+#participants-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+}
+body[data-lang="ar"] #participants-list { direction: rtl; }
+body[data-lang="en"] #participants-list { direction: ltr; }
+
+/* Placeholder card (no photo yet): large initial + name, centred, matching a photo card's footprint */
+.participant-card.is-placeholder .person-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 210px;
+  padding: 26px 20px;
+  text-align: center;
+}
+.participant-card.is-placeholder .ph-avatar {
+  flex: none;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--sand);
+  color: var(--wine);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1;
+  overflow: hidden;
+}
+.participant-card.is-placeholder .ph-avatar.ph-photo { object-fit: cover; object-position: 50% 25%; padding: 0; }
+.participant-card.is-placeholder .name { font-size: clamp(18px, 1.6vw, 21px); font-weight: 700; line-height: 1.4; }
 .participants-featured {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));

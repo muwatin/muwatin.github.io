@@ -10,6 +10,7 @@
     root.lang = lang;
     root.dir = lang === 'ar' ? 'rtl' : 'ltr';
     btn.textContent = lang === 'ar' ? 'EN' : 'ع';
+    document.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
   };
 
   apply(saved === 'en' ? 'en' : 'ar');
@@ -497,6 +498,27 @@ const nameHtml = (person) => {
 };
 const nameIn = (person, lang) => (PROFILES[person] && PROFILES[person].name && PROFILES[person].name[lang]) || person;
 
+// Sorting participants by family name, in the page language. The key is the last part of the written
+// name (minus any leading title); a few compound surnames get an explicit key so they sort on the
+// right part (e.g. the first of two Spanish surnames). For Arabic, tashkeel and a leading "ال" are
+// dropped so names sort by the root letter.
+const SORT_FAMILY = {
+  'Ahmad Attallah': { ar: 'عطا الله' },       // last word alone would be "الله"
+  'Bram J. De Smet': { ar: 'دي سميت', en: 'De Smet' },
+  'Diego Checa Hidalgo': { ar: 'تشيكا', en: 'Checa' },
+  'Belén Habboob Martos': { ar: 'حبوب', en: 'Habboob' },
+  'Nadia Hindi Mediavilla': { ar: 'هندي', en: 'Hindi' },
+};
+const stripTashkeel = (s) => s.replace(/[ً-ْٰـ]/g, '');
+const familyKey = (person, lang) => {
+  const ov = SORT_FAMILY[person];
+  let key = (ov && ov[lang]) || nameIn(person, lang).trim().split(/\s+/).pop();
+  if (lang === 'ar') key = stripTashkeel(key).replace(/^ال/, '').replace(/^[أإآ]/, 'ا');
+  return key;
+};
+const byFamily = (lang) => (p, q) =>
+  familyKey(p.person, lang).localeCompare(familyKey(q.person, lang), lang === 'ar' ? 'ar' : 'en');
+
 // The first lines of the bio on a photo card, in both languages (the toggle shows one; CSS trims it to a few lines)
 // The opening of a bio for a card: cut at a word boundary so it fits beside the photo (the popup has the rest)
 const cardSnippet = (text, max = 85) => {
@@ -723,29 +745,42 @@ const bioFor = (p, lang) => {
     if (textEnd() > h + ph) sp.style.height = `${textEnd() - ph}px`;
   };
   window.addEventListener('resize', () => { if (dlg.open) fitFloat(); });
-  const PEOPLE = ALL_ENTRIES.flatMap((a) => authorsOf(a).map((person) => ({ person, a })));
+  const PEOPLE = []; // the participants in display order; filled (and re-sorted) by renderParticipants
+  const participantCards = [];
+  const seenPerson = new Set();
 
   for (const a of ALL_ENTRIES) {
     if (participantsEl) {
       for (const person of authorsOf(a)) {
+        if (seenPerson.has(person)) continue;
+        seenPerson.add(person);
         const card = document.createElement('div');
         card.className = 'participant-card';
         const prof = PROFILES[person];
-        const media = prof && prof.cutout
-          // The photo floats under the name and the bio wraps around the person's outline (shape-outside)
-          ? `<img class="cutout" src="${esc(prof.photo)}" alt="" style="shape-outside: url('${esc(prof.photo)}')">`
-          : prof && prof.photo
-          ? `<img class="avatar avatar-photo" src="${esc(prof.photo)}" alt="" loading="lazy">`
-          : `<span class="avatar" aria-hidden="true"><span data-i18n="ar">${esc(initialOf(nameIn(person, 'ar')))}</span><span data-i18n="en">${esc(initialOf(nameIn(person, 'en')))}</span></span>`;
-        if (prof && prof.cutout) card.classList.add('has-cutout');
-        card.innerHTML = `
-          <button class="person-btn" type="button">
-            ${prof && prof.cutout ? '' : media}
-            <span class="name" lang="${a.lang}" dir="${dirOf(a.lang)}">${nameHtml(person)}</span>
-            ${prof && prof.cutout ? `${media}${cardBio(prof)}${prof.bio ? `<span class="card-more"><span data-i18n="ar">المزيد</span><span data-i18n="en" lang="en" dir="ltr">Read more</span></span>` : ''}` : ''}
-          </button>`;
+        if (prof && prof.cutout) {
+          // Photo card: the photo floats under the name and the bio wraps around the person's outline
+          card.classList.add('has-cutout');
+          const media = `<img class="cutout" src="${esc(prof.photo)}" alt="" style="shape-outside: url('${esc(prof.photo)}')">`;
+          card.innerHTML = `
+            <button class="person-btn" type="button">
+              <span class="name" lang="${a.lang}" dir="${dirOf(a.lang)}">${nameHtml(person)}</span>
+              ${media}${cardBio(prof)}${prof.bio ? `<span class="card-more"><span data-i18n="ar">المزيد</span><span data-i18n="en" lang="en" dir="ltr">Read more</span></span>` : ''}
+            </button>`;
+        } else {
+          // Placeholder card (no photo yet): a large initial and the name, centred, the same size as a
+          // photo card, so the list stays one even alphabetical grid. It becomes a photo card once added.
+          card.classList.add('is-placeholder');
+          const av = prof && prof.photo
+            ? `<img class="ph-avatar ph-photo" src="${esc(prof.photo)}" alt="" loading="lazy">`
+            : `<span class="ph-avatar" aria-hidden="true"><span data-i18n="ar">${esc(initialOf(nameIn(person, 'ar')))}</span><span data-i18n="en">${esc(initialOf(nameIn(person, 'en')))}</span></span>`;
+          card.innerHTML = `
+            <button class="person-btn" type="button">
+              ${av}
+              <span class="name" lang="${a.lang}" dir="${dirOf(a.lang)}">${nameHtml(person)}</span>
+            </button>`;
+        }
         card.querySelector('.person-btn').addEventListener('click', () => openProfile(person, a));
-        participantsEl.appendChild(card);
+        participantCards.push({ person, a, card, photo: !!(prof && prof.cutout) });
       }
     }
 
@@ -769,21 +804,18 @@ const bioFor = (p, lang) => {
     }
   }
 
-  // Participants: everyone with a photo gets the full card, in an even grid. People whose photo and bio
-  // haven't arrived yet are shown as small cards underneath, and move up into the grid once a photo is added.
+  // Participants: one even grid, everyone in a single list ordered alphabetically by family name, in the
+  // page language (re-sorting on toggle). Photo cards and placeholder cards are the same size; the popup's
+  // previous / next step through the same order.
   if (participantsEl) {
-    const featured = document.createElement('div');
-    featured.className = 'participants-featured';
-    const rest = document.createElement('div');
-    rest.className = 'participants-rest';
-    for (const card of Array.from(participantsEl.children)) {
-      (card.classList.contains('has-cutout') ? featured : rest).appendChild(card);
-    }
-    participantsEl.append(featured, rest);
-    if (!rest.children.length) rest.remove();
-    // The popup's previous / next follow the same order as on the page
-    const hasPhoto = (x) => (PROFILES[x.person] && PROFILES[x.person].cutout ? 0 : 1);
-    PEOPLE.sort((p, q) => hasPhoto(p) - hasPhoto(q));
+    const renderParticipants = (lang) => {
+      const ordered = participantCards.slice().sort(byFamily(lang));
+      participantsEl.replaceChildren(...ordered.map((x) => x.card));
+      PEOPLE.length = 0;
+      for (const x of ordered) PEOPLE.push({ person: x.person, a: x.a });
+    };
+    renderParticipants(uiLang());
+    document.addEventListener('langchange', (e) => renderParticipants(e.detail || uiLang()));
   }
 
   // Tall (portrait) photos are shown whole instead of cropped in on the face
