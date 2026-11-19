@@ -469,6 +469,10 @@ const PROFILES = {
       en: 'Trainee researcher and Master’s student in the Democracy and Human Rights Programme at Birzeit University, currently working on a study titled “Transformations of Language and Consciousness among the Palestinian Elite under British Colonial Rule.”',
     },
   },
+  'Santosh Kumar': {
+    photo: 'assets/people/kumar.webp',
+    cutout: true,
+  },
 };
 
 // Bio text with [text](url) links: as HTML links (popup), or as plain text (cards)
