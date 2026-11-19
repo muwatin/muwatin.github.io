@@ -459,6 +459,10 @@ const PROFILES = {
     photo: 'assets/people/shahwan.webp',
     cutout: true,
   },
+  'Bram J. De Smet': {
+    photo: 'assets/people/de-smet.webp',
+    cutout: true,
+  },
   'Basem Izbidi': {
     bio: {
       en: 'Teaches in the Department of Political Science and the Master’s programme in Democracy and Human Rights at Birzeit University. He holds a PhD in political theory from the University of Cincinnati. His research covers Hamas, state-building, political reform, democratisation, and the relationship between the West and the Islamic world. He is co-author of “The West and the Muslim World: The Muslim Position” (IFA, 2004) and co-editor of “Popular Protest in the New Middle East: Islamism and Post-Islamist Politics” (I.B. Tauris, 2014).',
