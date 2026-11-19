@@ -443,18 +443,25 @@ const PROFILES = {
   },
   'Lena Meari': {
     photo: 'assets/people/meari.webp',
+    cutout: true,
     bio: {
       en: 'Assistant Professor of Anthropology in the Department of Social and Behavioral Sciences and the Institute of Women’s Studies at Birzeit University. Her interests include the geopolitics of knowledge production, decolonial feminist theory, revolutionary movements, and decolonising methodologies. Her research focuses on the formation of revolutionary subjectivity in colonial contexts and the practices of sumud among Palestinian political prisoners.',
     },
   },
   'George Giacaman': {
     photo: 'assets/people/giacaman.png',
+    cutout: true,
     bio: {
       ar: 'أكاديمي ومفكّر فلسطيني، ومن أبرز المثقفين الفلسطينيين في مجال الفكر السياسي والنقدي في السياق العربي. ساهم على نطاق واسع في تطوير الفكر السياسي والاجتماعي في فلسطين، وتميّز بتحليلاته النقدية للنيوليبرالية وسياسات الدولة وأطروحات ما بعد الحداثة، وله حضور بارز في النقاشات الفكرية حول القضية الفلسطينية وسبل مقاومة الاحتلال الإسرائيلي. يشغل منصب المدير العام لمؤسسة الدراسات الفلسطينية منذ عام 2020.',
     },
   },
   'طلال شهوان': {
     photo: 'assets/people/shahwan.webp',
+    cutout: true,
+  },
+  'Bram J. De Smet': {
+    photo: 'assets/people/de-smet.webp',
+    cutout: true,
   },
   'Basem Izbidi': {
     bio: {
