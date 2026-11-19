@@ -441,6 +441,31 @@ const PROFILES = {
       en: 'Basil Farraj is the Director of the Ibrahim Abu Lughod Institute of International Studies and an assistant professor at the Department of Philosophy and Cultural Studies at Birzeit University. He holds a PhD in Anthropology and Sociology from the Geneva Graduate Institute, and his research addresses the intersections of memory, resistance, and art by prisoners and others at the receiving end of violence. Basil has conducted research in several countries, including Chile, Colombia, and Palestine.',
     },
   },
+  'Lena Meari': {
+    photo: 'assets/people/meari.webp',
+    bio: {
+      en: 'Assistant Professor of Anthropology in the Department of Social and Behavioral Sciences and the Institute of Women’s Studies at Birzeit University. Her interests include the geopolitics of knowledge production, decolonial feminist theory, revolutionary movements, and decolonising methodologies. Her research focuses on the formation of revolutionary subjectivity in colonial contexts and the practices of sumud among Palestinian political prisoners.',
+    },
+  },
+  'George Giacaman': {
+    photo: 'assets/people/giacaman.png',
+    bio: {
+      ar: 'أكاديمي ومفكّر فلسطيني، ومن أبرز المثقفين الفلسطينيين في مجال الفكر السياسي والنقدي في السياق العربي. ساهم على نطاق واسع في تطوير الفكر السياسي والاجتماعي في فلسطين، وتميّز بتحليلاته النقدية للنيوليبرالية وسياسات الدولة وأطروحات ما بعد الحداثة، وله حضور بارز في النقاشات الفكرية حول القضية الفلسطينية وسبل مقاومة الاحتلال الإسرائيلي. يشغل منصب المدير العام لمؤسسة الدراسات الفلسطينية منذ عام 2020.',
+    },
+  },
+  'طلال شهوان': {
+    photo: 'assets/people/shahwan.webp',
+  },
+  'Basem Izbidi': {
+    bio: {
+      en: 'Teaches in the Department of Political Science and the Master’s programme in Democracy and Human Rights at Birzeit University. He holds a PhD in political theory from the University of Cincinnati. His research covers Hamas, state-building, political reform, democratisation, and the relationship between the West and the Islamic world. He is co-author of “The West and the Muslim World: The Muslim Position” (IFA, 2004) and co-editor of “Popular Protest in the New Middle East: Islamism and Post-Islamist Politics” (I.B. Tauris, 2014).',
+    },
+  },
+  'ياسمين الجعبة': {
+    bio: {
+      en: 'Trainee researcher and Master’s student in the Democracy and Human Rights Programme at Birzeit University, currently working on a study titled “Transformations of Language and Consciousness among the Palestinian Elite under British Colonial Rule.”',
+    },
+  },
 };
 
 // Bio text with [text](url) links: as HTML links (popup), or as plain text (cards)
@@ -463,7 +488,7 @@ const NAMES = {
   'Jannis Julien Grimm': ['يانيس جوليان غريم', 'Jannis Julien Grimm'],
   'Bram J. De Smet': ['برام دي سميت', 'Bram J. De Smet'],
   'ياسمين الجعبة': ['ياسمين جعبة', 'Yasmeen Jubeh'],
-  'Santosh Kumar': ['سانتوش كومار', 'Santosh Kumar'],
+  'Santosh Kumar': ['سانتوش كمار', 'Santosh Kumar'],
   'Sardar Saadi': ['سردار سعدي', 'Sardar Saadi'],
   'Yara Al Hindi': ['يارا الهندي', 'Yara Al Hindi'],
   'Bayan M. Arqawi': ['بيان عرقاوي', 'Bayan M. Arqawi'],
