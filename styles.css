@@ -1677,14 +1677,10 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-/* Talal Shahwan: his photo has a wide white margin above the head, so he
-   reads small — crop in on the upper body to bring him closer. */
-.participant-card.has-cutout .person-btn .card-figure .cutout[src*="shahwan"] {
-  width: 165px;
-  height: 200px;
-  object-fit: cover;
-  object-position: 50% 8%;
-}
+/* Talal Shahwan: the photo itself is now trimmed to his outline and mirrored,
+   so he faces into the card like the others. He only needs to run a little
+   taller than the default to match their presence. */
+.participant-card.has-cutout .person-btn .card-figure .cutout[src*="shahwan"] { height: 205px; }
 
 /* Download button under the Abstracts and Participants headings
    (same style as the concept-note button) */
@@ -1728,13 +1724,21 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
 /* A little more life on hover: the card lifts a touch further than before and
    the cutout leans in, anchored at its bottom-left so it stays flush with the
    card's edge rather than detaching from it. */
-.participant-card { transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
-.participant-card:hover { box-shadow: 0 14px 32px rgba(30, 27, 23, 0.18); transform: translateY(-6px); }
-.participant-card .cutout {
-  transform-origin: left bottom;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+/* Hover: the whole card lifts and its photo casts a longer shadow, so the
+   cutout reads as standing off the card. The photo itself is never scaled —
+   zooming a cutout on hover looks cheap and breaks its footing on the edge. */
+.participant-card {
+  transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.35s ease;
 }
-.participant-card:hover .cutout { transform: scale(1.05); }
+.participant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(30, 27, 23, 0.18);
+  border-color: rgba(30, 27, 23, 0.22);
+}
+.participant-card .cutout { transition: filter 0.35s ease; }
+.participant-card:hover .cutout { filter: drop-shadow(10px 8px 16px rgba(30, 27, 23, 0.36)); }
+.participant-card:hover .card-more { text-decoration-thickness: 2px; }
 
 /* The programme rows ripple in each time a day is opened. Unlike the section
    reveal, which fires once per page load, this replays on every open, so the
