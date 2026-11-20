@@ -702,8 +702,8 @@ footer.site-footer {
 /* Sections keep a solid background (they cover the pinned hero); only their content fades in */
 .reveal > * {
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal.in > * {
   opacity: 1;
@@ -1718,9 +1718,9 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
 .reveal .participant-card,
 .reveal .abstract-card {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: calc(min(var(--i, 0), 12) * 45ms);
+  transform: translateY(28px) scale(0.97);
+  transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(min(var(--i, 0), 14) * 85ms);
 }
 .reveal.in .participant-card,
 .reveal.in .abstract-card { opacity: 1; transform: none; }
@@ -1729,12 +1729,31 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
    the cutout leans in, anchored at its bottom-left so it stays flush with the
    card's edge rather than detaching from it. */
 .participant-card { transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
-.participant-card:hover { box-shadow: 0 10px 26px rgba(30, 27, 23, 0.14); transform: translateY(-4px); }
+.participant-card:hover { box-shadow: 0 14px 32px rgba(30, 27, 23, 0.18); transform: translateY(-6px); }
 .participant-card .cutout {
   transform-origin: left bottom;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.participant-card:hover .cutout { transform: scale(1.03); }
+.participant-card:hover .cutout { transform: scale(1.05); }
+
+/* The programme rows ripple in each time a day is opened. Unlike the section
+   reveal, which fires once per page load, this replays on every open, so the
+   programme always answers the click with movement. */
+.accordion-panel .timetable > li {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease-out, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.accordion-panel.open .timetable > li { opacity: 1; transform: none; }
+.accordion-panel.open .timetable > li:nth-child(1) { transition-delay: 0.12s; }
+.accordion-panel.open .timetable > li:nth-child(2) { transition-delay: 0.18s; }
+.accordion-panel.open .timetable > li:nth-child(3) { transition-delay: 0.24s; }
+.accordion-panel.open .timetable > li:nth-child(4) { transition-delay: 0.30s; }
+.accordion-panel.open .timetable > li:nth-child(5) { transition-delay: 0.36s; }
+.accordion-panel.open .timetable > li:nth-child(6) { transition-delay: 0.42s; }
+.accordion-panel.open .timetable > li:nth-child(7) { transition-delay: 0.48s; }
+.accordion-panel.open .timetable > li:nth-child(8) { transition-delay: 0.54s; }
+.accordion-panel.open .timetable > li:nth-child(n+9) { transition-delay: 0.60s; }
 
 /* Nothing moves for anyone who asked for less motion */
 .reveal.static .participant-card,
@@ -1744,6 +1763,8 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
   .reveal .abstract-card { opacity: 1; transform: none; transition: none; transition-delay: 0s; }
   .participant-card:hover .cutout { transform: none; }
   .participant-card:hover { transform: none; }
+  .accordion-panel .timetable > li,
+  .accordion-panel.open .timetable > li { opacity: 1; transform: none; transition: none; transition-delay: 0s; }
 }
 
 /* ================================================================
