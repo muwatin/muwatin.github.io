@@ -206,7 +206,7 @@ const ABSTRACTS = [
       ar: 'تُرجع بعض المقاربات النقدية أزمة حقوق الإنسان إلى ابتعاد ممارساتها عن القواعد الشعبية، ومهننة العمل الحقوقي وتركّز الخبرة والمعرفة فيه لدى فئة من المختصين، وانفصالها عن الحركات الاجتماعية والشعبية، فضلاً عن تجريدها من طابعها السياسي. وبناءً على ذلك، تدعو هذه المقاربات إلى إعادة تسييس العمل الحقوقي، وربطه مجدداً بالحركات الشعبية، وبناء تحالفات عابرة للحدود. غير أن هذه الأطروحات تثير تساؤلاً يتجاوز مجرد كيفية تنفيذها: هل يمكن تفسير أزمة حقوق الإنسان بابتعاد الممارسة الحقوقية عن أفقها التحرري، أم أن ثمة إشكالية أعمق تتعلق بالشكل ذاته الذي تنتظم الحقوق من خلاله؟\n\nتُعد حركة التضامن العالمية مع فلسطين نموذجاً يمكن من خلاله فحص هذه المسألة؛ فقد ربطت تحركاتها واسعة النطاق بين النضال الفلسطيني ونضالات مجتمعات أخرى ضد الظلم والاستغلال والاستعمار، كما وسّعت حضور القضية الفلسطينية في النقاش العام، وأظهرت قدرتها على بناء أشكال من التعبئة والعمل الجماعي العابر للحدود. ومع ذلك، لا يزال جزء كبير من مطالب هذه الحركة موجهاً نحو مؤسسات دولية لا تجد قراراتها طريقها إلى التنفيذ، في حين يواجه المطالبون بإنفاذ القانون ملاحقات وقمعاً. وتكشف هذه المفارقة حدود الاعتماد على "الشرعية القانونية" كمسار لتحقيق التغيير السياسي.\n\nتبحث هذه الورقة في العلاقة بين أزمة حقوق الإنسان و"الشكل القانوني" ذاته. وتستعين بتحليل إيفغيني باشوكانس للشكل القانوني، من خلال بحث العلاقة بين الشكل القانوني، والذات القانونية، وعلاقات تبادل السلع، بالإضافة إلى دور الدولة في ضمان الشروط اللازمة لإعادة إنتاج هذه العلاقات. كما تتساءل الورقة عن الكيفية التي يمكن بها لهذا المنظور أن يساعد في فهم حدود اختزال الحقوق في مجرد مطالب تُوجّه إلى الدولة أو النظام الدولي، وكيف يمكن النظر إلى الحقوق، في المقابل، بوصفها علاقات اجتماعية تتشكل من خلال المشاركة والفعل الجماعي.',
       en: 'Some critical approaches trace the crisis of human rights to the detachment of human rights practices from grassroots movements, the professionalization of human rights work and the concentration of expertise and knowledge in the hands of a group of specialists and the separation of human rights work from social and popular movements, and, more broadly, the loss of their political character. Accordingly, these approaches call for the repoliticization of human rights work, its renewed connection with popular movements, and the building of transnational alliances. These proposals, however, raise a question that goes beyond how they might be implemented: can the crisis of human rights be explained by the distancing of human rights practice from its emancipatory horizon, or is there a deeper problem concerning the very form through which rights are constituted?\n\nThe global solidarity movement with Palestine offers a case through which to examine this question. Its large-scale mobilizations have connected the Palestinian struggle with the struggles of other societies against injustice, exploitation, and colonialism. They have also expanded the presence of the Palestinian cause in public debate and demonstrated the capacity to build forms of mobilization and collective action across borders. Nevertheless, a significant part of the movement’s demands continues to be directed towards international institutions whose decisions remain unimplemented, while those calling for the enforcement of the law face persecution and repression. This contradiction reveals the limits of relying on "legal legitimacy" as a pathway to political change.\n\nStarting from this problem, the paper examines the relationship between the crisis of human rights and the "legal form" itself. It draws on Evgeny Pashukanis’s analysis of the legal form to examine the relationship between the legal form, the legal subject, and relations of commodity exchange, as well as the role of the state in securing the conditions necessary for reproducing these relations. It also asks how this perspective might help us understand the limits of reducing rights to mere claims addressed to the state or the international system, and how rights might instead be understood as social relations constituted through participation and collective action.',
     } },
-  { id: 'tawil', name: 'حياة الطويل', lang: 'ar',
+  { id: 'tawil', name: 'حياة الطويل وإسلام نصر', authors: ['حياة الطويل', 'إسلام نصر'], lang: 'ar',
     title: { ar: 'الحقّ في الصحّة بين الإبادة والسوق: نحو تضامن أمميّ قائم على المنفعة المشتركة وحقوق إنسان تحرّريّة', en: 'The Right to Health between Genocide and the Market: Towards an Internationalist Solidarity based on Common Benefit and Emancipatory Human Rights' },
     gist: 'تجادل بأن تضامن العاملين الصحيين حول العالم مع زملائهم في غزة نموذج لتضامن قائم على مصلحة مشتركة لا إغاثة فقط.',
     abstract: {
@@ -274,7 +274,10 @@ const OTHER_PARTICIPANTS = [
   // Keynote speakers
   'Andrea Sangiovanni', 'Salim Vally',
   // Session chairs, in programme order
-  'Basem Izbidi', 'George Giacaman', 'Basil Farraj', 'Lena Meari', 'Rahaf Salahat', 'Ahmad Attallah',
+  'Basem Izbidi', 'George Giacaman', 'Basil Farraj', 'Lena Meari', 'Rahaf Salahat',
+  // Ahmad Attallah chaired Session VI, which the final programme (AR 261119) drops;
+  // he keeps his card but no longer has a programme role.
+  'Ahmad Attallah',
 ];
 const ALL_ENTRIES = [
   ...OTHER_PARTICIPANTS.map((name) => ({ id: null, name, lang: 'ar', noPaper: true })), // listed first (hosts)
@@ -483,6 +486,10 @@ const PROFILES = {
     photo: 'assets/people/altaweel.webp',
     cutout: true,
   },
+  'إسلام نصر': {
+    photo: 'assets/people/islam.webp',
+    cutout: true,
+  },
 };
 
 // Bio text with [text](url) links: as HTML links (popup), or as plain text (cards)
@@ -496,7 +503,7 @@ const NAMES = {
   'طلال شهوان': ['طلال شهوان', 'Talal Shahwan'],
   'Andrea Sangiovanni': ['أندريا سانجوفاني', 'Andrea Sangiovanni'],
   'Salim Vally': ['سليم فالي', 'Salim Vally'],
-  'Basem Izbidi': ['باسم الزبيدي', 'Basem Izbidi'],
+  'Basem Izbidi': ['باسم الزبيدي', 'Basem Ezbidi'],   // spelt Ezbidi in the final programme (EN 261119)
   'George Giacaman': ['جورج جقمان', 'George Giacaman'],
   'Basil Farraj': ['باسل فرّاج', 'Basil Farraj'],
   'Lena Meari': ['لينة ميعاري', 'Lena Meari'],
@@ -525,6 +532,7 @@ const NAMES = {
   'Anarim Chahabi': ['أناريم شهابي', 'Anarim Chahabi'],
   'Thalia Kruger': ['ثاليا كروجر', 'Thalia Kruger'],
   'Eman AlAsah': ['إيمان العصا', 'Eman AlAsah'],
+  'إسلام نصر': ['إسلام نصر', 'Islam Nasr'],
 };
 for (const [key, [ar, en]] of Object.entries(NAMES)) {
   PROFILES[key] = PROFILES[key] || {};
@@ -888,37 +896,47 @@ const bioFor = (p, lang) => {
         { time: '12:30', chair: 'George Giacaman',
           ar: { label: 'الجلسة الثانية:', title: 'وقائع تضامنيّة', chairLabel: 'رئيس الجلسة:' },
           en: { label: 'Session II:', title: 'Acts of Solidarity', chairLabel: 'Chair:' },
-          papers: ['kumar', 'saadi', 'hindi-arqawi-sadeq'] },
-        { time: '14:00', ar: 'غداء', en: 'Lunch' },
-        { time: '14:45', chair: 'Basil Farraj',
+          papers: ['kumar', 'kruger'] },
+        { time: '13:30', ar: 'غداء', en: 'Lunch' },
+        { time: '14:15', chair: 'Basil Farraj',
           ar: { label: 'الجلسة الثالثة:', title: 'إرهاصات وتداعيات التضامن', chairLabel: 'رئيس الجلسة:' },
           en: { label: 'Session III:', title: 'The Precursors and Repercussions of Solidarity', chairLabel: 'Chair:' },
-          papers: ['ayoub', 'vlachou', 'jarrar'] },
+          papers: ['saadi', 'vlachou', 'jarrar', 'ayoub'] },
       ],
     },
     {
       ar: 'اليوم الثاني - الأربعاء، 16 كانون الأوّل/ديسمبر 2026',
       en: 'Second Day - Wednesday, 16 December 2026',
       items: [
-        { time: '9:30', ar: 'قهوة', en: 'Morning Coffee and Registration' },
-        { time: '10:00', keynote: true, ar: 'كلمة {{Salim Vally}} المفتاحيّة', en: 'Keynote Address by {{Salim Vally}}' },
-        { time: '10:45', chair: 'Lena Meari',
+        { time: '10:00', ar: 'قهوة', en: 'Morning Coffee and Registration' },
+        { time: '10:30', keynote: true,
+          ar: 'كلمة {{Salim Vally}} المفتاحيّة: أكثر من انجذاب فطريّ: فلسطين، وانكشاف الليبراليّة، وواجب المقاومة العالميّة',
+          en: 'Keynote Address by {{Salim Vally}}: More Than a Visceral Tug: Palestine, the Unravelling of Liberalism and the Imperative for Global Resistance' },
+        { time: '11:15', chair: 'Lena Meari',
           ar: { label: 'الجلسة الرابعة:', title: 'التضامن حول الحقوق', chairLabel: 'رئيسة الجلسة:' },
           en: { label: 'Session IV:', title: 'Solidarity Around Rights', chairLabel: 'Chair:' },
-          papers: ['allahham', 'husein', 'tawil'] },
-        { time: '12:15', ar: 'استراحة', en: 'Break' },
-        { time: '12:30', chair: 'Rahaf Salahat',
+          papers: ['allahham', 'husein', 'tawil', 'hindi-arqawi-sadeq'] },
+        { time: '13:15', ar: 'غداء', en: 'Lunch' },
+        { time: '14:00', chair: 'Rahaf Salahat',
           ar: { label: 'الجلسة الخامسة:', title: 'أنماط تضامنيّة متجدّدة', chairLabel: 'رئيسة الجلسة:' },
-          en: { label: 'Session V', title: 'Emerging Forms of Solidarity', chairLabel: 'Chair:' },
-          papers: ['checa-hidalgo', 'habboob-hindi', 'tamimi'] },
-        { time: '14:00', ar: 'غداء', en: 'Lunch' },
-        { time: '14:45', chair: 'Ahmad Attallah',
-          ar: { label: 'الجلسة السادسة:', title: 'بنى قديمة لتضامن جديد؟', chairLabel: 'رئيس الجلسة:' },
-          en: { label: 'Session VI:', title: 'Old Structures for New Solidarity?', chairLabel: 'Chair:' },
-          papers: ['ishaq-qassis', 'chahabi', 'kruger'] },
+          en: { label: 'Session V:', title: 'Emerging Forms of Solidarity', chairLabel: 'Chair:' },
+          papers: ['checa-hidalgo', 'habboob-hindi', 'ishaq-qassis', 'tamimi'] },
       ],
     },
   ];
+
+  // The abstracts are listed in the programme's session order. Taking the order from DAYS
+  // rather than from the order of ABSTRACTS keeps the two in step on their own: change a
+  // session's papers above and the Abstracts section follows. A paper that is not on the
+  // programme (a withdrawn one) keeps its card and is listed after the others.
+  if (abstractsEl) {
+    const order = DAYS.flatMap((d) => d.items.flatMap((i) => i.papers || []));
+    const rank = new Map(order.map((id, i) => [id, i]));
+    const rankOf = (el) => (rank.has(el.id.slice(4)) ? rank.get(el.id.slice(4)) : Infinity);
+    [...abstractsEl.children]
+      .sort((a, b) => rankOf(a) - rankOf(b))
+      .forEach((el) => abstractsEl.appendChild(el));
+  }
 
   const withNames = (line, lang) => esc(line).replace(/\{\{(.+?)\}\}/g, (_, key) => personLink(key.replace(/&amp;/g, '&'), lang));
 
