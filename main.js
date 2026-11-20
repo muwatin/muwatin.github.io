@@ -241,13 +241,6 @@ const ABSTRACTS = [
       ar: 'تتناول هذه الورقة أبرز التحوّلات التي شهدتها مواقف بعض الكنائس الغربية تجاه القضية الفلسطينية في السنوات الأخيرة، ولا سيما على صعيد الخطاب اللاهوتي والمواقف الكنسية والمناصرة من أجل العدالة وحقوق الشعب الفلسطيني. وتسلّط الورقة الضوء على دور المسيحيين الفلسطينيين في التأثير على هذه التحوّلات، مع التركيز على حركة كايروس فلسطين ووثيقتَيها الأولى والثانية، وكيف أسهمتا في إعادة تشكيل الخطاب اللاهوتي والكنسي حول فلسطين، وحشد التضامن والمناصرة داخل الكنائس والمجتمعات الغربية. كما تسعى الورقة إلى تقييم أثر هذه الجهود في تغيير المواقف الكنسية، واستشراف آفاق تطوير هذا الدور وتعزيزه في المستقبل.',
       en: 'This paper examines significant shifts in the stances of some Western churches toward the Palestinian cause in recent years, specifically regarding theological discourse, official ecclesiastical positions, and advocacy for justice and rights of the Palestinian people. It highlights the role of Palestinian Christians in influencing these transformations, with a focus on the Kairos Palestine movement and its two documents, exploring how they have contributed to reshaping theological and ecclesiastical discourse on Palestine, while mobilizing solidarity and advocacy within Western churches and societies. Furthermore, the paper assesses the impact of these efforts on changing church positions and explores future prospects for further developing and strengthening this role.',
     } },
-  { id: 'chahabi', name: 'Anarim Chahabi', lang: 'en',
-    title: { ar: 'صناعة التضامن الحميمة: القرابة والتعبئة السياسيّة عبر العائلات الفلسطينيّة في لبنان والدنمارك', en: 'The Intimate Making of Solidarity: Kinship and Political Mobilization across Palestinian Families in Lebanon and Denmark' },
-    gist: 'Ethnographic fieldwork on how kinship ties between refugee camps in Lebanon and Denmark translate into political mobilisation.',
-    abstract: {
-      ar: 'ماذا يعني التضامن حين يكون المعرَّضون للعنف أقارب وجيراناً وأناساً يتشارك المرء معهم حياةً يومية مستمرة عبر الحدود؟ تبحث هذه الورقة في كيفية تقاطع الالتزامات الناشئة عن العلاقات الشخصية والحميمة مع التعبئة السياسية داخل الشبكات الفلسطينية العابرة للمحليات، التي تربط مخيمات اللاجئين الفلسطينيين في لبنان بالأحياء الحضرية المهمّشة في الدنمارك.\n\nواستناداً إلى سبعة أشهر من العمل الميداني الإثنوغرافي في أحد مخيمات اللاجئين في لبنان، وإلى عمل ميداني لا يزال جارياً في أحياء حضرية مهمّشة في الدنمارك، تتتبّع الورقة كيف يُغذّي التواصل مع الأقارب في مخيمات اللاجئين الفلسطينيين في لبنان الانخراطَ السياسي في الدنمارك. وتسأل كيف يُترجَم الاهتمام بالآخرين و الشعوربالمسؤولية إلى فعل جماعي، وفي ظل أي شروط تتبلور الالتزامات تجاه أشخاص بعينهم بوصفها نضالاً أوسع ضد الهيمنة الاستعمارية.\n\nوتقارب الورقة التضامن بوصفه ممارسةً يجري التفاوض عليها عبر العلاقات والالتزامات والقدرات غير المتكافئة على الفعل. وتفحص الصلات والتوترات بين دعم الأقارب، والاستجابة للاحتياجات العاجلة، والمشاركة في تعبئة موجّهة نحو التغيير السياسي. ومن خلال إدخال القرابة العابرة للمحليات في النقاشات حول التضامن، تستكشف الورقة كيف يُستدام النضال الجماعي عبر علاقات تسبق لحظات التعبئة العامة وتتجاوزها. وتتمثّل مساهمتها في فحص الإمكانات السياسية للالتزامات الحميمة وحدودها معاً: كيف يمكن للمسؤولية أن تمتد إلى ما وراء القرابة، واحتياجاتُ مَن تتحول إلى مطالب جماعية، وكيف تشكّل الموارد غير المتكافئة والقدرة على التنقل أنماطَ المشاركة. ويقدّم هذا المنظور أساساً إثنوغرافياً لإعادة النظر في كيفية صناعة التضامن واستدامته عبر شبكات العائلات الفلسطينية العابرة للحدود.',
-      en: 'What does solidarity mean when those exposed to violence are also relatives, neighbours, and people with whom one shares an ongoing everyday life across borders? This paper examines how intimate obligations intersect with political mobilization within Palestinian translocal networks connecting Palestinian refugee camps in Lebanon and urban marginalized neighborhoods in Denmark.\n\nDrawing on seven months of ethnographic fieldwork in a refugee camp in Lebanon and ongoing fieldwork in urban marginalized neighborhoods in Denmark, the paper traces how contact with relatives in Palestinian refugee camps in Lebanon informs political engagement in Denmark. It asks how concern and responsibility are translated into collective action, and under what conditions commitments to particular people become articulated as a broader struggle against colonial domination.\n\nThe paper approaches solidarity as a practice negotiated through relationships, obligations, and unequal capacities to act. It examines the connections and tensions between supporting relatives, responding to immediate needs, and participating in mobilisation directed towards political change. By bringing translocal kinship into debates on solidarity, the paper explores how collective struggle is sustained through relationships that precede and exceed moments of public mobilisation. Its contribution is to examine both the political possibilities of intimate obligations and their limits: how responsibility may extend beyond kinship, whose needs become collective claims, and how unequal resources and mobility shape participation. This perspective offers an ethnographic basis for reconsidering how solidarity is made and sustained through Palestinian family networks across borders.',
-    } },
   { id: 'kruger', name: 'Thalia Kruger and Eman AlAsah', authors: ['Thalia Kruger', 'Eman AlAsah'], lang: 'en',
     title: { ar: 'أشكال التضامن في سبيل حقوق الإنسان: الفكر عبر-الإفريقيّ مثالاً', en: 'Specific Solidarities in Search of Human Rights: Pan-Africanism as One Example' },
     gist: null },
@@ -275,9 +268,6 @@ const OTHER_PARTICIPANTS = [
   'Andrea Sangiovanni', 'Salim Vally',
   // Session chairs, in programme order
   'Basem Izbidi', 'George Giacaman', 'Basil Farraj', 'Lena Meari', 'Rahaf Salahat',
-  // Ahmad Attallah chaired Session VI, which the final programme (AR 261119) drops;
-  // he keeps his card but no longer has a programme role.
-  'Ahmad Attallah',
 ];
 const ALL_ENTRIES = [
   ...OTHER_PARTICIPANTS.map((name) => ({ id: null, name, lang: 'ar', noPaper: true })), // listed first (hosts)
@@ -354,14 +344,6 @@ const PROFILES = {
     bio: {
       ar: 'مدير مجموعة البحث [الفضاءات الراديكالية](https://www.interact.fu-berlin.de/en/nwg/Radical-Spaces/index.html) في [مركز INTERACT للأبحاث متعدّدة التخصّصات في السلام والنزاع](https://www.interact.fu-berlin.de/en/index.html) في جامعة برلين الحرّة، وباحث مشارك في [معهد دراسات الاحتجاج والحركات الاجتماعية](https://protestinstitut.eu/) (ipb) في برلين. يتناول عمله ديناميّات العنف السياسي وقمع الدولة، وظروف السياسة الراديكالية وآثارها، والمقاومة العنيفة واللاعنفية، وعمليّات التعبئة العابرة للحدود في مواجهة العنف. نال الدكتوراه في العلوم السياسية من [مدرسة برلين للدراسات العليا في الثقافات والمجتمعات المسلمة](http://www.bgsmcs.fu-berlin.de/). وبعدها شارك في إدارة مشروع [SAFEResearch](https://gld.gu.se/en/projects/saferesearch/) في جامعة غوتنبرغ لوضع معايير لإجراء بحث آمن وأخلاقي في سياقات النزاع.',
       en: 'Director of the Research Group [Radical Spaces](https://www.interact.fu-berlin.de/en/nwg/Radical-Spaces/index.html) at the [INTERACT Center for Interdisciplinary Peace and Conflict Research](https://www.interact.fu-berlin.de/en/index.html) at Freie Universität Berlin and an associate researcher at the [Institute for the Study of Protest and Social Movements](https://protestinstitut.eu/) (ipb) in Berlin. His work focuses on the dynamics of political violence and state repression, the condition and effects of radical politics and (non)violent resistance as well as transnational mobilization processes in response to violence. He holds a PhD in political science from the [Berlin Graduate Muslim Cultures and Societies](http://www.bgsmcs.fu-berlin.de/). After his doctoral studies, he served as a co-director of the [SAFEResearch](https://gld.gu.se/en/projects/saferesearch/) project at the University of Gothenburg to develop standards for the conduct of safe and ethical research in conflict contexts.',
-    },
-  },
-  'Anarim Chahabi': {
-    photo: 'assets/people/chahabi.png',
-    cutout: true,
-    bio: {
-      ar: 'باحثة دكتوراه في المشروع البحثي CONFINED: «تفكيك الحيوات المقيَّدة – نحو أجندة بحثية عالمية حول تقاطع التهميش الحضري والتهجير والسجن». يجمع بحثها للدكتوراه بين المنهج الإثنوغرافي والمقاربات القانونية-الاجتماعية لدراسة التقييد والتهجير والشبكات العائلية لدى عائلات فلسطينية في الدنمارك وفي مخيّمات اللاجئين الفلسطينيين في لبنان. ويتتبّع عملها كيف يُعاش التقييد ويُفاوَض عليه عبر النوع الاجتماعي والأجيال والحدود، وهو تقييد تتشابك جذوره في اضطهادات متقاطعة وفي التهميش والتهجير والسجن وانعدام الجنسية، ويمتدّ من التهميش الحضري في الدنمارك إلى الحياة في مخيّمات اللاجئين في لبنان.',
-      en: 'PhD Fellow in the research project CONFINED: Unpacking confined lives – Generating a global research agenda on the intersection of urban marginality, displacement, and incarceration. Her PhD research combines ethnographic methods and socio-legal approaches to examine confinement, displacement and family networks among Palestinian families in Denmark and in Palestinian refugee camps in Lebanon. Her work explores how confinement—rooted in intersectional oppressions, marginalisation, displacement, incarceration, and statelessness—is navigated and negotiated across gender, generations and borders, encompassing forms of confinement that range from urban marginalisation in Denmark to life in Palestinian refugee camps in Lebanon.',
     },
   },
   'Diego Checa Hidalgo': {
@@ -508,7 +490,6 @@ const NAMES = {
   'Basil Farraj': ['باسل فرّاج', 'Basil Farraj'],
   'Lena Meari': ['لينة ميعاري', 'Lena Meari'],
   'Rahaf Salahat': ['رهف صلاحات', 'Rahaf Salahat'],
-  'Ahmad Attallah': ['أحمد عطا الله', 'Ahmad Attallah'],
   'Jannis Julien Grimm': ['يانيس جوليان غريم', 'Jannis Julien Grimm'],
   'Bram J. De Smet': ['برام دي سميت', 'Bram J. De Smet'],
   'ياسمين الجعبة': ['ياسمين جعبة', 'Yasmeen Jubeh'],
@@ -529,7 +510,6 @@ const NAMES = {
   'Tamara Tamimi': ['تمارا تميمي', 'Tamara Tamimi'],
   'القسيس منذر اسحق': ['منذر اسحق', 'Munther Isaac'],
   'رفعت قسيس': ['رفعت قسّيس', 'Rifat Kassis'],
-  'Anarim Chahabi': ['أناريم شهابي', 'Anarim Chahabi'],
   'Thalia Kruger': ['ثاليا كروجر', 'Thalia Kruger'],
   'Eman AlAsah': ['إيمان العصا', 'Eman AlAsah'],
   'إسلام نصر': ['إسلام نصر', 'Islam Nasr'],
@@ -553,7 +533,6 @@ const nameIn = (person, lang) => (PROFILES[person] && PROFILES[person].name && P
 // right part (e.g. the first of two Spanish surnames). For Arabic, tashkeel and a leading "ال" are
 // dropped so names sort by the root letter.
 const SORT_FAMILY = {
-  'Ahmad Attallah': { ar: 'عطا الله' },       // last word alone would be "الله"
   'Bram J. De Smet': { ar: 'دي سميت', en: 'De Smet' },
   'Diego Checa Hidalgo': { ar: 'تشيكا', en: 'Checa' },
   'Belén Habboob Martos': { ar: 'حبوب', en: 'Habboob' },

@@ -1134,7 +1134,6 @@ body[data-lang="en"] .has-cutout .card-more [data-i18n="ar"] { display: none; }
 }
 .participant-card.has-cutout .person-btn .card-bio { display: block; margin: 0; overflow: visible; -webkit-line-clamp: unset; }
 .participant-card.has-cutout .person-btn .card-more { margin: 6px 0 16px; }
-.profile-dialog.has-cutout .profile-cutout[src*="chahabi.png"],
 .profile-dialog.has-cutout .profile-cutout[src*="checa-hidalgo.png"],
 .profile-dialog.has-cutout .profile-cutout[src*="grimm.png"],
 .profile-dialog.has-cutout .profile-cutout[src*="sangiovanni.png"],
