@@ -839,6 +839,9 @@ const bioFor = (p, lang) => {
   if (participantsEl) {
     const renderParticipants = (lang) => {
       const ordered = participantCards.slice().sort(byFamily(lang));
+      // --i is the card's place in the list; the stylesheet turns it into the
+      // entrance delay so the grid cascades instead of landing all at once
+      ordered.forEach((x, i) => x.card.style.setProperty('--i', i));
       participantsEl.replaceChildren(...ordered.map((x) => x.card));
       PEOPLE.length = 0;
       for (const x of ordered) PEOPLE.push({ person: x.person, a: x.a });
@@ -914,7 +917,7 @@ const bioFor = (p, lang) => {
     const rankOf = (el) => (rank.has(el.id.slice(4)) ? rank.get(el.id.slice(4)) : Infinity);
     [...abstractsEl.children]
       .sort((a, b) => rankOf(a) - rankOf(b))
-      .forEach((el) => abstractsEl.appendChild(el));
+      .forEach((el, i) => { el.style.setProperty('--i', i); abstractsEl.appendChild(el); });
   }
 
   const withNames = (line, lang) => esc(line).replace(/\{\{(.+?)\}\}/g, (_, key) => personLink(key.replace(/&amp;/g, '&'), lang));
