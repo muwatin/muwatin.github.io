@@ -477,6 +477,10 @@ const PROFILES = {
     photo: 'assets/people/kumar.webp',
     cutout: true,
   },
+  'حياة الطويل': {
+    photo: 'assets/people/altaweel.webp',
+    cutout: true,
+  },
 };
 
 // Bio text with [text](url) links: as HTML links (popup), or as plain text (cards)
