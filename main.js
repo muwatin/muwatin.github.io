@@ -445,6 +445,7 @@ const PROFILES = {
     photo: 'assets/people/meari.webp',
     cutout: true,
     bio: {
+      ar: 'أستاذة مساعدة في الأنثروبولوجيا في دائرة العلوم الاجتماعية والسلوكية ومعهد دراسات المرأة في جامعة بيرزيت. تشمل اهتماماتها الجغرافيا السياسية لإنتاج المعرفة، والنظرية النسوية لنزع الاستعمار، والحركات الثورية، ومنهجيات نزع الاستعمار. وتتركّز أبحاثها على تشكّل الذاتية الثورية في السياقات الاستعمارية، وعلى ممارسات الصمود لدى الأسرى السياسيين الفلسطينيين.',
       en: 'Assistant Professor of Anthropology in the Department of Social and Behavioral Sciences and the Institute of Women’s Studies at Birzeit University. Her interests include the geopolitics of knowledge production, decolonial feminist theory, revolutionary movements, and decolonising methodologies. Her research focuses on the formation of revolutionary subjectivity in colonial contexts and the practices of sumud among Palestinian political prisoners.',
     },
   },
@@ -453,6 +454,7 @@ const PROFILES = {
     cutout: true,
     bio: {
       ar: 'أكاديمي ومفكّر فلسطيني، ومن أبرز المثقفين الفلسطينيين في مجال الفكر السياسي والنقدي في السياق العربي. ساهم على نطاق واسع في تطوير الفكر السياسي والاجتماعي في فلسطين، وتميّز بتحليلاته النقدية للنيوليبرالية وسياسات الدولة وأطروحات ما بعد الحداثة، وله حضور بارز في النقاشات الفكرية حول القضية الفلسطينية وسبل مقاومة الاحتلال الإسرائيلي. يشغل منصب المدير العام لمؤسسة الدراسات الفلسطينية منذ عام 2020.',
+      en: 'Palestinian academic and thinker, and one of the foremost Palestinian intellectuals in the field of political and critical thought in the Arab context. He has contributed widely to the development of political and social thought in Palestine, and is known for his critical analyses of neoliberalism, state policies and the theses of postmodernism. He is a prominent voice in intellectual debates on the Palestinian cause and on the means of resisting the Israeli occupation. He has been Director General of the Institute for Palestine Studies since 2020.',
     },
   },
   'طلال شهوان': {
