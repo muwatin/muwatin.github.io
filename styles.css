@@ -1702,3 +1702,18 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
   .profile-dialog.abstract-dialog[open] { display: block; background: #FDFBF7; }
   .abstract-sheet { margin: 0 auto; min-height: 100%; }
 }
+
+/* ================================================================
+   Language toggle — the final say
+   Only the page language's copy is ever shown, anywhere on the page.
+   This is !important on purpose: the photo-card rules further up
+   (.participant-card.has-cutout .person-btn .card-figure .card-bio)
+   carry more specificity than the plain [data-i18n] rules near the
+   top, so they were overriding them and every photo card showed the
+   Arabic and the English bio at once. The doubled text also made the
+   card-figure tall, which floated the photo up off the card's bottom
+   edge. Keeping this last and !important means adding a new, more
+   specific card rule can never re-break the toggle.
+   ================================================================ */
+body[data-lang="ar"] [data-i18n="en"],
+body[data-lang="en"] [data-i18n="ar"] { display: none !important; }
