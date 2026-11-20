@@ -800,7 +800,7 @@ const bioFor = (p, lang) => {
           card.innerHTML = `
             <button class="person-btn" type="button">
               <span class="name" lang="${a.lang}" dir="${dirOf(a.lang)}">${nameHtml(person)}</span>
-              ${media}${cardBio(prof)}${prof.bio ? `<span class="card-more"><span data-i18n="ar">المزيد</span><span data-i18n="en" lang="en" dir="ltr">Read more</span></span>` : ''}
+              <span class="card-figure">${media}${cardBio(prof)}${prof.bio ? `<span class="card-more"><span data-i18n="ar">المزيد</span><span data-i18n="en" lang="en" dir="ltr">Read more</span></span>` : ''}</span>
             </button>`;
         } else {
           // Placeholder card (no photo yet): a large initial and the name, centred, the same size as a

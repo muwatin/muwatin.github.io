@@ -1621,3 +1621,84 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
 @media (max-width: 760px) {
   .profile-dialog:not(.abstract-dialog) { max-height: 92vh; max-height: 92dvh; overflow-y: auto; }
 }
+
+/* ================================================================
+   Photo cards, final layout: the portrait sits flush in the card's
+   bottom-left corner whether or not the person has a bio. The name is
+   centred on top; the bio (a short snippet) wraps beside the figure.
+   Earlier rules floated the photo under the name, which left a gap
+   below it on bio-less cards (e.g. Santosh Kumar, Talal Shahwan).
+   ================================================================ */
+.participant-card.has-cutout { overflow: hidden; }
+.participant-card.has-cutout .person-btn {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 255px;
+  padding: 20px 20px 0;             /* no bottom padding: the photo reaches the edge */
+}
+.participant-card.has-cutout .person-btn .name {
+  flex: none;
+  margin: 0 0 10px;
+  text-align: center;
+}
+.participant-card.has-cutout .person-btn .card-figure {
+  display: flow-root;               /* its own block context, contains the float */
+  margin-top: auto;                 /* pushes the photo block down to the card's bottom */
+  width: 100%;
+  min-height: 0;
+}
+.participant-card.has-cutout .person-btn .card-figure .cutout {
+  position: static;
+  float: left;
+  width: auto;
+  height: 185px;
+  margin: 0 12px 0 -20px;           /* flush with the card's left edge */
+  object-fit: contain;
+  object-position: left bottom;
+  shape-margin: 10px;
+  filter: drop-shadow(6px 4px 10px rgba(30, 27, 23, 0.28));
+}
+.participant-card.has-cutout .person-btn .card-figure .card-bio {
+  display: block;
+  margin: 0;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--ink);
+}
+.participant-card.has-cutout .person-btn .card-figure .card-more {
+  display: block;
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--wine);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* Talal Shahwan: his photo has a wide white margin above the head, so he
+   reads small — crop in on the upper body to bring him closer. */
+.participant-card.has-cutout .person-btn .card-figure .cutout[src*="shahwan"] {
+  width: 165px;
+  height: 200px;
+  object-fit: cover;
+  object-position: 50% 8%;
+}
+
+/* Download button under the Abstracts and Participants headings
+   (same style as the concept-note button) */
+.section-download { margin: 20px 0 0; text-align: center; }
+
+/* Long abstracts: keep the cream sheet at its full content height so it always
+   backs the text. Flexbox was shrinking it to the viewport, spilling the last
+   lines onto the transparent (blurred) backdrop — the garbled band on phones. */
+.abstract-sheet { flex-shrink: 0; }
+@media (max-width: 760px) {
+  /* Full-screen reading sheet: no vertical centring and a solid background,
+     so the cream always reaches every edge whatever the abstract's length. */
+  .profile-dialog.abstract-dialog,
+  .profile-dialog.abstract-dialog[open] { display: block; background: #FDFBF7; }
+  .abstract-sheet { margin: 0 auto; min-height: 100%; }
+}
