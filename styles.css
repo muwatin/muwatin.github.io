@@ -419,9 +419,10 @@ body[data-lang="en"] .rubric-num [data-i18n="ar"] { display: none; }
 }
 
 /* Program (off-white), below the light olive Participants */
+#about.block { background: var(--sand); } /* a deeper warm tone so it contrasts with the off-white homepage scrolling behind it */
 #program.block { background: #FDFBF7; } /* off-white, the same as the cards */
 #participants.block { background: #F0F1E4; } /* a very light olive, so the off-white cards stand out */
-.stage { background: #F7F8F9; } /* first screen: near-white with the faintest cool hint */
+.stage { background: #FDFBF7; } /* first screen: off-white, the same as Programme and the cards */
 #program-days { margin-top: 40px; }
 .program-day-trigger { font-size: clamp(24px, 2.4vw, 28px); color: var(--wine); }
 .program-session { margin-inline-start: 0; border-top-color: rgba(30, 27, 23, 0.12); }
