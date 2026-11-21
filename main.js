@@ -451,14 +451,14 @@ const PROFILES = {
     cutout: true,
   },
   'Basem Izbidi': {
-    photo: 'assets/people/izbidi.webp',
+    photo: 'assets/people/izbidi.webp?v=2',
     cutout: true,
     bio: {
       en: 'Teaches in the Department of Political Science and the Master’s programme in Democracy and Human Rights at Birzeit University. He holds a PhD in political theory from the University of Cincinnati. His research covers Hamas, state-building, political reform, democratisation, and the relationship between the West and the Islamic world. He is co-author of “The West and the Muslim World: The Muslim Position” (IFA, 2004) and co-editor of “Popular Protest in the New Middle East: Islamism and Post-Islamist Politics” (I.B. Tauris, 2014).',
     },
   },
   'ياسمين الجعبة': {
-    photo: 'assets/people/jubeh.webp',
+    photo: 'assets/people/jubeh.webp?v=2',
     cutout: true,
     bio: {
       en: 'Trainee researcher and Master’s student in the Democracy and Human Rights Programme at Birzeit University, currently working on a study titled “Transformations of Language and Consciousness among the Palestinian Elite under British Colonial Rule.”',
