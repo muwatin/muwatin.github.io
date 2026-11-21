@@ -268,6 +268,8 @@ const OTHER_PARTICIPANTS = [
   'Andrea Sangiovanni', 'Salim Vally',
   // Session chairs, in programme order
   'Basem Izbidi', 'George Giacaman', 'Basil Farraj', 'Lena Meari', 'Rahaf Salahat',
+  // Additional participants
+  'Nimer Sultany', 'Joyce Kashou',
 ];
 const ALL_ENTRIES = [
   ...OTHER_PARTICIPANTS.map((name) => ({ id: null, name, lang: 'ar', noPaper: true })), // listed first (hosts)
@@ -487,6 +489,27 @@ const PROFILES = {
       ar: 'باحث في العلوم الاجتماعية، وحاصل على درجة الماجستير في علم الاجتماع من جامعة بيرزيت.',
     },
   },
+  'Eman AlAsah': {
+    bio: {
+      ar: 'إيمان العصا باحثة أكاديمية ومنسقة في مبادرة كرامة، وأستاذة غير متفرغة في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت، متخصصة في دراسات ما بعد الاستعمار والدراسات الثقافية. حاصلة على درجة الماجستير من جامعة دورهام، ودرجة الدكتوراه في دراسات ما بعد الاستعمار من جامعة نورثمبريا في نيوكاسل. تتركز اهتماماتها البحثية على قضايا الاستعمار وما بعد الاستعمار وإنتاج المعرفة.',
+      en: 'Eman AlAsah is an academic researcher and coordinator at the Dignity Initiative and an adjunct faculty member in the Department of Philosophy and Cultural Studies at Birzeit University. She specializes in postcolonial and cultural studies. She holds a Master’s degree from Durham University and a PhD in Postcolonial Studies from Northumbria University in Newcastle. Her research interests focus on colonialism and post-colonialism and the production of knowledge.',
+    },
+  },
+  'Nimer Sultany': {
+    photo: 'assets/people/sultany.webp',
+    cutout: true,
+    bio: {
+      en: 'Dr Nimer Sultany is Professor of Law. He holds a Doctor of Juridical Science degree from Harvard Law School and was the recipient of the British Academy Fellowship and a Postdoctoral Fellowship at SUNY Buffalo Law School. Dr Sultany serves as the chair of the Centre for Palestine Studies and served as the elected chair of the Academic Assembly. He also serves as the Editor-in-Chief of the Palestine Yearbook of International Law, a leading journal for critical scholarship on Palestine and international law.',
+    },
+  },
+  'Joyce Kashou': {
+    photo: 'assets/people/kashou.webp',
+    cutout: true,
+    bio: {
+      ar: 'مسؤولة البرامج في معهد مواطن للديمقراطية وحقوق الإنسان في جامعة بيرزيت. حاصلة على درجة الماجستير في المساواة وحقوق الإنسان من جامعة غلاسغو ودرجة ماجستير ثانية في التنمية والنوع الاجتماعي من جامعة بيرزيت.',
+      en: 'Programmes Officer at Muwatin Institute for Democracy and Human Rights – Birzeit University. Holds two MA degrees in Equality and Human Rights from the University of Glasgow, and Gender and Development from Birzeit University. Ms. Kashou has previously worked as a researcher focusing on social and political research.',
+    },
+  },
 };
 
 // Bio text with [text](url) links: as HTML links (popup), or as plain text (cards)
@@ -528,6 +551,8 @@ const NAMES = {
   'Thalia Kruger': ['ثاليا كروجر', 'Thalia Kruger'],
   'Eman AlAsah': ['إيمان العصا', 'Eman AlAsah'],
   'إسلام نصر': ['إسلام نصر', 'Islam Nasr'],
+  'Nimer Sultany': ['نمر سلطاني', 'Nimer Sultany'],
+  'Joyce Kashou': ['جويس كاشو', 'Joyce Kashou'],
 };
 for (const [key, [ar, en]] of Object.entries(NAMES)) {
   PROFILES[key] = PROFILES[key] || {};
