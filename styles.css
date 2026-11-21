@@ -170,7 +170,7 @@ a[data-i18n], span[data-i18n] { display: inline-block; }
 .topbar nav a:hover { color: var(--wine); }
 
 /* Hero: a tall section; the stage is pinned while the threads gather, then the page scrolls over it */
-.hero { height: 260vh; position: relative; }
+.hero { height: 100vh; position: relative; } /* one screen: the pinned homepage; sections scroll over it */
 
 .stage {
   position: fixed;
@@ -727,14 +727,13 @@ footer.site-footer {
 /* Phones: title, then the threads, then the dates; no pinned scroll */
 @media (max-width: 820px) {
   .topbar nav { display: none; }
-  .hero { height: auto; }
   .stage {
-    position: relative;
-    height: auto;
+    height: 100vh;                 /* stays fixed (from the base rule) and pinned on phones too */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 16px;
-    padding: 88px 6vw 40px;
+    padding: 72px 6vw 40px;
   }
   .visual { position: relative; inset: auto; order: 2; height: 300px; margin-inline: -6vw; }
   .copy-top, .copy-bottom { position: static; }

@@ -1257,9 +1257,9 @@ initAccordions(document);
   const INTRO_LEN = 3600;
   const progress = () => {
     if (reduce) return 1;
-    if (mobileQuery.matches) return clamp((performance.now() - loadedAt - INTRO_DELAY) / INTRO_LEN);
-    // The page opens already partly drawn (START), so the first screen is never empty
-    return heroTotal > 0 ? START + (1 - START) * clamp(window.scrollY / heroTotal) : 1;
+    // The threads play on their own when the page opens, on every screen size; the
+    // homepage is pinned and the sections scroll over it rather than driving the draw.
+    return clamp((performance.now() - loadedAt - INTRO_DELAY) / INTRO_LEN);
   };
 
   let current = 0;
