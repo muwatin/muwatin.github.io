@@ -451,17 +451,29 @@ const PROFILES = {
     cutout: true,
   },
   'Basem Izbidi': {
+    photo: 'assets/people/izbidi.webp',
+    cutout: true,
     bio: {
       en: 'Teaches in the Department of Political Science and the Master’s programme in Democracy and Human Rights at Birzeit University. He holds a PhD in political theory from the University of Cincinnati. His research covers Hamas, state-building, political reform, democratisation, and the relationship between the West and the Islamic world. He is co-author of “The West and the Muslim World: The Muslim Position” (IFA, 2004) and co-editor of “Popular Protest in the New Middle East: Islamism and Post-Islamist Politics” (I.B. Tauris, 2014).',
     },
   },
   'ياسمين الجعبة': {
+    photo: 'assets/people/jubeh.webp',
+    cutout: true,
     bio: {
       en: 'Trainee researcher and Master’s student in the Democracy and Human Rights Programme at Birzeit University, currently working on a study titled “Transformations of Language and Consciousness among the Palestinian Elite under British Colonial Rule.”',
     },
   },
   'Santosh Kumar': {
-    photo: 'assets/people/kumar.webp',
+    photo: 'assets/people/kumar.webp?v=2',
+    cutout: true,
+  },
+  'Rahaf Salahat': {
+    photo: 'assets/people/salahat.webp',
+    cutout: true,
+  },
+  'Mohammad Allahham': {
+    photo: 'assets/people/allahham.webp',
     cutout: true,
   },
   'حياة الطويل': {
@@ -471,6 +483,9 @@ const PROFILES = {
   'إسلام نصر': {
     photo: 'assets/people/islam.webp',
     cutout: true,
+    bio: {
+      ar: 'باحث في العلوم الاجتماعية، وحاصل على درجة الماجستير في علم الاجتماع من جامعة بيرزيت.',
+    },
   },
 };
 
