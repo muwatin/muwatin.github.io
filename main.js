@@ -537,7 +537,7 @@ const NAMES = {
   'Bayan M. Arqawi': ['بيان عرقاوي', 'Bayan M. Arqawi'],
   'Tareq Sadeq': ['طارق صادق', 'Tareq Sadeq'],
   'حسن ايوب': ['حسن أيّوب', 'Hasan Ayoub'],
-  'Stefania Vlachou': ['ستيفانيا ڤلاخو', 'Stefania Vlachou'],
+  'Stefania Vlachou': ['ستيفانيا ڤلاتشو', 'Stefania Vlachou'],
   'خالدة جرار': ['خالدة جرّار', 'Khalida Jarrar'],
   'Mohammad Allahham': ['محمد اللحّام', 'Mohammad Allahham'],
   'أسيل حسين': ['أسيل حسين', 'Aseel Hussain'],
@@ -552,7 +552,7 @@ const NAMES = {
   'Eman AlAsah': ['إيمان العصا', 'Eman AlAsah'],
   'إسلام نصر': ['إسلام نصر', 'Islam Nasr'],
   'Nimer Sultany': ['نمر سلطاني', 'Nimer Sultany'],
-  'Joyce Kashou': ['جويس كاشو', 'Joyce Kashou'],
+  'Joyce Kashou': ['جويس قشوع', 'Joyce Kashou'],
 };
 for (const [key, [ar, en]] of Object.entries(NAMES)) {
   PROFILES[key] = PROFILES[key] || {};
