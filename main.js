@@ -300,8 +300,8 @@ const PROFILES = {
     photo: 'assets/people/hussein.png',
     cutout: true,
     bio: {
-      ar: 'طالبة ماجستير في برنامج الديمقراطية وحقوق الإنسان في جامعة بيرزيت. تعمل حالياً على إعداد دراسة بعنوان: "مستقبل منظومة حقوق الإنسان وإمكاناتها في سياق التحولات والأزمات المعاصرة للنظام العالمي"، التي تبحث في التحديات التي تواجه منظومة حقوق الإنسان في ظل التحولات الجيوسياسية والأزمات المتصاعدة في النظام العالمي، وإمكانات إعادة التفكير في أدوارها ووظائفها ضمن نظام عالمي متغير ومتحول.',
-      en: 'Master’s student in the Democracy and Human Rights Programme at Birzeit University. She is currently preparing a study entitled “The Future of the Human Rights System and Its Possibilities in the Context of Contemporary Transformations and Crises in the World Order.” The study examines the challenges facing the human rights system amid ongoing geopolitical transformations and escalating crises, and explores possibilities for rethinking its roles and functions within a changing global order.',
+      ar: 'باحثة متدربة وطالبة ماجستير في برنامج الديمقراطية وحقوق الإنسان في جامعة بيرزيت. تعمل حالياً على إعداد دراسة بعنوان: "مستقبل منظومة حقوق الإنسان وإمكاناتها في سياق التحولات والأزمات المعاصرة للنظام العالمي"، التي تبحث في التحديات التي تواجه منظومة حقوق الإنسان في ظل التحولات الجيوسياسية والأزمات المتصاعدة في النظام العالمي، وإمكانات إعادة التفكير في أدوارها ووظائفها ضمن نظام عالمي متغير ومتحول.',
+      en: 'Trainee researcher and Master’s student in the Democracy and Human Rights Programme at Birzeit University. She is currently preparing a study entitled “The Future of the Human Rights System and Its Possibilities in the Context of Contemporary Transformations and Crises in the World Order.” The study examines the challenges facing the human rights system amid ongoing geopolitical transformations and escalating crises, and explores possibilities for rethinking its roles and functions within a changing global order.',
     },
   },
   'Tareq Sadeq': {
@@ -463,7 +463,8 @@ const PROFILES = {
     photo: 'assets/people/jubeh.webp?v=2',
     cutout: true,
     bio: {
-      en: 'Trainee researcher and Master’s student in the Democracy and Human Rights Programme at Birzeit University, currently working on a study titled “Transformations of Language and Consciousness among the Palestinian Elite under British Colonial Rule.”',
+      ar: 'باحثة متدربة وطالبة ماجستير في برنامج الديمقراطية وحقوق الإنسان في جامعة بيرزيت. تعمل حالياً على إعداد دراسة بعنوان: "تحولات اللغة والوعي لدى النخبة الفلسطينية في سياق الاستعمار البريطاني"، التي تبحث في التحولات التي طرأت على الخطاب والوعي السياسي والاجتماعي للنخبة الفلسطينية خلال فترة الانتداب البريطاني.',
+      en: 'Trainee researcher and Master’s student in the Democracy and Human Rights Programme at Birzeit University. She is currently preparing a study entitled “Transformations of Language and Consciousness among the Palestinian Elite under British Colonial Rule,” which examines the shifts in the discourse and the political and social consciousness of the Palestinian elite during the British Mandate period.',
     },
   },
   'Santosh Kumar': {
