@@ -1193,7 +1193,7 @@ initAccordions(document);
   };
 
   const reveals = Array.from(document.querySelectorAll('[data-reveal]'));
-  const REVEAL_AT = [-0.12, -0.08, -0.04]; // edition, title, dates (all fully shown on the first screen)
+  const REVEAL_AT = [-0.12, -0.08, -0.04, 0]; // edition, title, dates, how to attend (all fully shown on the first screen)
 
   // Copy comes forward out of the screen
   const updateCopy = (p) => {
