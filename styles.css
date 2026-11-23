@@ -1137,6 +1137,8 @@ body[data-lang="ar"] .abstracts { direction: rtl; }
 #about .accordion { max-width: 820px; margin-inline: auto; }
 #about .prose { max-width: none; }
 #about .prose h3 { text-align: center; }
+/* The opening passage is always visible; the expand row below it carries the rest */
+.concept-lede { max-width: 820px; margin: 0 auto 10px; }
 
 /* Abstract cards: solid navy (same as the section), outlined so they still read as cards */
 .abstract-card,
@@ -1435,3 +1437,93 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
    ================================================================ */
 body[data-lang="ar"] [data-i18n="en"],
 body[data-lang="en"] [data-i18n="ar"] { display: none !important; }
+
+/* ================================================================
+   Accompanying activities: the book fair. A compact strip of covers
+   that scrolls sideways — swipe, the arrows, or the keyboard. The
+   track keeps the page's reading direction, so in Arabic the first
+   cover sits on the right. The section sits on the same warm sand as
+   the concept note, and each end of the strip fades out where more
+   covers are waiting, so they slide in and out of view.
+   ================================================================ */
+#activities.block { background: var(--sand); }
+#activities h2,
+#activities .lede { text-align: center; margin-inline: auto; }
+.books {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  /* The arrows are physical: ‹ stays on the left and › on the right in both languages.
+     Only the covers inside the track follow the reading direction. */
+  direction: ltr;
+}
+body[data-lang="ar"] .books-track { direction: rtl; }
+body[data-lang="en"] .books-track { direction: ltr; }
+.books-track {
+  display: flex;
+  gap: 18px;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 4px 2px 14px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(30, 27, 23, 0.25) transparent;
+  /* --fade-left / --fade-right are set by main.js: 0px at an end with nothing more to show */
+  --fade-left: 0px;
+  --fade-right: 0px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-left), #000 calc(100% - var(--fade-right)), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-left), #000 calc(100% - var(--fade-right)), transparent 100%);
+}
+.books-track li { flex: 0 0 auto; scroll-snap-align: start; }
+.books-track img {
+  display: block;
+  width: auto;
+  height: 210px;
+  border-radius: 4px;
+  box-shadow: 0 6px 16px rgba(30, 27, 23, 0.22);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+.books-track img:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(30, 27, 23, 0.3); }
+.books-track::-webkit-scrollbar { height: 6px; }
+.books-track::-webkit-scrollbar-thumb { background: rgba(30, 27, 23, 0.25); border-radius: 3px; }
+.books-track::-webkit-scrollbar-track { background: transparent; }
+.books-track:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
+
+.books-nav {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(30, 27, 23, 0.35);
+  border-radius: 50%;
+  background: none;
+  color: var(--navy);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+.books-nav:hover { background: var(--navy); color: var(--cream); }
+.books-nav:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.books-nav[disabled] { opacity: 0.3; cursor: default; }
+.books-nav[disabled]:hover { background: none; color: var(--navy); }
+
+@media (max-width: 640px) {
+  .books-track img { height: 170px; }
+  .books-track { gap: 14px; }
+  .books-nav { display: none; }   /* swipe instead; the arrows only crowd a phone */
+}
+@media (prefers-reduced-motion: reduce) {
+  .books-track { scroll-behavior: auto; }
+  .books-track img { transition: none; }
+  .books-track img:hover { transform: none; }
+}

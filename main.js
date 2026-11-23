@@ -198,8 +198,8 @@ const PROFILES = {
     photo: 'assets/people/kassis.webp',
     cutout: true,
     bio: {
-      ar: 'عضو الهيئة الأكاديمية في دائرة الفلسفة والدراسات الثقافية بجامعة بيرزيت، ومدير معهد مواطن للديمقراطية وحقوق الإنسان، وبرنامج الماجستير في الديمقراطية وحقوق الإنسان. تنطلق اهتماماته البحثية الراهنة من تراث فلسفة الممارسة، وتركّز على قضايا التحوّل الديمقراطي، ونزع الاستعمار والتحرّر، ومفهوم الكرامة والحياة اليومية، وأخلاقيات البحث العلمي، والفساد السياسي، والشعبوية.',
-      en: 'Faculty member in the Department of Philosophy and Cultural Studies at Birzeit University, and Director of the Muwatin Institute for Democracy and Human Rights and the Master’s Programme in Democracy and Human Rights. His current research interests are grounded in the tradition of the philosophy of praxis and focus on democratisation, decolonisation and emancipation, the concepts of dignity and everyday life, research ethics, political corruption, and populism.',
+      ar: 'مدير معهد مواطن للديمقراطيّة وحقوق الإنسان، ومدير مبادرة كرامة البحثيّة، وعضو الهيئة الأكاديميّة لدائرة الفلسفة والدراسات الثقافيّة، ومدير برنامج الماجستير في الديمقراطيّة وحقوق الإنسان. تقع اهتماماته البحثيّة الراهنة ضمن تراث فلسفة الممارسة، وتشمل: التحوُّل الديمقراطيّ؛ ونزع الاستعمار، والتحرُّر؛ ومفهوم الكرامة، والحياة اليوميّة؛ وأخلاق البحث العلميّ؛ والفساد السياسيّ؛ والشعبويّة.',
+      en: 'Director of Muwatin Institute for Democracy and Human Rights, director of the Dignity Initiative, faculty member at Department of Philosophy and Cultural Studies, and director of the MA Programme in Democracy and Human Rights at Birzeit University. His current research interests, embedded in the tradition of praxis, include democratisation, decolonisation and emancipation, the concept of dignity, the everyday, research ethics, political corruption, and populism.',
     },
   },
   'خالدة جرار': {
@@ -208,7 +208,7 @@ const PROFILES = {
     cutout: true,
     bio: {
       ar: 'باحثة متطوعة في معهد مواطن للديمقراطية وحقوق الإنسان، تعمل على بحث بعنوان "الأبعاد الطبقية والنوع اجتماعية للحركة الأسيرة وانعكاساتها في المشروع التحرري"، وأسيرة سابقة.',
-      en: 'Volunteer researcher at the Muwatin Institute. She is working on a study titled “The Class and Gender Dimensions of the Prisoner Movement and Their Reflections on the Liberation Project.” She is a former detainee in Israeli prisons.',
+      en: 'A volunteer researcher at the Muwatin Institute, working on a study titled “The Class and Gender Dimensions of the Prisoner Movement and Their Reflections on the Liberation Project.” She is a former detainee in Israeli prisons.',
     },
   },
   'أسيل حسين': {
@@ -216,8 +216,8 @@ const PROFILES = {
     photo: 'assets/people/hussein.webp',
     cutout: true,
     bio: {
-      ar: 'باحثة متدربة وطالبة ماجستير في برنامج الديمقراطية وحقوق الإنسان في جامعة بيرزيت. تعمل حالياً على إعداد دراسة بعنوان: "مستقبل منظومة حقوق الإنسان وإمكاناتها في سياق التحولات والأزمات المعاصرة للنظام العالمي"، التي تبحث في التحديات التي تواجه منظومة حقوق الإنسان في ظل التحولات الجيوسياسية والأزمات المتصاعدة في النظام العالمي، وإمكانات إعادة التفكير في أدوارها ووظائفها ضمن نظام عالمي متغير ومتحول.',
-      en: 'Trainee researcher and Master’s student in the Democracy and Human Rights Programme at Birzeit University. She is currently preparing a study entitled “The Future of the Human Rights System and Its Possibilities in the Context of Contemporary Transformations and Crises in the World Order.” The study examines the challenges facing the human rights system amid ongoing geopolitical transformations and escalating crises, and explores possibilities for rethinking its roles and functions within a changing global order.',
+      ar: 'باحثة متدربة في معهد مواطن للديمقراطية وحقوق الإنسان، وطالبة ماجستير في برنامج الديمقراطية وحقوق الإنسان في جامعة بيرزيت. تعمل حالياً على إعداد دراسة بعنوان: "مستقبل منظومة حقوق الإنسان وإمكاناتها في سياق التحولات والأزمات المعاصرة للنظام العالمي"، التي تبحث في التحديات التي تواجه منظومة حقوق الإنسان في ظل التحولات الجيوسياسية والأزمات المتصاعدة في النظام العالمي، وإمكانات إعادة التفكير في أدوارها ووظائفها ضمن نظام عالمي متغير ومتحول.',
+      en: 'Trainee Researcher at Muwatin Institute for Democracy and Human Rights and Master’s student in the Democracy and Human Rights Program at Birzeit University. She is currently preparing a study entitled "The Future of the Human Rights System and Its Possibilities in the Context of Contemporary Transformations and Crises in the World Order." The study examines the challenges facing the human rights system amid ongoing geopolitical transformations and escalating crises, and explores possibilities for rethinking its roles and functions within a changing global order.',
     },
   },
   'Tareq Sadeq': {
@@ -226,7 +226,7 @@ const PROFILES = {
     cutout: true,
     bio: {
       ar: 'عميد كلية الأعمال والاقتصاد وعضو الهيئة الأكاديمية في جامعة بيرزيت.',
-      en: 'Dean of the Faculty of Business and Economics and faculty member at Birzeit University.',
+      en: 'Dean of Faculty of Business and Economics and Faculty member at Birzeit University.',
     },
   },
   'Bayan M. Arqawi': {
@@ -234,8 +234,8 @@ const PROFILES = {
     photo: 'assets/people/arqawi.webp',
     cutout: true,
     bio: {
-      ar: 'عضو الهيئة الأكاديمية في دائرة العلوم المالية والمصرفية في جامعة بيرزيت منذ عام 2016. أنهت الدكتوراه في جامعة بوند في أستراليا. تَرتكز اهتماماتها البحثية في النظريات القانونية للتنمية المالية. عملت مديرة للتحليل المالي في قطاع الاتصالات وتكنولوجيا المعلومات قبل أن تلتحق بالحقل الأكاديمي. وهي كذلك ناشطة في حماية حقوق الحيوان.',
-      en: 'Faculty member at the Department of Banking and Finance at Birzeit University since 2016. She completed her PhD at Bond University in Australia. Her research focuses on legal theories of financial development. She served as Director of Financial Analysis in the ICT sector for three years before joining the academic field. She is also an animal rights activist.',
+      ar: 'عضو الهيئة الأكاديمية في دائرة العلوم المالية والمصرفية في جامعة بيرزيت منذ عام 2015. حاصلة على درجة الدكتوراه من جامعة بوند في أستراليا، حيث تناولت في أطروحتها نظريات القانون والتطور المالي. وقبل التحاقها بالعمل الأكاديمي، عملت مديرةً للتحليل المالي في قطاع تكنولوجيا المعلومات والاتصالات. تتمحور اهتماماتها البحثية حول الاقتصاد السياسي والتمويل والحوكمة والتنمية. وهي أيضاً ناشطة في حقوق الحيوان.',
+      en: 'Faculty member in the Department of Banking and Finance at Birzeit University since 2015. She holds a PhD from Bond University, Australia, where her doctoral research examined Legal Theories of Financial Development. Before joining academia, she worked as a Financial Analysis Manager in the ICT sector. Her research interests span political economy, finance, governance, and development. Beyond academia, Bayan is an animal rights activist.',
     },
   },
   'Thalia Kruger': {
@@ -243,7 +243,7 @@ const PROFILES = {
     photo: 'assets/people/kruger.webp',
     cutout: true,
     bio: {
-      ar: 'عضو الهيئة الاكاديمية في القانون الدولي الخاص في مجموعة أبحاث القانون والتنمية في جامعة أنتويرب. تتركز اهتماماتها حول القضايا القانونية العابرة للحدود والدور الذي يمكن أن يلعبه القانون لتعزيز حماية حقوق الإنسان للأشخاص في المواقف المهمشة أو تعريضها للخطر. وفي هذا السياق، عملت في مجال قانون الدولي للأسرة، والعقود الدولية، وقانون الإجراءات الدولي.',
+      ar: 'عضو الهيئة الأكاديمية في القانون الدولي الخاص في مجموعة أبحاث القانون والتنمية في جامعة أنتويرب. تتركز اهتماماتها حول القضايا القانونية العابرة للحدود والدور الذي يمكن أن يلعبه القانون لتعزيز حماية حقوق الإنسان للأشخاص في المواقف المهمشة أو تعريضها للخطر. وفي هذا السياق، عملت في مجال قانون الدولي للأسرة، والعقود الدولية، وقانون الإجراءات الدولي.',
       en: 'Professor of Private International Law at the Law & Development Research Group of the University of Antwerp. Her interests are cross-border legal issues and the role the law can play to enhance or endanger the protection of human rights for people in marginalised positions. In this context she has worked in international family law as well as international contracts and international procedural law.',
     },
   },
@@ -251,8 +251,8 @@ const PROFILES = {
     photo: 'assets/people/vally.webp',
     cutout: true,
     bio: {
-      ar: 'مدير مركز حقوق التعليم والتحوّل، ويشغل كرسيّ تعليم المجتمع والكبار والعمّال، وهو أستاذ زائر في جامعة نيلسون مانديلا. نال الدكتوراه من جامعة كوازولو-ناتال، بعد دراسته في جامعتَي ويتواترسراند ويورك، ودرّس محاضراً زائراً في جامعات يورك وكولومبيا وفيرجينيا وفورت هير. تتناول اهتماماته البحثية السياسات التعليمية والاجتماعية في صلتها بحقوق الإنسان والديمقراطية والعدالة الاجتماعية والاقتصادية.',
-      en: 'Director of the Centre for Education Rights and Transformation and Chair in Community, Adult and Worker Education. He is also a visiting professor at the Nelson Mandela Metropolitan University. He studied at Wits and York universities and completed his doctorate at UKZN, and has been a visiting lecturer at the universities of York, Columbia, Virginia and Fort Hare. His scholarly interests include educational and social policy as they relate to human rights, democracy and socio-economic justice.',
+      ar: 'يشغل كرسي المؤسسة الوطنية الجنوب أفريقية للبحوث في مجال تعليم المجتمع والكبار والعمال، ويعمل أستاذاً في كلية التربية بجامعة جوهانسبرغ. ومن أحدث الكتب التي شارك في تحريرها أربع مؤلفات هي: Education, Economy and Society، وReflections on Knowledge, Learning and Social Movements: History’s Schools، وThe University and Social Justice Across the Globe، وAgainst Racial Capitalism: The Selected Writings of Neville Alexander. وهو عضو في مجالس إدارة عدد من المؤسسات المهنية المحلية والمنظمات غير الحكومية، وناشط في حركات اجتماعية ومؤسسات تضامن مختلفة. كما أنه عضو مؤسس في حملة التضامن مع فلسطين وائتلاف حركة المقاطعة وسحب الاستثمارات وفرض العقوبات (BDS) في جنوب أفريقيا. ويولي اهتماماً خاصاً بالربط بين البحث الأكاديمي والقضايا المجتمعية، والمشاركة المجتمعية، والتضامن العالمي.',
+      en: 'South African National Research Foundation Chair in Community, Adult and Workers’ Education and a Professor in the University of Johannesburg\'s Education Faculty. His last four co-edited books are: Education, Economy and Society, Reflections on Knowledge, Learning and Social Movements: History’s Schools, The University and Social Justice Across the Globe and Against Racial Capitalism: The Selected Writings of Neville Alexander. Vally serves on the boards of various local professional and non-governmental organisations and is active in various social movements and solidarity organisations. He is a founding member of the Palestine Solidarity Campaign and the SA BDS Coalition. He has an abiding interest in linking academic scholarship with societal concerns, community participation and global solidarity.',
     },
   },
   // Links in a bio are written [text](url): they open in the popup; the short bio on a card shows the text only
@@ -260,163 +260,190 @@ const PROFILES = {
     photo: 'assets/people/grimm.webp',
     cutout: true,
     bio: {
-      ar: 'مدير مجموعة البحث الفضاءات الراديكالية في مركز INTERACT للأبحاث متعدّدة التخصّصات في السلام والنزاع في جامعة برلين الحرّة، وباحث مشارك في معهد دراسات الاحتجاج والحركات الاجتماعية (ipb) في برلين. يتناول عمله ديناميّات العنف السياسي وقمع الدولة، وظروف السياسة الراديكالية وآثارها، والمقاومة العنيفة واللاعنفية، وعمليّات التعبئة العابرة للحدود في مواجهة العنف. نال الدكتوراه في العلوم السياسية من مدرسة برلين للدراسات العليا في الثقافات والمجتمعات المسلمة. وبعدها شارك في إدارة مشروع SAFEResearch في جامعة غوتنبرغ لوضع معايير لإجراء بحث آمن وأخلاقي في سياقات النزاع.',
-      en: 'Director of the Research Group Radical Spaces at the INTERACT Center for Interdisciplinary Peace and Conflict Research at Freie Universität Berlin and an associate researcher at the Institute for the Study of Protest and Social Movements (ipb) in Berlin. His work focuses on the dynamics of political violence and state repression, the condition and effects of radical politics and (non)violent resistance as well as transnational mobilization processes in response to violence. He holds a PhD in political science from the Berlin Graduate Muslim Cultures and Societies. After his doctoral studies, he served as a co-director of the SAFEResearch project at the University of Gothenburg to develop standards for the conduct of safe and ethical research in conflict contexts.',
+      ar: 'مدير مجموعة البحث "الفضاءات الراديكالية" في مركز INTERACT للأبحاث متعددة التخصصات في السلام والنزاعات بجامعة برلين الحرة، وباحث مشارك في معهد دراسة الاحتجاج والحركات الاجتماعية (ipb) في برلين. تركز أبحاثه على ديناميات العنف السياسي وقمع الدولة، وظروف وتأثيرات السياسات الراديكالية وأشكال المقاومة العنيفة وغير العنيفة، إضافة إلى عمليات التعبئة العابرة للحدود استجابةً للعنف.',
+      en: 'Director of the Research Group Radical Spaces at the INTERACT Center for Interdisciplinary Peace and Conflict Research at Freie Universität Berlin and an associate researcher at the Institute for the Study of Protest and Social Movements (ipb) in Berlin. His work focuses on the dynamics of political violence and state repression, the condition and effects of radical politics and (non)violent resistance as well as transnational mobilization processes in response to violence.',
     },
   },
   'Diego Checa Hidalgo': {
     photo: 'assets/people/checa-hidalgo.webp',
     cutout: true,
     bio: {
-      ar: 'مؤرّخ وأكاديمي إسباني، أستاذ في دائرة التاريخ المعاصر ومدير [معهد دراسات السلام والنزاعات](http://www.ugr.es/en/staff/diego-checa-hidalgo) في جامعة غرناطة. تتناول أبحاثه تاريخ المقاومة اللاعنفية، وبناء السلام، وتحويل النزاعات الدولية.',
-      en: 'Spanish historian, professor in the Department of Contemporary History and director of the [Institute of Peace and Conflict Studies](http://www.ugr.es/en/staff/diego-checa-hidalgo) at the University of Granada. His research focuses on the history of nonviolent resistance, peacebuilding, and international conflict transformation.',
+      ar: 'محاضر في التاريخ المعاصر بجامعة غرناطة، ورئيس [معهد السلام والنزاعات](http://www.ugr.es/en/staff/diego-checa-hidalgo) في غرناطة، إسبانيا. وهو عضو في مجموعة البحث "شبكة العمل التدريبي للجنوب في مجال إنهاء الاستعمار" (STAND)، وعضو في المجموعة الخاصة المعنية بفلسطين وأمريكا اللاتينية التابعة لمجلس أمريكا اللاتينية للعلوم الاجتماعية (CLACSO). تتركز اهتماماته البحثية على تاريخ المقاومة المدنية والعمل اللاعنفي، وبناء السلام وحل النزاعات، والتاريخ المعاصر للعالم العربي.',
+      en: 'Lecturer in Contemporary History at the University of Granada. Head of the [Peace and Conflict Institute](http://www.ugr.es/en/staff/diego-checa-hidalgo) (Granada, Spain), a member of the South Training Action Network of Decoloniality (STAND) research group and a member of the CLACSO Special Group on Palestine and Latin America. His main research areas are History of Civil Resistance and Nonviolent Action, Peacebuilding and Conflict Resolution, and Contemporary History of the Arab World.',
     },
   },
   'Tamara Tamimi': {
     photo: 'assets/people/tamimi.webp',
     cutout: true,
     bio: {
-      ar: 'باحثة ومستشارة فلسطينية من مواليد القدس. حاصلة على الماجستير في قانون حقوق الإنسان من كلية الدراسات الشرقية والأفريقية (SOAS) في جامعة لندن، وتُعدّ حالياً أطروحة دكتوراه في القانون الدولي والقضية الفلسطينية في كلية الحقوق بجامعة كوينز في بلفاست. تقدّم استشارات لمؤسسات فلسطينية ودولية في البحث والمناصرة وتحليل الاقتصاد السياسي، وفي تطوير البرامج وتقييمها في مجالات المساواة بين الجنسين والقانون الدولي وحقوق الإنسان. ويتركّز عملها على الحق في التعليم، وحقوق الإقامة، والتراث الثقافي، والتحوّل الديمقراطي، والسياسات الاجتماعية.',
-      en: 'Palestinian researcher and consultant, born in Jerusalem. She holds an MA in Human Rights Law from SOAS, University of London, and is pursuing a PhD in international law and the Palestine question at Queen’s University Belfast School of Law. She advises Palestinian and international organisations on research, advocacy and political economy analysis, and on programme development and evaluation in gender equality, international law and human rights. Her work focuses on the right to education, residency rights, cultural heritage, democratisation and social policy.',
+      ar: 'باحثة متعددة التخصصات في المجالين الاجتماعي والقانوني، حاصلة على درجة الدكتوراه في القانون من جامعة كوينز بلفاست. تستند أبحاثها إلى تخصصات العلوم السياسية والعلاقات الدولية وعلم الاجتماع والتاريخ. كما تعمل مستشارة مستقلة في مجالات تحليل الاقتصاد السياسي، والبحث، والتطوير المؤسسي.',
+      en: 'Interdisciplinary sociolegal researcher with a PhD in Law from Queen’s University Belfast, whose work draws on political science, international relations, sociology and history. She also works as an independent consultant in political economy analysis, research and organisational development.',
     },
   },
   'Andrea Sangiovanni': {
     photo: 'assets/people/sangiovanni.webp',
     cutout: true,
     bio: {
-      ar: 'أستاذ الفلسفة في كينغز كوليدج لندن، وتتركّز أبحاثه في الفلسفة الأخلاقية والقانونية والسياسية المعاصرة. نال البكالوريوس والدكتوراه من جامعة هارفارد. وقبل انضمامه إلى دائرة الفلسفة في كينغز كوليدج عام 2007، كان زميلاً بحثياً في كلية بيمبروك بجامعة كامبريدج (2005–2007). وبين عامَي 2018 و2020 شغل منصب أستاذ النظرية الاجتماعية والسياسية في معهد الجامعة الأوروبية في فييزولي. قاد مشروعاً بحثياً حول التضامن في أوروبا بتمويل من مجلس البحوث الأوروبي (2018–2024). من مؤلّفاته «التضامن: طبيعته وأسسه وقيمته» (منشورات جامعة مانشستر، 2024، بوصول مفتوح)، الذي يضمّ خمس مقالات نقدية لكاثرين لو وسالي شولتز وراينر فورست وأفري كولرز وجاريد هولي، و«[إنسانية بلا كرامة: المساواة الأخلاقية والاحترام وحقوق الإنسان](http://www.hup.harvard.edu/catalog.php?isbn=9780674049215&content=reviews)» (منشورات جامعة هارفارد، 2017) حول فكرة المساواة الأخلاقية وأهميتها لحقوق الإنسان.',
-      en: 'Professor of Philosophy at King’s College London, working mainly in contemporary moral, legal and political philosophy. He received his BA and PhD from Harvard University. Before joining the Philosophy Department at KCL in 2007, he was Randall Dillard Research Fellow at Pembroke College, University of Cambridge (2005–2007). From 2018 to 2020 he was Professor of Social and Political Theory at the European University Institute, Fiesole. He led an ERC-funded project (Consolidator Grant, 2018–2024) on solidarity in Europe. He is the author of “Solidarity: Nature, Grounds, and Value” (Manchester University Press, 2024, open access), which includes five critical essays by Catherine Lu, Sally Scholz, Rainer Forst, Avery Kolers and Jared Holley, and “[Humanity without Dignity: Moral Equality, Respect, and Human Rights](http://www.hup.harvard.edu/catalog.php?isbn=9780674049215&content=reviews)” (Harvard University Press, 2017), on the idea of moral equality and its importance for human rights.',
+      ar: 'عضو الهيئة الأكاديمية في دائرة الفلسفة في كلية كينغز لندن، متخصص في الفلسفة الأخلاقية والقانونية والسياسية المعاصرة. شغل مناصب أكاديمية في جامعة كامبريدج والمعهد الجامعي الأوروبي. تتركز أبحاثه على التضامن، والمساواة الأخلاقية، وحقوق الإنسان. وهو مؤلف كتابي [Humanity without Dignity: Moral Equality, Respect, and Human Rights](http://www.hup.harvard.edu/catalog.php?isbn=9780674049215&content=reviews) (منشورات جامعة هارفارد، 2017)، وSolidarity: Nature, Grounds, and Value (منشورات جامعة مانشستر، 2024).',
+      en: 'Professor of Philosophy at King’s College London, specializing in contemporary moral, legal, and political philosophy. Held positions at the University of Cambridge and the European University Institute. His research focuses on solidarity, moral equality, and human rights. He is the author of [Humanity without Dignity: Moral Equality, Respect, and Human Rights](http://www.hup.harvard.edu/catalog.php?isbn=9780674049215&content=reviews) (Harvard University Press, 2017) and Solidarity: Nature, Grounds, and Value (Manchester University Press, 2024).',
     },
   },
   'القسيس منذر اسحق': {
     photo: 'assets/people/isaac.webp',
     cutout: true,
     bio: {
-      ar: 'قسّ ولاهوتي فلسطيني مسيحي، يرعى اليوم كنيسة الميلاد الإنجيلية اللوثرية في بيت لحم والكنيسة اللوثرية في بيت ساحور. وهو العميد الأكاديمي لكلية بيت لحم للكتاب المقدّس، ومدير مؤتمرات «المسيح عند الحاجز» المعروفة والمؤثّرة، وتشغله قضايا اللاهوت الفلسطيني. درس الهندسة المدنية في جامعة بيرزيت، ثم نال الماجستير في الدراسات الكتابية من كلية وستمنستر اللاهوتية، والدكتوراه من مركز أكسفورد لدراسات الرسالة.',
-      en: 'Munther Isaac is a Palestinian Christian pastor and theologian. He now pastors the Evangelical Lutheran Christmas Church in Bethlehem and the Lutheran Church in Beit Sahour. He is also the academic dean of Bethlehem Bible College, and is the director of the highly acclaimed and influential Christ at the Checkpoint conferences. Munther is passionate about issues related to the Palestinian theology. Munther originally studied civil engineering in Birzeit University in Palestine. He then obtained a Master in Biblical Studies from Westminster Theological Seminary and then a PhD from the Oxford Centre for Mission Studies.',
+      ar: 'راعي كنيسة الرجاء الإنجيلية اللوثرية في رام الله، عضو مجلس إدارة المبادرة المسيحية الفلسطينية "كايروس فلسطين". نال شهادة الدكتوراة في دراسات الكتاب المقدس من مركز أوكسفورد للدراسات الارسالية في بريطانيا، وكتب أطروحته عن موضوع لاهوت أرض الميعاد. من أحدث منشوراته "المسيح بين الأنقاض: الإيمان والكتاب المقدس والإبادة الجماعية في غزة" (2025).',
+      en: 'Pastor of the Evangelical Lutheran Church of Hope in Ramallah and a board member of the Palestinian Christian initiative Kairos Palestine. He holds a PhD in Biblical Studies from the Oxford Centre for Mission Studies in the United Kingdom, where his dissertation focused on the theology of the Promised Land. His recent publications include Christ in the Rubble: Faith, the Bible, and the Genocide in Gaza (2025).',
     },
   },
   'رفعت قسيس': {
     photo: 'assets/people/rifat-kassis.webp',
     cutout: true,
     bio: {
-      ar: 'ناشط فلسطيني في مجال حقوق الإنسان، وناشط سياسي ومجتمعي، وكاتب ومحاضر. اعتقلته إسرائيل وسجنته مرّات عدّة. وُلد في بيت ساحور لعائلة فلسطينية مسيحية، وأسّس عام 1991 الفرع الفلسطيني للمنظمة الدولية لحقوق الطفل، الحركة العالمية للدفاع عن الأطفال (DCI)، وانتُخب عام 2005 رئيساً للحركة الدولية، ثم أُعيد انتخابه لولاية أخرى في تشرين الأول/أكتوبر 2008. وفي عام 2014 أنهى عمله مديراً عاماً للحركة العالمية للدفاع عن الأطفال – فلسطين، وانتقل مؤقتاً إلى الأردن لقيادة برنامج الاتحاد اللوثري العالمي هناك.',
-      en: 'Rifat Kassis is a Palestinian human rights and political and community activist. He is an author and speaker. He has been arrested and imprisoned several times by Israel. Born in Beit Sahour to a Palestinian Christian family, he founded in 1991 the Palestinian section of the international child rights organization, Defence for Children International (DCI) and in 2005 he was elected President of the international movement. In October 2008, he was re-elected President for another term. In 2014, he concluded his work as General Director of Defense for Children International Palestine and moved temporarily to Jordan to lead the Lutheran World Federation program there.',
+      ar: 'ناشط حقوقي فلسطيني وكاتب ومدافع عن المقاومة الشعبية السلمية. أسّس الحركة العالمية للدفاع عن الأطفال – فرع فلسطين، وشغل لاحقاً منصب رئيس الحركة على المستوى الدولي. وهو أحد مؤلفي وثيقة كايروس فلسطين، ومنسق حركة كايروس فلسطين وائتلاف كايروس العالمي من أجل العدالة.',
+      en: 'Palestinian human rights activist, author, and advocate for nonviolent resistance. He founded Defence for Children International–Palestine (DCI) and served as President of its international movement. He is a co-author of the Kairos Palestine document and Coordinator of Kairos Palestine and the Global Kairos for Justice coalition.',
     },
   },
   'Sardar Saadi': {
     photo: 'assets/people/saadi.webp',
     cutout: true,
     bio: {
-      ar: 'أنثروبولوجي اجتماعي ثقافي متخصّص في الشرق الأوسط، ويركّز خصوصاً على السياسة والمجتمع الكرديّين. نال الدكتوراه في الأنثروبولوجيا الاجتماعية الثقافية من جامعة تورنتو عام 2020، بدعم من منحة جوزيف-أرمان بومباردييه من مجلس أبحاث العلوم الاجتماعية والإنسانية الكندي (SSHRC). تناولت أطروحته الديناميّات الحضرية للنضال الكردي من أجل تقرير المصير في ديار بكر، كردستان، وتنظر في انتقال المواجهة بين الحركة الكردية والدولة التركية من الجبال إلى المدينة، وكيف حوّل ذلك السياسة الكردية نحو إقامة حكم ذاتي ديمقراطي كردي في المنطقة وتطوير أشكال جديدة من التعامل مع الدولة.',
-      en: 'Sociocultural anthropologist specializing in the Middle East, with a particular focus on Kurdish politics and society. He earned his PhD in Sociocultural Anthropology from the University of Toronto in 2020, supported by a SSHRC Joseph-Armand Bombardier scholarship. His dissertation examined the urban dynamics of the Kurdish struggle for self-determination in Diyarbakir, Kurdistan. This study looks at the shift of confrontation between the Kurdish movement and the Turkish state from mountains to the city, and how it has transformed Kurdish politics toward establishing a Kurdish democratic autonomy in the region and developing new forms of engagement with the state.',
+      ar: 'عالم أنثروبولوجيا ثقافية اجتماعية، تتركز أبحاثه على السياسة الكردية، وحركات المقاومة، والحكم الذاتي الديمقراطي، والنضالات المناهضة للاستعمار في الشرق الأوسط. تتناول أعماله التنظيم السياسي القاعدي، والتضامن العابر للحدود الوطنية، وأشكال التعليم البديلة وإنتاج المعرفة، ولا سيما في كردستان وروج آفا.',
+      en: 'Sociocultural anthropologist whose research focuses on Kurdish politics, resistance movements, democratic autonomy, and decolonial struggles in the Middle East. His work explores grassroots political organizing, transnational solidarity, and alternative forms of education and knowledge production, particularly in Kurdistan and Rojava.',
     },
   },
   'Nadia Hindi Mediavilla': {
     photo: 'assets/people/hindi-mediavilla.webp',
     cutout: true,
     bio: {
-      ar: 'باحثة وأكاديمية إسبانية-عراقية، وأستاذة في قسم الدراسات السامية في جامعة غرناطة في إسبانيا. وُلدت في بغداد عام 1977، وتتخصّص في الدراسات العربية والإسلامية، مع تركيز خاص على الحركات النسوية في العالم العربي.',
-      en: 'Nadia Hindi Mediavilla is a Spanish-Iraqi scholar, researcher, and professor in the Department of Semitic Studies at the University of Granada in Spain. Born in Baghdad in 1977, she specializes in Arab and Islamic studies with a particular focus on feminist movements in the Arab world.',
+      ar: 'عضو الهيئة الأكاديمية في قسم الدراسات السامية بجامعة غرناطة. تناولت أطروحتها للدكتوراه العلاقة بين النسوية والقومية في العراق. وهي عضو في مجموعة البحث "الدراسات العربية المعاصرة"، وباحثة في مشروع "التغييرات التشريعية في المغرب العربي". كما شاركت في حركات التضامن مع فلسطين والعراق، وهي عضو في الشبكة الجامعية من أجل فلسطين (RUxP) في إسبانيا.',
+      en: 'Senior Lecturer in the Department of Semitic Studies at the University of Granada. Her doctoral thesis examined the relationship between feminisms and nationalisms in Iraq. She is a member of the research group Contemporary Arab Studies (HUM-108) and a researcher on the project Legislative Changes in the Maghreb. She has been involved in solidarity movements with Palestine and Iraq and is a member of the University Network for Palestine (RUxP) in the Spanish State.',
     },
   },
   'حسن ايوب': {
     photo: 'assets/people/ayoub.webp',
     cutout: true,
     bio: {
-      ar: 'رئيس دائرة العلوم السياسية في جامعة النجاح الوطنية. تتركّز أبحاثه على التحوّلات في النظام السياسي الدولي، والسياسة الخارجية الأمريكية، والسياسة الفلسطينية، ويعمل في التدريب المهني في مجالات حلّ النزاعات والحكم الرشيد والديمقراطية وحقوق الإنسان. عمل في العام الأكاديمي 2020–2021 باحثاً زائراً في مركز دراسات الشرق الأوسط في جامعة دنفر، حيث صمّم مساقاً عن السلام والنزاع في الشرق الأوسط ودرّسه. ومن أبحاثه الحديثة «سياسات إدارة ترامب تجاه فلسطين: ذروة قوة الصهيونية المسيحية» المنشور في مجلة «دراسات» الصادرة عن الجامعة الأردنية.',
-      en: 'Head of the Political Science Department at An-Najah National University. His research focuses on shifts in the international political system, American foreign policy and Palestinian politics, and he is active in professional training on conflict resolution, good governance, democracy and human rights. In the 2020–2021 academic year he was a visiting scholar at the Centre for Middle East Studies at the University of Denver, where he designed and taught a course on peace and conflict in the Middle East. His recent work includes “Trump Administration Policies Toward Palestine: The Climax of Christian-Zionist Power”, published in Dirasat, the University of Jordan journal.',
+      ar: 'باحث محلل في الشأن الفلسطيني والسياسة الأمريكية والعلاقات الدولية. منسق برنامج دكتوراه العلوم السياسية ومنسق وحدة دراسات الهجرة واللجوء في جامعة النجاح الوطنية. حاصل على درجة الدكتوراه في السياسة الدولية والسياسات المقارنة من جامعة دنفر في الولايات المتحدة الأمريكية. أستاذ زائر في جامعة دنفر 2020 وفي جامعة ألينوي-شامبين 2023.',
+      en: 'A researcher analyst specializing in Palestinian affairs, U.S. politics, and international relations. He serves as the coordinator of the Ph.D. program in Political Science and the Migration and Refugee Studies Unit at An-Najah National University. He holds a Ph.D. in International Politics and Comparative Politics from the University of Denver in the United States. He was a visiting professor at the University of Denver in 2020 and at the University of Illinois Urbana-Champaign in 2023.',
     },
   },
   'Belén Habboob Martos': {
     photo: 'assets/people/habboob-martos.webp',
     cutout: true,
     bio: {
-      ar: 'باحثة إسبانية في مرحلة ما قبل الدكتوراه وأنثروبولوجية اجتماعية في [جامعة غرناطة](http://www.ugr.es/en/staff/belen-habboob-martos)، تتخصّص في فلسطين وبلاد الشام ودراسات المرأة والنوع الاجتماعي. تعمل ضمن الكادر التدريسي والبحثي قيد التأهيل (بعقد ما قبل الدكتوراه FPU) في قسم الأنثروبولوجيا الاجتماعية.',
-      en: 'Belén Habboob Martos is a Spanish predoctoral researcher and social anthropologist at the [University of Granada (UGR)](http://www.ugr.es/en/staff/belen-habboob-martos), specializing in Palestine, the Levant, and women\'s and gender studies. She works as a teaching and research staff member in training (FPU predoctoral contract) in the Department of Social Anthropology.',
+      ar: 'طالبة دكتوراه وباحثة وعضو الهيئة الأكاديمية في مرحلة ما قبل الدكتوراه بقسم الأنثروبولوجيا الاجتماعية في [جامعة غرناطة](http://www.ugr.es/en/staff/belen-habboob-martos). تتركز اهتماماتها البحثية في الأنثروبولوجيا النسوية، مع التركيز على الفاعلية السياسية للمرأة الفلسطينية، والتهجير، والهوية. وهي عضو في مجموعة البحث (OTRAS) "المنظورات النسوية في البحث الاجتماعي" (SEJ-430)، وناشطة في الحركات الاجتماعية المدافعة عن الحقوق الفلسطينية منذ أكثر من عقد.',
+      en: 'PhD Candidate and Predoctoral Teaching and Research Associate in the Department of Social Anthropology at the [University of Granada](http://www.ugr.es/en/staff/belen-habboob-martos). Her research interests lie in feminist anthropology, focusing on Palestinian women’s political agency, displacement and identity. She is a member of the research group OTRAS: Feminist Perspectives in Social Research (SEJ-430) and has been involved in social movements advocating for Palestinian rights for over a decade.',
     },
   },
   'Basil Farraj': {
     photo: 'assets/people/farraj.webp',
     cutout: true,
     bio: {
-      ar: 'مدير معهد إبراهيم أبو لغد للدراسات الدولية، وأستاذ مساعد في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت. نال الدكتوراه في الأنثروبولوجيا وعلم الاجتماع من معهد جنيف للدراسات العليا، وتتناول أبحاثه تقاطعات الذاكرة والمقاومة والفن لدى الأسرى وغيرهم ممّن يقع عليهم العنف. أجرى أبحاثاً في عدّة بلدان، منها تشيلي وكولومبيا وفلسطين.',
-      en: 'Basil Farraj is the Director of the Ibrahim Abu Lughod Institute of International Studies and an assistant professor at the Department of Philosophy and Cultural Studies at Birzeit University. He holds a PhD in Anthropology and Sociology from the Geneva Graduate Institute, and his research addresses the intersections of memory, resistance, and art by prisoners and others at the receiving end of violence. Basil has conducted research in several countries, including Chile, Colombia, and Palestine.',
+      ar: 'مدير معهد إبراهيم أبو لغد للدراسات الدولية، وعضو الهيئة الأكاديمية في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت. تركز أبحاثه على السجناء السياسيين وعنف السجون وممارسات السجناء لمواجهة أنظمة السجون، كما يتطرق إلى تبادل الخبرات بين الأنظمة السجنيّة عالميًا.',
+      en: 'The director of the Ibrahim Abu-Lughod Institute of International Studies and Faculty member in Philosophy and Cultural Studies at Birzeit University. His research focuses on political prisoners, carceral violence, and prisoners’ confrontation practices against carceral regimes. His work also investigates the circulation of knowledge and practices across various carceral regimes.',
     },
   },
   'Lena Meari': {
     photo: 'assets/people/meari.webp',
     cutout: true,
     bio: {
-      ar: 'أستاذة مساعدة في الأنثروبولوجيا في دائرة العلوم الاجتماعية والسلوكية ومعهد دراسات المرأة في جامعة بيرزيت. تشمل اهتماماتها الجغرافيا السياسية لإنتاج المعرفة، والنظرية النسوية لنزع الاستعمار، والحركات الثورية، ومنهجيات نزع الاستعمار. وتتركّز أبحاثها على تشكّل الذاتية الثورية في السياقات الاستعمارية، وعلى ممارسات الصمود لدى الأسرى السياسيين الفلسطينيين.',
-      en: 'Assistant Professor of Anthropology in the Department of Social and Behavioral Sciences and the Institute of Women’s Studies at Birzeit University. Her interests include the geopolitics of knowledge production, decolonial feminist theory, revolutionary movements, and decolonising methodologies. Her research focuses on the formation of revolutionary subjectivity in colonial contexts and the practices of sumud among Palestinian political prisoners.',
+      ar: 'عضو الهيئة الأكاديمية في دائرة العلوم الاجتماعية والسلوكية ومعهد دراسات المرأة في جامعة بيرزيت، والرئيسة السابقة لنقابة أساتذة وموظفي الجامعة. يتركز تدريسها وأبحاثها على الحركات المناهضة للاستعمار، والنظرية والمنهجية النسوية المتحررة من الاستعمار، وعلم النفس التحرري. وينصب تركيز بحثها الأساسي على فحص فلسفة وممارسة "الصمود" الفلسطيني في السجون الاستعمارية، وكيف تربك ممارسة الصمود النظام الاستعماري وعلاقات القوة. وتنظِّر من خلال عملها للصمود باعتباره ذاتية علائقية، سياسية-نفسية-عاطفية، تصوغ إمكانات جديدة للممارسة السياسية خارج الأطر السياسية المطبَّعة.',
+      en: 'Faculty member at the Department of Social and Behavioral Sciences and the Institute of Women’s Studies at Birzeit University, and the former head of its Union of Professors and Employees. Her teaching and research centers on anti-colonial movements, de-colonial feminist theory and methodology and liberation psychology. Her focus has been to examine the philosophy and practice of Palestinian Sumud (steadfastness) in colonial prisons and how it disrupts the colonial order and power relation. Through her work, she theorizes this Sumud as a relational, political-psycho-affective subjectivity that forges new possibilities for political praxis outside normalized political frameworks.',
     },
   },
   'George Giacaman': {
     photo: 'assets/people/giacaman.webp',
     cutout: true,
     bio: {
-      ar: 'أكاديمي ومفكّر فلسطيني، ومن أبرز المثقفين الفلسطينيين في مجال الفكر السياسي والنقدي في السياق العربي. ساهم على نطاق واسع في تطوير الفكر السياسي والاجتماعي في فلسطين، وتميّز بتحليلاته النقدية للنيوليبرالية وسياسات الدولة وأطروحات ما بعد الحداثة، وله حضور بارز في النقاشات الفكرية حول القضية الفلسطينية وسبل مقاومة الاحتلال الإسرائيلي. يشغل منصب المدير العام لمؤسسة الدراسات الفلسطينية منذ عام 2020.',
-      en: 'Palestinian academic and thinker, and one of the foremost Palestinian intellectuals in the field of political and critical thought in the Arab context. He has contributed widely to the development of political and social thought in Palestine, and is known for his critical analyses of neoliberalism, state policies and the theses of postmodernism. He is a prominent voice in intellectual debates on the Palestinian cause and on the means of resisting the Israeli occupation. He has been Director General of the Institute for Palestine Studies since 2020.',
+      ar: 'عضو هيئة تدريس معتمد في جامعة بيرزيت. عمل سابقا كرئيس لدائرة الفلسفة والدراسات الثقافية وكعميد لكلية الآداب، وكعميد مؤسس لكلية الدراسات العليا في نفس الجامعة. متخصص في الفلسفة وتاريخها بما في ذلك الفلسفة الإسلامية مع اهتمام خاص بالغزالي وابن رشد. له عدة دراسات منشورة في دوريات متخصصة ومؤلف و/أو محرر لأربعة كتب، ويكتب التحليل السياسي وحول قضايا مجتمعية لعدد من وسائل الإعلام الفلسطينية والعربية والأجنبية.',
+      en: 'Faculty member at Birzeit University. Served in the past as Chair of the Department of Philosophy and Cultural Studies, and Dean of the Faculty of Arts, and Founding Dean, Faculty of Graduate Studies at BZU. Specializes in Philosophy and its history including Islamic Philosophy with special interest in Ghazali and Averroes. He has published several studies in specialized journals, and author and/or editor of four books, and writes on current issues for Palestinian, Arab and international papers and media outlets.',
     },
   },
   'طلال شهوان': {
     photo: 'assets/people/shahwan.webp',
     cutout: true,
+    bio: {
+      ar: 'رئيس جامعة بيرزيت. حاصل على درجة الدكتوراه في الكيمياء من جامعة بيلكنت. شغل سابقاً عدة مناصب في جامعة بيرزيت، منها نائب الرئيس للشؤون الأكاديمية، وعميد كلية الدراسات العليا ورئيس لجنة البحث العلمي، ورئيس دائرة الكيمياء. تشمل أنشطته البحثية التطبيقات البيئية لتقنية الحديد النانوي، وامتزاز الملوثات المائية على المواد الطبيعية والمصنعة، والتشكيل المورفولوجي للكربونات. حصل على عدد من المنح والجوائز، وتم تصنيفه بانتظام في قوائم تحليل ستانفورد-إلسيفيير لأفضل 2٪ من باحثي العالم الأكثر اقتباساً.',
+      en: 'President of Birzeit University. He obtained his PhD degree in Chemistry from Bilkent University. Previously served at Birzeit University as Vice President for Academic Affairs, Dean of the Faculty of Graduate Studies and Head of Scientific Research Committee, and Chairperson of the Department of Chemistry. His research involves surface chemistry, radiochemistry, and physical chemistry. He received a number of honours, scholarships and awards, and was constantly ranked in the Stanford-Elsevier analysis lists of the top 2% of the most cited world scientists.',
+    },
   },
   'Bram J. De Smet': {
     photo: 'assets/people/de-smet.webp',
     cutout: true,
+    bio: {
+      ar: 'حاصل على درجة الدكتوراه في دراسات السلام والنزاعات. تناولت أبحاثه للدكتوراه المحو التدريجي لهوية الشعوب الأصلية وفاعليتها ومعارفها، محللاً هذه العمليات بوصفها أشكالاً من الإبادة الجماعية بالاستنزاف، التي تتكرس من خلال سياسات الجسد والسلطة الحيوية. ويركز مشروعه لما بعد الدكتوراه على كيفية تعامل حركات التضامن مع الإرهاق واليأس والقمع، مع الحفاظ على منظومات الرعاية والدعم، وعلى أثر تواطؤ الدولة في إعادة تشكيل الرؤى السياسية للناشطين وتصوراتهم للديمقراطية.',
+      en: 'Holds a PhD in Peace and Conflict Studies. His PhD research delved into the slow erasure of Indigenous peoples’ identity, agency and episteme, examining these processes as forms of genocide by attrition sustained through body politics and biopower. His postdoctoral project looks at how solidarity navigates exhaustion, despair and oppression while maintaining infrastructures of care and how state complicity reshaped activists’ political perspectives and democratic imaginaries.',
+    },
   },
   'Basem Izbidi': {
     photo: 'assets/people/izbidi.webp?v=2',
     cutout: true,
     bio: {
-      en: 'Teaches in the Department of Political Science and the Master’s programme in Democracy and Human Rights at Birzeit University. He holds a PhD in political theory from the University of Cincinnati. His research covers Hamas, state-building, political reform, democratisation, and the relationship between the West and the Islamic world. He is co-author of “The West and the Muslim World: The Muslim Position” (IFA, 2004) and co-editor of “Popular Protest in the New Middle East: Islamism and Post-Islamist Politics” (I.B. Tauris, 2014).',
+      ar: 'عضو الهيئة الأكاديمية في دائرة العلوم السياسية في جامعة بيرزيت. عمل مديراً لبرنامج الماجستير في الديمقراطية وحقوق الإنسان في معهد مواطن. كما عمل سابقاً مديراً لقسم التنمية السياسية والتخطيط في جامعة النجاح الوطنية.',
+      en: 'Faculty Member at the Department of Political Science at Birzeit University. Served as the director of the MA Programme of Democracy and Human Rights. He previously served as director of the MA programme in Planning & Political Development at An-Najah National University.',
     },
   },
   'ياسمين الجعبة': {
     photo: 'assets/people/jubeh.webp?v=2',
     cutout: true,
     bio: {
-      ar: 'باحثة متدربة وطالبة ماجستير في برنامج الديمقراطية وحقوق الإنسان في جامعة بيرزيت. تعمل حالياً على إعداد دراسة بعنوان: "تحولات اللغة والوعي لدى النخبة الفلسطينية في سياق الاستعمار البريطاني"، التي تبحث في التحولات التي طرأت على الخطاب والوعي السياسي والاجتماعي للنخبة الفلسطينية خلال فترة الانتداب البريطاني.',
-      en: 'Trainee researcher and Master’s student in the Democracy and Human Rights Programme at Birzeit University. She is currently preparing a study entitled “Transformations of Language and Consciousness among the Palestinian Elite under British Colonial Rule,” which examines the shifts in the discourse and the political and social consciousness of the Palestinian elite during the British Mandate period.',
+      ar: 'باحثة متدربة في معهد مواطن للديمقراطية وحقوق الإنسان، وطالبة ماجستير في برنامج الديمقراطية وحقوق الإنسان.',
+      en: 'Trainee Researcher at Muwatin Institute for Democracy and Human Rights and Master’s student in the Democracy and Human Rights Program at Birzeit University.',
     },
   },
   'Santosh Kumar': {
     photo: 'assets/people/kumar.webp?v=2',
     cutout: true,
+    bio: {
+      ar: 'باحث في مركز الدراسات العربية والأفريقية، وكلية دراسات اللغات والآداب والدراسات الثقافية، بجامعة جواهر لال نهرو، نيودلهي. يعمل في مجال الأدب المقارن ما بعد الاستعمار في الهند وفلسطين، مع التركيز على روايات غسان كنفاني والكاتب الهندي الماركسي بهيشام ساهني.',
+      en: 'Research Scholar at the Centre of Arabic and African Studies, and the School of Language, Literature and Culture Studies, in Jawaharlal Nehru University, New Delhi, India. Works in the field of postcolonial comparative literature, focusing on India and Palestine, with particular emphasis on the novels of Ghassan Kanafani and Indian Marxist writer Bhisham Sahni.',
+    },
   },
   'Rahaf Salahat': {
     photo: 'assets/people/salahat.webp',
     cutout: true,
+    bio: {
+      ar: 'عضو الهيئة الأكاديمية في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت، وحاصلة على درجة الماجستير في دراسات الشرق الأدنى من جامعة نيويورك.',
+      en: 'Faculty member at the Department of Philosophy and Cultural Studies at Birzeit University. She holds a Master’s in Near Eastern Studies from New York University.',
+    },
   },
   'Mohammad Allahham': {
     photo: 'assets/people/allahham.webp',
     cutout: true,
+    bio: {
+      ar: 'طالب دكتوراه في السنة الثانية في برنامج حقوق الإنسان والسياسة العالمية والاستدامة: المنظورات القانونية والفلسفية، في المدرسة الجامعية العليا سانت آنا للدراسات المتقدمة، بيزا، إيطاليا.',
+      en: 'Second-year PhD Candidate in Human Rights, Global Politics and Sustainability: Legal and Philosophical Perspectives at Sant\'Anna School of Advanced Studies, Pisa, Italy.',
+    },
   },
   'حياة الطويل': {
     photo: 'assets/people/altaweel.webp',
     cutout: true,
+    bio: {
+      ar: 'خريجة علوم سياسية من جامعة الخليل بتقدير امتياز، لديها خبرة في إعداد أوراق السياسات والعمل المجتمعي مع مؤسسات فلسطينية. تهتم بقضايا النيوليبرالية وتحولات النظام الدولي وحركات التضامن والعدالة الاجتماعية.',
+      en: 'A political science graduate from Hebron University, with distinction. Has experience in drafting policy papers and engaging in community work with Palestinian organizations. Her interests lie in issues surrounding neoliberalism, shifts in the international order, solidarity movements, and social justice.',
+    },
   },
   'إسلام نصر': {
     photo: 'assets/people/islam.webp',
     cutout: true,
     bio: {
       ar: 'باحث في العلوم الاجتماعية، وحاصل على درجة الماجستير في علم الاجتماع من جامعة بيرزيت.',
+      en: 'A social science researcher holding a Master’s degree in Sociology from Birzeit University.',
     },
   },
   'Eman AlAsah': {
     bio: {
-      ar: 'إيمان العصا باحثة أكاديمية ومنسقة في مبادرة كرامة، وأستاذة غير متفرغة في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت، متخصصة في دراسات ما بعد الاستعمار والدراسات الثقافية. حاصلة على درجة الماجستير من جامعة دورهام، ودرجة الدكتوراه في دراسات ما بعد الاستعمار من جامعة نورثمبريا في نيوكاسل. تتركز اهتماماتها البحثية على قضايا الاستعمار وما بعد الاستعمار وإنتاج المعرفة.',
-      en: 'Eman AlAsah is an academic researcher and coordinator at the Dignity Initiative and an adjunct faculty member in the Department of Philosophy and Cultural Studies at Birzeit University. She specializes in postcolonial and cultural studies. She holds a Master’s degree from Durham University and a PhD in Postcolonial Studies from Northumbria University in Newcastle. Her research interests focus on colonialism and post-colonialism and the production of knowledge.',
+      ar: 'باحثة مساعدة ومنسقة في مبادرة كرامة، وعضو هيئة أكاديمية في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت، متخصصة في دراسات ما بعد الاستعمار والدراسات الثقافية. حاصلة على درجة الماجستير من جامعة دورهام، ودرجة الدكتوراه في دراسات ما بعد الاستعمار من جامعة نورثمبريا في نيوكاسل. تتركز اهتماماتها البحثية على قضايا الاستعمار وما بعد الاستعمار وإنتاج المعرفة.',
+      en: 'Assistant researcher and coordinator at the Dignity Initiative and an adjunct faculty member in the Department of Philosophy and Cultural Studies at Birzeit University. She specializes in postcolonial and cultural studies. She holds a Master’s degree from Durham University and a PhD in Postcolonial Studies from Northumbria University in Newcastle. Her research interests focus on colonialism and post-colonialism and the production of knowledge.',
     },
   },
   'Nimer Sultany': {
     photo: 'assets/people/sultany.webp',
     cutout: true,
     bio: {
-      en: 'Dr Nimer Sultany is Professor of Law. He holds a Doctor of Juridical Science degree from Harvard Law School and was the recipient of the British Academy Fellowship and a Postdoctoral Fellowship at SUNY Buffalo Law School. Dr Sultany serves as the chair of the Centre for Palestine Studies and served as the elected chair of the Academic Assembly. He also serves as the Editor-in-Chief of the Palestine Yearbook of International Law, a leading journal for critical scholarship on Palestine and international law.',
+      ar: 'باحث قانوني وأكاديمي ومؤلف، وبروفيسور في القانون في كلية الدراسات الشرقية والأفريقية (سواس) بجامعة لندن. كما يرأس مركز الدراسات الفلسطينية في جامعة سواس، ويتولى منصب رئيس تحرير كتاب فلسطين السنوي للقانون الدولي.',
+      en: 'Legal scholar, academic, and author, he is a professor of law at the School of Oriental and African Studies (SOAS), University of London. He also directs the Centre for Palestine Studies at SOAS and serves as editor-in-chief of the "Palestine Yearbook of International Law."',
     },
   },
   'Joyce Kashou': {
@@ -425,6 +452,18 @@ const PROFILES = {
     bio: {
       ar: 'مسؤولة البرامج في معهد مواطن للديمقراطية وحقوق الإنسان في جامعة بيرزيت. حاصلة على درجة الماجستير في المساواة وحقوق الإنسان من جامعة غلاسغو ودرجة ماجستير ثانية في التنمية والنوع الاجتماعي من جامعة بيرزيت.',
       en: 'Programmes Officer at Muwatin Institute for Democracy and Human Rights – Birzeit University. Holds two MA degrees in Equality and Human Rights from the University of Glasgow, and Gender and Development from Birzeit University. Ms. Kashou has previously worked as a researcher focusing on social and political research.',
+    },
+  },
+  'Yara Al Hindi': {
+    bio: {
+      ar: 'باحثة مهتمة بتقديم العلوم ضمن سياقاتها المختلفة. حاصلة على درجة البكالوريوس في التمويل الاكتواري من جامعة بيرزيت، ولديها خبرة مهنية في قطاع التكنولوجيا المالية.',
+      en: 'Researcher with an interest in contextualizing science. Holds a bachelor’s degree in Actuarial Finance from Birzeit University and has professional experience in the financial technology industry.',
+    },
+  },
+  'Stefania Vlachou': {
+    bio: {
+      ar: 'باحثة قانونية ومرشحة لنيل درجة الدكتوراه في كلية الحقوق ومركز حقوق الإنسان والتعددية القانونية بجامعة ماكغيل. تتركز أبحاثها على القانون الدولي وحقوق الإنسان والهجرة القسرية، استناداً إلى أطروحتها للماجستير في القانون (LL.M.) حول الأطر القانونية الناظمة لشؤون اللاجئين. سبق لها أن شغلت منصب محررة مشاركة في مجلة ماكغيل لقانون التنمية المستدامة، وشاركت في مسابقة مانفريد لاكس للمحاكمات الصورية في قانون الفضاء.',
+      en: 'Legal researcher and doctoral candidate at McGill University’s Faculty of Law and Centre for Human Rights and Legal Pluralism. Her scholarship focuses on international law, human rights, and forced migration, building on her McGill LL.M. thesis examining the legal frameworks surrounding refugees. Previously, she served as an associate editor for the McGill Journal of Sustainable Development Law and competed in the Manfred Lachs Space Law Moot Court.',
     },
   },
 };
@@ -1261,4 +1300,38 @@ initAccordions(document);
   current = reduce ? progress() : 0; // ease in from empty on load
   redraw();
   run();
+})();
+
+// Accompanying activities: the arrows step the book strip by roughly one screenful, and the
+// strip fades at whichever end still has covers beyond it.
+// They are physical, not logical: the left arrow always scrolls left, in both languages.
+// scrollLeft runs 0..max in English and -max..0 in Arabic, which is what the ends check reads.
+(() => {
+  const track = document.querySelector(".books-track");
+  if (!track) return;
+  const left = document.querySelector(".books-left");
+  const right = document.querySelector(".books-right");
+
+  const step = () => Math.max(track.clientWidth * 0.8, 200);
+  left.addEventListener("click", () => track.scrollBy({ left: -step() }));
+  right.addEventListener("click", () => track.scrollBy({ left: step() }));
+
+  // Grey out an arrow once there is nothing more that way
+  const sync = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    const x = track.scrollLeft;
+    const rtl = getComputedStyle(track).direction === "rtl";
+    left.disabled = rtl ? x <= -max + 4 : x <= 4;
+    right.disabled = rtl ? x >= -4 : x >= max - 4;
+    // Fade an end only while there are more covers beyond it, so they dissolve in and out of view
+    const fade = Math.min(72, track.clientWidth * 0.12) + "px";
+    track.style.setProperty("--fade-left", left.disabled ? "0px" : fade);
+    track.style.setProperty("--fade-right", right.disabled ? "0px" : fade);
+  };
+  sync();
+  track.addEventListener("scroll", sync, { passive: true });
+  window.addEventListener("resize", sync);
+  document.addEventListener("langchange", () => { track.scrollLeft = 0; sync(); });
+  // the covers load lazily, so the scroll width only settles once they arrive
+  track.querySelectorAll("img").forEach((img) => img.addEventListener("load", sync, { once: true }));
 })();
