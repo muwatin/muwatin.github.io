@@ -182,7 +182,8 @@ a[data-i18n], span[data-i18n] { display: inline-block; }
   background: var(--sand);
   overflow: hidden;
   contain: layout paint;
-  will-change: transform;
+  /* No will-change here: the stage is fixed and never transformed, so promoting it only
+     held a screen-sized layer in GPU memory for the whole visit. */
 }
 
 /* The threads use the whole screen; the title sits above the cable and the dates below it */
@@ -276,53 +277,6 @@ body[data-lang="en"] .copy-bottom {
 .block-alt { background: var(--navy); color: var(--cream); }
 .block-alt h2 { color: var(--cream); }
 .lede { max-width: 680px; }
-
-/* Three cards on the first row, two centered below */
-.rubrics {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  margin: 36px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.rubrics li {
-  position: relative;
-  flex: 0 1 calc((100% - 48px) / 3);
-  background: var(--cream);
-  color: var(--ink);
-  padding: 28px 28px 32px;
-  border-top: 4px solid var(--gold);
-  font-size: 16px;
-}
-.rubric-num {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(28px, 3.2vw, 48px);
-  line-height: 1;
-  color: var(--gold);
-  opacity: 0.9;
-  margin-bottom: 16px;
-}
-.rubric-num [data-i18n] { display: block; }
-body[data-lang="ar"] .rubric-num [data-i18n="en"],
-body[data-lang="en"] .rubric-num [data-i18n="ar"] { display: none; }
-.rubrics li .rubric-label {
-  margin: 0 0 4px;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-}
-.rubrics li h3 {
-  font-size: 20px;
-  font-weight: 800;
-  line-height: 1.4;
-  color: var(--wine);
-  margin: 0 0 12px;
-}
-.rubrics li p { margin: 0; line-height: 1.7; }
 
 /* Accordion: smooth open/close via grid-template-rows */
 .accordion { border-top: 1px solid rgba(30, 27, 23, 0.3); }
@@ -425,33 +379,6 @@ body[data-lang="en"] .rubric-num [data-i18n="ar"] { display: none; }
 .stage { background: #FDFBF7; } /* first screen: off-white, the same as Programme and the cards */
 #program-days { margin-top: 40px; }
 .program-day-trigger { font-size: clamp(24px, 2.4vw, 28px); color: var(--wine); }
-.program-session { margin-inline-start: 0; border-top-color: rgba(30, 27, 23, 0.12); }
-.program-session .accordion-trigger { font-size: 18px; }
-.program-session .time {
-  flex: none;
-  min-width: 64px;
-  color: var(--slate);
-  font-variant-numeric: tabular-nums;
-}
-.program-papers {
-  list-style: none;
-  margin: 0;
-  padding: 4px 0 20px;
-  display: grid;
-  gap: 20px;
-}
-.program-paper {
-  padding-inline-start: 16px;
-  border-inline-start: 3px solid var(--sage);
-}
-.program-speaker {
-  font-weight: 700;
-  color: var(--wine);
-  text-decoration: none;
-}
-.program-speaker:hover { text-decoration: underline; }
-.program-paper-title { margin: 4px 0; font-weight: 500; }
-.program-paper-gist { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.6; }
 
 /* Participants (cream) */
 .participants {
@@ -487,28 +414,7 @@ body[data-lang="en"] .rubric-num [data-i18n="ar"] { display: none; }
 }
 .person-btn:hover .name { color: var(--wine); }
 .person-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 6px; }
-.participant-card .paper-link { align-self: flex-start; padding-inline-start: 66px; }
-.participant-card .avatar {
-  flex: none;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--wine);
-  color: var(--cream);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 20px;
-}
 .participant-card .name { margin: 0; font-weight: 700; line-height: 1.4; }
-.participant-card .paper-link {
-  font-size: 14px;
-  color: var(--wine);
-  text-decoration: none;
-}
-.participant-card .paper-link:hover { text-decoration: underline; }
 
 /* Abstracts (navy) */
 .abstracts {
@@ -546,17 +452,6 @@ body[data-lang="en"] .rubric-num [data-i18n="ar"] { display: none; }
   color: var(--gold-light);
   border-bottom: 1px solid rgba(244, 237, 225, 0.18);
   width: 60%;
-}
-.abstract-card .gist {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.75;
-  color: rgba(244, 237, 225, 0.82);
-}
-.abstract-card.flash { animation: flash 0.8s ease-out 0.3s; }
-@keyframes flash {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 150, 46, 0); background-color: rgba(244, 237, 225, 0.09); }
-  25%, 60% { box-shadow: 0 0 0 4px #C9962E, 0 0 32px 6px rgba(201, 150, 46, 0.55); background-color: rgba(201, 150, 46, 0.22); }
 }
 
 /* Floating profile card */
@@ -609,22 +504,7 @@ body[data-lang="en"] .rubric-num [data-i18n="ar"] { display: none; }
   font-size: 48px;
 }
 .profile-name { margin: 0 0 4px; font-size: 24px; color: var(--wine); }
-.profile-role { margin: 0 0 14px; font-weight: 700; color: var(--navy); }
 .profile-bio { margin: 0 0 20px; line-height: 1.75; font-size: 16px; }
-.profile-role.is-empty, .profile-bio.is-empty { color: var(--muted); font-weight: 400; font-style: italic; }
-.profile-abstract {
-  display: inline-block;
-  padding: 8px 22px;
-  border-radius: 999px;
-  background: var(--gold);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-}
-.profile-abstract:hover { background: var(--wine); }
-.abstract-card .name .person-btn { display: inline; width: auto; color: inherit; font: inherit; text-align: center; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color .2s; }
-.abstract-card .name .person-btn:hover { text-decoration-color: currentColor; }
-.abstract-card .name .sep { opacity: .5; margin: 0 .35em; }
 
 main { position: relative; z-index: 1; }
 
@@ -720,8 +600,6 @@ footer.site-footer {
   html { scroll-behavior: auto; }
   .profile-dialog[open] { animation: none; }
   .participant-card:hover { transform: none; }
-  .profile-paper-go [aria-hidden] { transition: none; transform: none !important; }
-  .abstract-card.flash { animation: none; box-shadow: 0 0 0 3px #C9962E; }
 }
 
 /* Phones: title, then the threads, then the dates; no pinned scroll */
@@ -742,10 +620,6 @@ footer.site-footer {
   .copy-top { order: 1; }
   .copy-bottom { order: 3; }
   .block { padding: 64px 6vw; }
-  .rubrics li { flex-basis: calc((100% - 24px) / 2); }
-}
-@media (max-width: 600px) {
-  .rubrics li { flex-basis: 100%; }
 }
 
 /* Title lines come forward out of the screen as they are revealed */
@@ -755,8 +629,7 @@ body[data-lang="en"] [data-reveal] { transform-origin: 0 50%; }
 /* Keyboard focus */
 .accordion-trigger:focus-visible,
 .lang-toggle:focus-visible,
-.topbar a:focus-visible,
-.program-speaker:focus-visible {
+.topbar a:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 4px;
   border-radius: 2px;
@@ -795,17 +668,6 @@ body[data-lang="en"] [data-reveal] { transform-origin: 0 50%; }
   object-position: 50% 0;
   pointer-events: none;
 }
-.has-cutout .paper-link {
-  position: absolute;
-  right: 18px;
-  bottom: 16px;
-  padding: 6px 16px;
-  border-radius: 999px;
-  background: var(--wine);
-  color: #fff;
-  font-size: 14px;
-}
-.has-cutout .paper-link:hover { text-decoration: none; background: var(--navy); }
 
 /* Profile popup with a cutout: same look, larger */
 .profile-dialog.has-cutout {
@@ -825,7 +687,6 @@ body[data-lang="en"] [data-reveal] { transform-origin: 0 50%; }
   object-fit: cover;
   object-position: 50% 0;
 }
-.profile-dialog.has-cutout .profile-role,
 .profile-dialog.has-cutout .profile-bio { margin-left: 200px; font-size: 15px; }
 .profile-dialog.has-cutout .profile-bio { margin-bottom: 120px; }
 .profile-dialog.has-cutout .profile-abstract { position: absolute; right: 22px; bottom: 20px; }
@@ -839,26 +700,10 @@ body[data-lang="en"] [data-reveal] { transform-origin: 0 50%; }
     linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%);
 }
 .participant-card.has-cutout { grid-column: span 2; grid-row: span 2; border-color: rgba(30, 27, 23, 0.2); }
-.has-cutout .person-btn .topic {
-  display: block;
-  margin-top: 10px;
-  margin-left: 180px; /* leaves the corner free for the photo */
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--ink);
-  font-weight: 500;
-}
-.has-cutout .person-btn .topic:empty { display: none; }
-.has-cutout .cutout { width: 190px; height: 215px; }
-.has-cutout .paper-link { right: 18px; }
 @media (max-width: 600px) { .participant-card.has-cutout { grid-column: auto; } }
 
 /* Popup: what they will speak on takes the place of a bio */
 .profile-kicker { display: block; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--wine); margin-bottom: 4px; }
-.profile-paper-title { margin: 0 0 8px; font-family: var(--font-display); font-weight: 800; font-size: 18px; line-height: 1.45; color: var(--ink); }
-.profile-paper-gist { margin: 0; font-size: 15px; line-height: 1.7; color: var(--muted); }
-.profile-dialog:not(.has-cutout) .profile-paper { text-align: center; margin-bottom: 20px; }
-.profile-dialog.has-cutout .profile-paper { margin-left: 200px; margin-bottom: 90px; }
 .profile-dialog.has-cutout .profile-bio { margin-bottom: 90px; }
 
 /* Cutout cards: no circle at the top; one soft disc behind the person, and a little depth on the photo */
@@ -876,10 +721,6 @@ body[data-lang="en"] [data-reveal] { transform-origin: 0 50%; }
 .has-cutout .cutout,
 .profile-dialog.has-cutout .profile-cutout { filter: drop-shadow(6px 4px 10px rgba(30, 27, 23, 0.32)); }
 
-/* Popup: the paper title spans the full width (fills the space above her head); the grey summary stays beside the photo */
-.profile-dialog.has-cutout .profile-paper { margin-left: 0; margin-bottom: 96px; }
-.profile-dialog.has-cutout .profile-paper-title { font-size: 24px; line-height: 1.4; margin-bottom: 14px; }
-.profile-dialog.has-cutout .profile-paper-gist { margin-left: 200px; }
 .profile-dialog.has-cutout { min-height: 420px; }
 
 /* The grids keep the same order in both languages; only each card's inner alignment follows the language */
@@ -890,21 +731,10 @@ body[data-lang="en"] .participant-card, body[data-lang="en"] .abstract-card { di
 /* Bio sits under the name, above what they will speak on; long text reads better aligned to the start */
 .profile-bio { text-align: start; font-size: 15px; margin: 6px 0 22px; padding-bottom: 18px; border-bottom: 1px solid rgba(30, 27, 23, 0.12); }
 .profile-dialog.has-cutout .profile-bio { margin: 6px 0 20px; }
-.profile-dialog:not(.has-cutout) .profile-paper { text-align: start; }
 
 /* Person popup: name, bio, and a small "Speaking on" link to their abstract. It never scrolls: it grows wider instead. */
 .profile-dialog { width: min(640px, 94vw); max-height: none; overflow: visible; padding: 36px 32px 28px; }
 .profile-bio { border-bottom: 0; padding-bottom: 0; margin: 8px 0 20px; font-size: 16px; }
-.profile-speaking {
-  display: inline-flex;
-  gap: 6px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--wine);
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
-}
-.profile-speaking:hover { color: var(--gold); }
 
 /* With a cutout photo: photo on the left, text in its own column beside it, no overlap */
 .profile-dialog.has-cutout {
@@ -923,91 +753,8 @@ body[data-lang="en"] .participant-card, body[data-lang="en"] .abstract-card { di
   .profile-dialog.has-cutout .profile-cutout { position: static; display: block; width: 170px; height: 200px; margin: 0 auto 12px; }
 }
 
-/* Abstract with a speaker photo, and optional full text behind "Read more" */
-.abstract-photo {
-  display: block;
-  width: 150px;
-  height: 170px;
-  margin: -8px auto 14px;
-  object-fit: cover;
-  object-position: 50% 0;
-  border-radius: 50% 50% 8px 8px / 60% 60% 8px 8px;
-  background: radial-gradient(circle at 50% 70%, rgba(201, 150, 46, 0.35) 0 55%, transparent 56%);
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
-}
-.abstract-full { margin-top: 16px; text-align: start; line-height: 1.75; font-size: 16px; }
-.abstract-full p { margin: 0 0 12px; }
-.read-more {
-  margin-top: 16px;
-  padding: 8px 20px;
-  border: 1px solid var(--gold-light);
-  border-radius: 999px;
-  background: none;
-  color: var(--gold-light);
-  font: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.read-more:hover { background: var(--gold-light); color: var(--navy); }
-
-/* Rubric numbers in Muwatin green */
-.rubric-num { color: var(--green); opacity: 1; }
-
-/* Person popup: "Speaking on" label, then the paper title in bold as the link to the abstract */
-.profile-speaking-wrap { padding-top: 14px; border-top: 1px solid rgba(30, 27, 23, 0.12); text-align: start; }
-.profile-speaking-wrap .profile-kicker { margin-bottom: 6px; color: var(--green); }
-.profile-speaking {
-  display: inline;
-  border: 0;
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.45;
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: rgba(107, 30, 46, 0.35);
-  text-underline-offset: 5px;
-}
-.profile-speaking:hover { color: var(--wine); text-decoration-color: var(--wine); }
-
 /* Abstract cards: no gold line on top */
 .abstract-card { border-top: 1px solid rgba(244, 237, 225, 0.32); }
-
-/* Abstract with a speaker photo: photo in the bottom corner (no circle), title and summary beside it */
-.abstract-card.has-photo {
-  position: relative;
-  display: block;
-  min-height: 300px;
-  padding: 28px 26px 26px 200px;
-  text-align: start;
-  overflow: hidden;
-}
-.abstract-card.has-photo .abstract-photo {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 190px;
-  height: 230px;
-  margin: 0;
-  border-radius: 0;
-  background: none;
-  object-fit: cover;
-  object-position: 50% 0;
-  filter: drop-shadow(6px 4px 10px rgba(0, 0, 0, 0.35));
-}
-.abstract-card.has-photo .paper-title { text-align: start; font-size: 22px; }
-.abstract-card.has-photo .name { width: auto; }
-@media (max-width: 600px) {
-  .abstract-card.has-photo { padding: 24px 22px 230px; }
-  .abstract-card.has-photo .abstract-photo { width: 170px; height: 205px; }
-}
-@media (min-width: 760px) {
-  .abstract-card.has-photo { grid-column: 1 / -1; min-height: 280px; padding: 34px 40px 30px 250px; }
-  .abstract-card.has-photo .abstract-photo { width: 220px; height: 265px; }
-  .abstract-card.has-photo .paper-title { font-size: 26px; max-width: 760px; }
-  .abstract-card.has-photo .gist { max-width: 680px; font-size: 16px; }
-}
 
 /* Narrower, a little taller: popup with a cutout photo */
 .profile-dialog.has-cutout { width: min(600px, 94vw); min-height: 400px; padding: 36px 32px 30px 222px; }
@@ -1017,20 +764,6 @@ body[data-lang="en"] .participant-card, body[data-lang="en"] .abstract-card { di
   .profile-dialog.has-cutout { padding: 30px 24px 24px; min-height: 0; }
   .profile-dialog.has-cutout .profile-cutout { width: 170px; height: 200px; }
 }
-
-/* Abstract with a photo: back to a normal-width card; title across the top, summary beside the photo in the corner */
-.abstract-card.has-photo,
-.abstract-card.has-photo:is(*) { grid-column: auto; min-height: 400px; padding: 28px 26px 26px; }
-.abstract-card.has-photo .abstract-photo { width: 170px; height: 205px; }
-.abstract-card.has-photo .paper-title { font-size: 21px; max-width: none; }
-.abstract-card.has-photo .gist { margin-left: 165px; max-width: none; font-size: 15px; }
-/* Text uses the full width; the photo sits under it in the corner */
-.abstract-card.has-photo { min-height: 0; padding-bottom: 215px; }
-.abstract-card.has-photo .gist { margin-left: 0; }
-/* Summary sits beside the photo, so the space next to her is used */
-.abstract-card.has-photo { padding-bottom: 22px; }
-.abstract-card.has-photo .abstract-photo { width: 150px; height: 185px; }
-.abstract-card.has-photo .gist { margin-left: 150px; min-height: 165px; display: flex; align-items: center; }
 
 /* Participants: slightly narrower columns, so the photo card (two columns) is less wide */
 .participants { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
@@ -1075,69 +808,22 @@ body[data-lang="ar"] .has-cutout .card-more [data-i18n="en"],
 body[data-lang="en"] .has-cutout .card-more [data-i18n="ar"] { display: none; }
 .participant-card.has-cutout { min-height: 200px; }
 
-/* Portrait photos (e.g. Bayan): show the whole figure, standing in the corner */
-.cutout.tall,
-.profile-cutout.tall,
-.abstract-photo.tall { object-fit: contain; object-position: 0 100%; }
-.has-cutout .cutout.tall { left: 12px; height: 190px; }
 .has-cutout .person-btn .name { margin-left: 140px; position: relative; z-index: 1; }
 
 /* No decorative circles anywhere: plain backgrounds for photo cards and popups */
 .participant-card.has-cutout,
-.profile-dialog.has-cutout,
-.profile-dialog.has-cutout:not(.x) { background: linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%); }
-.abstract-photo { background: none; }
+.profile-dialog.has-cutout { background: linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%); }
 
-/* Tall photo, card: zoomed in a little (crops a bit off the bottom) */
-.has-cutout .cutout.tall { object-fit: cover; object-position: 50% 0; width: 140px; height: 200px; left: 8px; }
-/* Tall photo, popup: she stands taller, so more of her shows */
-.profile-dialog.has-cutout .profile-cutout.tall { height: 340px; width: 215px; object-position: 0 100%; }
-
-/* A regular (non-cutout) photo replaces the initial in the round badge */
-.participant-card .avatar-photo { object-fit: cover; object-position: 50% 25%; background: var(--sand); padding: 0; }
 .profile-photo { object-position: 50% 25%; }
 
-/* Tareq: the whole photo, flush with the card's left and bottom edges (his left shoulder runs off the card's side) */
-.has-cutout .cutout[src*="sadeq.png"] { left: 0; bottom: 0; width: auto; height: 190px; object-fit: contain; }
-.profile-dialog.has-cutout .profile-cutout[src*="sadeq.png"] { left: 0; width: auto; height: 250px; object-fit: contain; }
-.abstract-card.has-photo .abstract-photo[src*="sadeq.png"] { width: auto; height: 175px; object-fit: contain; }
-
-/* One look for every photo popup, matching Khalida's: same photo box, flush bottom-left, head-to-chest framing */
-.profile-dialog.has-cutout .profile-cutout,
-.profile-dialog.has-cutout .profile-cutout.tall,
-.profile-dialog.has-cutout .profile-cutout[src*="sadeq.png"] {
-  left: 0; bottom: 0; width: 210px; height: 265px; object-fit: cover; object-position: 50% 0;
-}
-.profile-dialog.has-cutout .profile-cutout[src*="sadeq.png"] { object-position: 0 0; }
 .profile-dialog.has-cutout { width: min(600px, 94vw); min-height: 400px; }
-
-/* Same for the photo cards in Participants, matching Khalida's card */
-.has-cutout .cutout,
-.has-cutout .cutout.tall {
-  left: 0; bottom: 0; width: 150px; height: 185px; object-fit: cover; object-position: 50% 0;
-}
-.has-cutout .cutout[src*="sadeq.png"] { width: auto; height: 185px; object-fit: contain; object-position: 0 100%; }
 
 /* Photo cards: the name on top, then the whole photo (never cropped) in the left corner, and the bio
    wrapping around the person's outline. The photo is a float whose shape is the photo itself. */
 .participant-card.has-cutout .person-btn { display: flow-root; height: 100%; padding: 20px 20px 0; }
 .participant-card.has-cutout .person-btn .name { margin: 0 0 6px; text-align: center; }
-.participant-card.has-cutout .person-btn .cutout {
-  position: static;
-  float: left;
-  width: auto;
-  height: 190px;
-  margin: 0 10px 0 -20px;
-  object-fit: fill;
-  shape-margin: 10px;
-  shape-image-threshold: 0.3;
-}
 .participant-card.has-cutout .person-btn .card-bio { display: block; margin: 0; overflow: visible; -webkit-line-clamp: unset; }
 .participant-card.has-cutout .person-btn .card-more { margin: 6px 0 16px; }
-.profile-dialog.has-cutout .profile-cutout[src*="checa-hidalgo.png"],
-.profile-dialog.has-cutout .profile-cutout[src*="grimm.png"],
-.profile-dialog.has-cutout .profile-cutout[src*="sangiovanni.png"],
-.profile-dialog.has-cutout .profile-cutout[src*="vally.png"] { object-fit: contain; object-position: 0 100%; }
 
 /* Previous / next participant: plain chevrons on the dark backdrop, either side of the popup */
 .profile-dialog { overflow: visible; }
@@ -1226,18 +912,6 @@ body[data-lang="ar"] .profile-prev, body[data-lang="en"] .profile-next { right: 
   color: var(--wine);
   text-align: start;
 }
-.profile-paper-quote::before,
-.profile-paper-quote::after {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1.7em;
-  line-height: 0;
-  vertical-align: -0.32em;
-  color: var(--gold);
-}
-.profile-paper-quote[dir="ltr"]::before { content: '\201C'; margin-right: 3px; }
-.profile-paper-quote[dir="ltr"]::after { content: '\201D'; margin-left: 2px; }
-.profile-paper-quote[dir="rtl"]::before { content: '\201D'; margin-left: 3px; }
-.profile-paper-quote[dir="rtl"]::after { content: '\201C'; margin-right: 2px; }
 .profile-paper-go { display: inline-flex; gap: 6px; margin-top: 10px; font-size: 14px; font-weight: 700; color: var(--green); }
 .profile-paper-go [aria-hidden] { transition: transform .2s; }
 body[data-lang="ar"] .profile-paper-card:hover .profile-paper-go [aria-hidden] { transform: translateX(-4px); }
@@ -1262,7 +936,6 @@ body[data-lang="en"] .profile-paper-card:hover .profile-paper-go [aria-hidden] {
 }
 .participant-card.has-cutout { min-height: 255px; }
 .has-cutout .person-btn .card-bio { margin-top: 0; }
-.has-cutout .cutout[src*="sadeq.png"] { height: 175px; }
 /* Text keeps a margin on the left; the photo still sits flush with the edge */
 .profile-dialog.has-cutout .profile-body { padding-left: 32px; }
 .profile-dialog.has-cutout .profile-body img.profile-cutout { margin-left: -32px; }
@@ -1295,8 +968,6 @@ body[data-lang="en"] .profile-paper-card:hover .profile-paper-go [aria-hidden] {
   text-align: center;
   text-wrap: balance;
 }
-.profile-paper-quote::before,
-.profile-paper-quote::after { content: none !important; }
 .profile-paper-go {
   display: inline-block;
   margin-top: 8px;
@@ -1314,8 +985,7 @@ body[data-lang="en"] .profile-paper-card:hover .profile-paper-go [aria-hidden] {
 .participant-card,
 .participant-card.has-cutout,
 .profile-dialog,
-.profile-dialog.has-cutout,
-.profile-dialog.has-cutout:not(.x) { background: #FDFBF7; }
+.profile-dialog.has-cutout { background: #FDFBF7; }
 
 /* ===== Participants: one even grid — a single alphabetical list of photo cards and placeholder cards ===== */
 #participants-list {
@@ -1354,28 +1024,7 @@ body[data-lang="en"] #participants-list { direction: ltr; }
 }
 .participant-card.is-placeholder .ph-avatar.ph-photo { object-fit: cover; object-position: 50% 25%; padding: 0; }
 .participant-card.is-placeholder .name { font-size: clamp(18px, 1.6vw, 21px); font-weight: 700; line-height: 1.4; }
-.participants-featured {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
-  gap: 16px;
-}
-.participants-rest {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-.participants-featured, .participants-rest { direction: ltr; }
-.participant-card.has-cutout,
-.participants-featured .participant-card { grid-column: auto; grid-row: auto; }
-
-/* Mudar: his wide photo shown whole (not cropped) in the card, with the text column moved over to make room */
-.has-cutout .cutout[src*="kassis"] { width: 168px; height: auto; max-height: 185px; object-fit: contain; object-position: 0 100%; }
-.participant-card:has(.cutout[src*="kassis"]) .card-bio,
-.participant-card:has(.cutout[src*="kassis"]) .card-more { margin-left: 160px; }
-/* Participants follow the reading direction, so the first person is top-right in Arabic and top-left in English */
-body[data-lang="ar"] .participants-featured, body[data-lang="ar"] .participants-rest { direction: rtl; }
-body[data-lang="en"] .participants-featured, body[data-lang="en"] .participants-rest { direction: ltr; }
+.participant-card.has-cutout { grid-column: auto; grid-row: auto; }
 
 /* Footer links to the privacy policy and disclaimer */
 .footer-legal { margin: 6px 0 0; font-size: 13px; }
@@ -1656,6 +1305,7 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
   object-fit: contain;
   object-position: left bottom;
   shape-margin: 10px;
+  shape-image-threshold: 0.3;       /* how much of the photo's edge counts as its outline */
   filter: drop-shadow(6px 4px 10px rgba(30, 27, 23, 0.28));
 }
 .participant-card.has-cutout .person-btn .card-figure .card-bio {

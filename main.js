@@ -37,93 +37,6 @@ const initAccordions = (root = document) => {
   });
 };
 
-// Rubrics: the five conference themes, in both languages.
-(() => {
-  const RUBRICS = [
-    {
-      ar: {
-        title: 'المحور الأول: مفهوم التضامن والتحولات التي طرأت عليه',
-        body: 'يسعى هذا المحور إلى إلقاء الضوء على مفهوم التضامن بشكل عام، والتحولات التي طرأت عليه على مدار السنوات الثلاث الماضية، وكيفية قراءة المفهوم اليوم من الناحية النظرية، والفرق بين التعاطف والتأييد والتضامن، والأبعاد السياسية للمفهوم.',
-      },
-      en: {
-        title: 'First Rubric: The Concept of Solidarity and Its Transformations',
-        body: 'This rubric seeks to shed light on the concept of solidarity more broadly, the transformations it has undergone over the past three years, how the concept can be understood theoretically today, the distinction between sympathy, support, and solidarity, and the political dimensions of the concept.',
-      },
-    },
-    {
-      ar: {
-        title: 'المحور الثاني: حركة التضامن مع فلسطين: تعاطف لحظي مع الضحية أم احتجاج على الوضع العالمي؟',
-        body: 'يناقش هذا المحور ماهية حركة التضامن العالمي مع فلسطين اليوم، وحدودها ومآلاتها، وإلى أي مدى تتقاطع التعبئة من أجل فلسطين مع القلق على مستقبل الشعوب الأخرى المهدد.',
-      },
-      en: {
-        title: 'Second Rubric: Momentary Sympathy with the Victim or Protest against the Global Condition?',
-        body: 'This rubric looks into the nature of the global solidarity movement with Palestine today, its limits and trajectories, and the extent to which mobilisation for Palestine intersects with concerns about the endangered future of other peoples.',
-      },
-    },
-    {
-      ar: {
-        title: 'المحور الثالث: الآفاق السياسية لحركة التضامن العالمي',
-        body: 'يناقش هذا المحور الآفاق السياسية لحركة التضامن العالمي مع فلسطين، وإمكانيات تحولها إلى حركة نضالية عالمية منظمة، والشروط التنظيمية والسياسية والمؤسسية الضرورية لذلك.',
-      },
-      en: {
-        title: 'Third Rubric: The Political Prospects for the Global Solidarity Movement',
-        body: 'This rubric examines the political prospects of the global solidarity movement with Palestine, and the organisational, political, and institutional conditions necessary for transforming it into a sustainable and organised international movement.',
-      },
-    },
-    {
-      ar: {
-        title: 'المحور الرابع: الوضع الداخلي الفلسطيني والمعيقات التي يضعها أمام النضال العالمي المشترك',
-        body: 'يناقش هذا المحور الوضع الداخلي الفلسطيني، والمحددات والمعيقات التي تضعها أزمات النظام السياسي الفلسطيني أمام تمكن الفلسطينيين من البناء على حركة التضامن الواسعة، وبناء التحالفات مع القوى التقدمية العالمية.',
-      },
-      en: {
-        title: 'Fourth Rubric: The Palestinian Domestic Condition and the Obstacles to a Shared Global Struggle',
-        body: 'This rubric examines the Palestinian domestic situation, the constraints posed by the crises of the Palestinian political system, and the prospects for building alliances with progressive forces around the world.',
-      },
-    },
-    {
-      ar: {
-        title: 'المحور الخامس: تقبّل حقوق الإنسان في ظل حركة التضامن',
-        body: 'يعرض هذا المحور لنقاش مستقبل حقوق الإنسان في ظل تفعيل آلية التضامن الأممي، وإمكانيات تحويل منظومة حقوق الإنسان إلى أداة تحررية تهدف إلى تحرير الإنسان وصون كرامته.',
-      },
-      en: {
-        title: 'Fifth Rubric: The Reception of Human Rights within the Solidarity Movement',
-        body: 'This rubric inspects the future of human rights in the context of activating transnational solidarity as a mechanism, and the possibilities for transforming the human rights system into an emancipatory instrument.',
-      },
-    },
-  ];
-
-  const list = document.getElementById('rubrics-list');
-  if (!list) return;
-
-  const split = (title) => {
-    const i = title.indexOf(':');
-    return [title.slice(0, i), title.slice(i + 1).trim()];
-  };
-  const arDigits = ['1', '2', '3', '4', '5']; // Western digits in Arabic too
-
-  RUBRICS.forEach((r, n) => {
-    const [arLabel, arTitle] = split(r.ar.title);
-    const [enLabel, enTitle] = split(r.en.title);
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <span class="rubric-num" aria-hidden="true">
-        <span data-i18n="ar">${arDigits[n]}</span>
-        <span data-i18n="en" lang="en" dir="ltr">0${n + 1}</span>
-      </span>
-      <div data-i18n="ar">
-        <p class="rubric-label">${arLabel}</p>
-        <h3>${arTitle}</h3>
-        <p>${r.ar.body}</p>
-      </div>
-      <div data-i18n="en" lang="en" dir="ltr">
-        <p class="rubric-label">${enLabel}</p>
-        <h3>${enTitle}</h3>
-        <p>${r.en.body}</p>
-      </div>`;
-    list.appendChild(li);
-  });
-})();
-
 // Papers, in programme order. Titles are given in both languages exactly as in the final programme
 // (Programme AR/EN 261116); `gist` is the summary of the submitted abstract, in its original language (`lang`).
 // Optional `abstract: { ar, en }` holds the full text in both languages (Full abstracts translated 261118; blank line
@@ -257,7 +170,7 @@ const titleIn = (a, lang) => {
 // Optional profile details, keyed by the person's name exactly as written above (one entry per person,
 // so co-authors of the same paper each get their own). Bios are per language: the popup shows the one
 // matching the page language, and falls back to the other if only one is available.
-//   'Name': { photo: 'assets/people/name.jpg', bio: { ar: '...', en: '...' } }
+//   'Name': { photo: 'assets/people/name.webp', bio: { ar: '...', en: '...' } }
 // Participants who are not presenting a paper (e.g. hosts, chairs). They appear in Participants with their
 // bio, but not under Abstracts or in the Programme, and their popup has no "Speaking on" part.
 const OTHER_PARTICIPANTS = [
@@ -279,7 +192,7 @@ const ALL_ENTRIES = [
 const PROFILES = {
   'مضر قسيس': {
     name: { ar: 'مضر قسيس', en: 'Mudar Kassis' },
-    photo: 'assets/people/kassis.png',
+    photo: 'assets/people/kassis.webp',
     cutout: true,
     bio: {
       ar: 'عضو الهيئة الأكاديمية في دائرة الفلسفة والدراسات الثقافية بجامعة بيرزيت، ومدير معهد مواطن للديمقراطية وحقوق الإنسان، وبرنامج الماجستير في الديمقراطية وحقوق الإنسان. تنطلق اهتماماته البحثية الراهنة من تراث فلسفة الممارسة، وتركّز على قضايا التحوّل الديمقراطي، ونزع الاستعمار والتحرّر، ومفهوم الكرامة والحياة اليومية، وأخلاقيات البحث العلمي، والفساد السياسي، والشعبوية.',
@@ -288,7 +201,7 @@ const PROFILES = {
   },
   'خالدة جرار': {
     name: { ar: 'خالدة جرار', en: 'Khalida Jarrar' },
-    photo: 'assets/people/jarrar.png',
+    photo: 'assets/people/jarrar.webp',
     cutout: true,
     bio: {
       ar: 'باحثة متطوعة في معهد مواطن للديمقراطية وحقوق الإنسان، تعمل على بحث بعنوان "الأبعاد الطبقية والنوع اجتماعية للحركة الأسيرة وانعكاساتها في المشروع التحرري"، وأسيرة سابقة.',
@@ -297,7 +210,7 @@ const PROFILES = {
   },
   'أسيل حسين': {
     name: { ar: 'أسيل حسين', en: 'Aseel Hussein' },
-    photo: 'assets/people/hussein.png',
+    photo: 'assets/people/hussein.webp',
     cutout: true,
     bio: {
       ar: 'باحثة متدربة وطالبة ماجستير في برنامج الديمقراطية وحقوق الإنسان في جامعة بيرزيت. تعمل حالياً على إعداد دراسة بعنوان: "مستقبل منظومة حقوق الإنسان وإمكاناتها في سياق التحولات والأزمات المعاصرة للنظام العالمي"، التي تبحث في التحديات التي تواجه منظومة حقوق الإنسان في ظل التحولات الجيوسياسية والأزمات المتصاعدة في النظام العالمي، وإمكانات إعادة التفكير في أدوارها ووظائفها ضمن نظام عالمي متغير ومتحول.',
@@ -306,7 +219,7 @@ const PROFILES = {
   },
   'Tareq Sadeq': {
     name: { ar: 'طارق صادق', en: 'Tareq Sadeq' },
-    photo: 'assets/people/sadeq.png?v=3',
+    photo: 'assets/people/sadeq.webp',
     cutout: true,
     bio: {
       ar: 'عميد كلية الأعمال والاقتصاد وعضو الهيئة الأكاديمية في جامعة بيرزيت.',
@@ -315,7 +228,7 @@ const PROFILES = {
   },
   'Bayan M. Arqawi': {
     name: { ar: 'بيان عرقاوي', en: 'Bayan M. Arqawi' },
-    photo: 'assets/people/arqawi.png',
+    photo: 'assets/people/arqawi.webp',
     cutout: true,
     bio: {
       ar: 'عضو الهيئة الأكاديمية في دائرة العلوم المالية والمصرفية في جامعة بيرزيت منذ عام 2016. أنهت الدكتوراه في جامعة بوند في أستراليا. تَرتكز اهتماماتها البحثية في النظريات القانونية للتنمية المالية. عملت مديرة للتحليل المالي في قطاع الاتصالات وتكنولوجيا المعلومات قبل أن تلتحق بالحقل الأكاديمي. وهي كذلك ناشطة في حماية حقوق الحيوان.',
@@ -324,7 +237,7 @@ const PROFILES = {
   },
   'Thalia Kruger': {
     name: { ar: 'ثاليا كروجر', en: 'Thalia Kruger' },
-    photo: 'assets/people/kruger.png',
+    photo: 'assets/people/kruger.webp',
     cutout: true,
     bio: {
       ar: 'عضو الهيئة الاكاديمية في القانون الدولي الخاص في مجموعة أبحاث القانون والتنمية في جامعة أنتويرب. تتركز اهتماماتها حول القضايا القانونية العابرة للحدود والدور الذي يمكن أن يلعبه القانون لتعزيز حماية حقوق الإنسان للأشخاص في المواقف المهمشة أو تعريضها للخطر. وفي هذا السياق، عملت في مجال قانون الدولي للأسرة، والعقود الدولية، وقانون الإجراءات الدولي.',
@@ -332,7 +245,7 @@ const PROFILES = {
     },
   },
   'Salim Vally': {
-    photo: 'assets/people/vally.png?v=2',
+    photo: 'assets/people/vally.webp',
     cutout: true,
     bio: {
       ar: 'مدير مركز حقوق التعليم والتحوّل، ويشغل كرسيّ تعليم المجتمع والكبار والعمّال، وهو أستاذ زائر في جامعة نيلسون مانديلا. نال الدكتوراه من جامعة كوازولو-ناتال، بعد دراسته في جامعتَي ويتواترسراند ويورك، ودرّس محاضراً زائراً في جامعات يورك وكولومبيا وفيرجينيا وفورت هير. تتناول اهتماماته البحثية السياسات التعليمية والاجتماعية في صلتها بحقوق الإنسان والديمقراطية والعدالة الاجتماعية والاقتصادية.',
@@ -341,7 +254,7 @@ const PROFILES = {
   },
   // Links in a bio are written [text](url): they open in the popup; the short bio on a card shows the text only
   'Jannis Julien Grimm': {
-    photo: 'assets/people/grimm.png?v=2',
+    photo: 'assets/people/grimm.webp',
     cutout: true,
     bio: {
       ar: 'مدير مجموعة البحث الفضاءات الراديكالية في مركز INTERACT للأبحاث متعدّدة التخصّصات في السلام والنزاع في جامعة برلين الحرّة، وباحث مشارك في معهد دراسات الاحتجاج والحركات الاجتماعية (ipb) في برلين. يتناول عمله ديناميّات العنف السياسي وقمع الدولة، وظروف السياسة الراديكالية وآثارها، والمقاومة العنيفة واللاعنفية، وعمليّات التعبئة العابرة للحدود في مواجهة العنف. نال الدكتوراه في العلوم السياسية من مدرسة برلين للدراسات العليا في الثقافات والمجتمعات المسلمة. وبعدها شارك في إدارة مشروع SAFEResearch في جامعة غوتنبرغ لوضع معايير لإجراء بحث آمن وأخلاقي في سياقات النزاع.',
@@ -349,7 +262,7 @@ const PROFILES = {
     },
   },
   'Diego Checa Hidalgo': {
-    photo: 'assets/people/checa-hidalgo.png',
+    photo: 'assets/people/checa-hidalgo.webp',
     cutout: true,
     bio: {
       ar: 'مؤرّخ وأكاديمي إسباني، أستاذ في دائرة التاريخ المعاصر ومدير [معهد دراسات السلام والنزاعات](http://www.ugr.es/en/staff/diego-checa-hidalgo) في جامعة غرناطة. تتناول أبحاثه تاريخ المقاومة اللاعنفية، وبناء السلام، وتحويل النزاعات الدولية.',
@@ -357,7 +270,7 @@ const PROFILES = {
     },
   },
   'Tamara Tamimi': {
-    photo: 'assets/people/tamimi.png',
+    photo: 'assets/people/tamimi.webp',
     cutout: true,
     bio: {
       ar: 'باحثة ومستشارة فلسطينية من مواليد القدس. حاصلة على الماجستير في قانون حقوق الإنسان من كلية الدراسات الشرقية والأفريقية (SOAS) في جامعة لندن، وتُعدّ حالياً أطروحة دكتوراه في القانون الدولي والقضية الفلسطينية في كلية الحقوق بجامعة كوينز في بلفاست. تقدّم استشارات لمؤسسات فلسطينية ودولية في البحث والمناصرة وتحليل الاقتصاد السياسي، وفي تطوير البرامج وتقييمها في مجالات المساواة بين الجنسين والقانون الدولي وحقوق الإنسان. ويتركّز عملها على الحق في التعليم، وحقوق الإقامة، والتراث الثقافي، والتحوّل الديمقراطي، والسياسات الاجتماعية.',
@@ -365,7 +278,7 @@ const PROFILES = {
     },
   },
   'Andrea Sangiovanni': {
-    photo: 'assets/people/sangiovanni.png',
+    photo: 'assets/people/sangiovanni.webp',
     cutout: true,
     bio: {
       ar: 'أستاذ الفلسفة في كينغز كوليدج لندن، وتتركّز أبحاثه في الفلسفة الأخلاقية والقانونية والسياسية المعاصرة. نال البكالوريوس والدكتوراه من جامعة هارفارد. وقبل انضمامه إلى دائرة الفلسفة في كينغز كوليدج عام 2007، كان زميلاً بحثياً في كلية بيمبروك بجامعة كامبريدج (2005–2007). وبين عامَي 2018 و2020 شغل منصب أستاذ النظرية الاجتماعية والسياسية في معهد الجامعة الأوروبية في فييزولي. قاد مشروعاً بحثياً حول التضامن في أوروبا بتمويل من مجلس البحوث الأوروبي (2018–2024). من مؤلّفاته «التضامن: طبيعته وأسسه وقيمته» (منشورات جامعة مانشستر، 2024، بوصول مفتوح)، الذي يضمّ خمس مقالات نقدية لكاثرين لو وسالي شولتز وراينر فورست وأفري كولرز وجاريد هولي، و«[إنسانية بلا كرامة: المساواة الأخلاقية والاحترام وحقوق الإنسان](http://www.hup.harvard.edu/catalog.php?isbn=9780674049215&content=reviews)» (منشورات جامعة هارفارد، 2017) حول فكرة المساواة الأخلاقية وأهميتها لحقوق الإنسان.',
@@ -373,7 +286,7 @@ const PROFILES = {
     },
   },
   'القسيس منذر اسحق': {
-    photo: 'assets/people/isaac.png',
+    photo: 'assets/people/isaac.webp',
     cutout: true,
     bio: {
       ar: 'قسّ ولاهوتي فلسطيني مسيحي، يرعى اليوم كنيسة الميلاد الإنجيلية اللوثرية في بيت لحم والكنيسة اللوثرية في بيت ساحور. وهو العميد الأكاديمي لكلية بيت لحم للكتاب المقدّس، ومدير مؤتمرات «المسيح عند الحاجز» المعروفة والمؤثّرة، وتشغله قضايا اللاهوت الفلسطيني. درس الهندسة المدنية في جامعة بيرزيت، ثم نال الماجستير في الدراسات الكتابية من كلية وستمنستر اللاهوتية، والدكتوراه من مركز أكسفورد لدراسات الرسالة.',
@@ -381,7 +294,7 @@ const PROFILES = {
     },
   },
   'رفعت قسيس': {
-    photo: 'assets/people/rifat-kassis.png',
+    photo: 'assets/people/rifat-kassis.webp',
     cutout: true,
     bio: {
       ar: 'ناشط فلسطيني في مجال حقوق الإنسان، وناشط سياسي ومجتمعي، وكاتب ومحاضر. اعتقلته إسرائيل وسجنته مرّات عدّة. وُلد في بيت ساحور لعائلة فلسطينية مسيحية، وأسّس عام 1991 الفرع الفلسطيني للمنظمة الدولية لحقوق الطفل، الحركة العالمية للدفاع عن الأطفال (DCI)، وانتُخب عام 2005 رئيساً للحركة الدولية، ثم أُعيد انتخابه لولاية أخرى في تشرين الأول/أكتوبر 2008. وفي عام 2014 أنهى عمله مديراً عاماً للحركة العالمية للدفاع عن الأطفال – فلسطين، وانتقل مؤقتاً إلى الأردن لقيادة برنامج الاتحاد اللوثري العالمي هناك.',
@@ -389,7 +302,7 @@ const PROFILES = {
     },
   },
   'Sardar Saadi': {
-    photo: 'assets/people/saadi.png',
+    photo: 'assets/people/saadi.webp',
     cutout: true,
     bio: {
       ar: 'أنثروبولوجي اجتماعي ثقافي متخصّص في الشرق الأوسط، ويركّز خصوصاً على السياسة والمجتمع الكرديّين. نال الدكتوراه في الأنثروبولوجيا الاجتماعية الثقافية من جامعة تورنتو عام 2020، بدعم من منحة جوزيف-أرمان بومباردييه من مجلس أبحاث العلوم الاجتماعية والإنسانية الكندي (SSHRC). تناولت أطروحته الديناميّات الحضرية للنضال الكردي من أجل تقرير المصير في ديار بكر، كردستان، وتنظر في انتقال المواجهة بين الحركة الكردية والدولة التركية من الجبال إلى المدينة، وكيف حوّل ذلك السياسة الكردية نحو إقامة حكم ذاتي ديمقراطي كردي في المنطقة وتطوير أشكال جديدة من التعامل مع الدولة.',
@@ -397,7 +310,7 @@ const PROFILES = {
     },
   },
   'Nadia Hindi Mediavilla': {
-    photo: 'assets/people/hindi-mediavilla.png',
+    photo: 'assets/people/hindi-mediavilla.webp',
     cutout: true,
     bio: {
       ar: 'باحثة وأكاديمية إسبانية-عراقية، وأستاذة في قسم الدراسات السامية في جامعة غرناطة في إسبانيا. وُلدت في بغداد عام 1977، وتتخصّص في الدراسات العربية والإسلامية، مع تركيز خاص على الحركات النسوية في العالم العربي.',
@@ -405,7 +318,7 @@ const PROFILES = {
     },
   },
   'حسن ايوب': {
-    photo: 'assets/people/ayoub.png',
+    photo: 'assets/people/ayoub.webp',
     cutout: true,
     bio: {
       ar: 'رئيس دائرة العلوم السياسية في جامعة النجاح الوطنية. تتركّز أبحاثه على التحوّلات في النظام السياسي الدولي، والسياسة الخارجية الأمريكية، والسياسة الفلسطينية، ويعمل في التدريب المهني في مجالات حلّ النزاعات والحكم الرشيد والديمقراطية وحقوق الإنسان. عمل في العام الأكاديمي 2020–2021 باحثاً زائراً في مركز دراسات الشرق الأوسط في جامعة دنفر، حيث صمّم مساقاً عن السلام والنزاع في الشرق الأوسط ودرّسه. ومن أبحاثه الحديثة «سياسات إدارة ترامب تجاه فلسطين: ذروة قوة الصهيونية المسيحية» المنشور في مجلة «دراسات» الصادرة عن الجامعة الأردنية.',
@@ -413,7 +326,7 @@ const PROFILES = {
     },
   },
   'Belén Habboob Martos': {
-    photo: 'assets/people/habboob-martos.png',
+    photo: 'assets/people/habboob-martos.webp',
     cutout: true,
     bio: {
       ar: 'باحثة إسبانية في مرحلة ما قبل الدكتوراه وأنثروبولوجية اجتماعية في [جامعة غرناطة](http://www.ugr.es/en/staff/belen-habboob-martos)، تتخصّص في فلسطين وبلاد الشام ودراسات المرأة والنوع الاجتماعي. تعمل ضمن الكادر التدريسي والبحثي قيد التأهيل (بعقد ما قبل الدكتوراه FPU) في قسم الأنثروبولوجيا الاجتماعية.',
@@ -421,7 +334,7 @@ const PROFILES = {
     },
   },
   'Basil Farraj': {
-    photo: 'assets/people/farraj.png',
+    photo: 'assets/people/farraj.webp',
     cutout: true,
     bio: {
       ar: 'مدير معهد إبراهيم أبو لغد للدراسات الدولية، وأستاذ مساعد في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت. نال الدكتوراه في الأنثروبولوجيا وعلم الاجتماع من معهد جنيف للدراسات العليا، وتتناول أبحاثه تقاطعات الذاكرة والمقاومة والفن لدى الأسرى وغيرهم ممّن يقع عليهم العنف. أجرى أبحاثاً في عدّة بلدان، منها تشيلي وكولومبيا وفلسطين.',
@@ -437,7 +350,7 @@ const PROFILES = {
     },
   },
   'George Giacaman': {
-    photo: 'assets/people/giacaman.png',
+    photo: 'assets/people/giacaman.webp',
     cutout: true,
     bio: {
       ar: 'أكاديمي ومفكّر فلسطيني، ومن أبرز المثقفين الفلسطينيين في مجال الفكر السياسي والنقدي في السياق العربي. ساهم على نطاق واسع في تطوير الفكر السياسي والاجتماعي في فلسطين، وتميّز بتحليلاته النقدية للنيوليبرالية وسياسات الدولة وأطروحات ما بعد الحداثة، وله حضور بارز في النقاشات الفكرية حول القضية الفلسطينية وسبل مقاومة الاحتلال الإسرائيلي. يشغل منصب المدير العام لمؤسسة الدراسات الفلسطينية منذ عام 2020.',
@@ -624,7 +537,7 @@ const bioFor = (p, lang) => {
     en: { speaking: 'Intervention', abstract: 'Abstract', close: 'Close', prev: 'Previous participant', next: 'Next participant', readAbstract: 'Abstract', back: 'Back to', prevAbs: 'Previous abstract', nextAbs: 'Next abstract' },
   };
   const uiLang = () => document.body.dataset.lang || 'ar';
-  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const esc = escName; // same escaping as the name helpers above
   const pendingLabel = { ar: 'العنوان قيد الإعداد', en: 'Title to be announced' };
   const pendingGist = { ar: 'الملخص قيد الإعداد.', en: 'Abstract to be announced.' };
   const authorsOf = (a) => a.authors || [a.name];
@@ -830,7 +743,9 @@ const bioFor = (p, lang) => {
         if (prof && prof.cutout) {
           // Photo card: the photo floats under the name and the bio wraps around the person's outline
           card.classList.add('has-cutout');
-          const media = `<img class="cutout" src="${esc(prof.photo)}" alt="" style="shape-outside: url('${esc(prof.photo)}')">`;
+          // Deferred: the photos are the page's heaviest asset and Participants is its last section,
+          // so they load as the reader approaches instead of competing with the first screen.
+          const media = `<img class="cutout" src="${esc(prof.photo)}" alt="" loading="lazy" decoding="async" style="shape-outside: url('${esc(prof.photo)}')">`;
           card.innerHTML = `
             <button class="person-btn" type="button">
               <span class="name" lang="${a.lang}" dir="${dirOf(a.lang)}">${nameHtml(person)}</span>
@@ -890,11 +805,6 @@ const bioFor = (p, lang) => {
     renderParticipants(uiLang());
     document.addEventListener('langchange', (e) => renderParticipants(e.detail || uiLang()));
   }
-
-  // Tall (portrait) photos are shown whole instead of cropped in on the face
-  const markTall = (img) => { if (img.naturalHeight > img.naturalWidth * 1.2) img.classList.add('tall'); };
-  document.addEventListener('load', (e) => { if (e.target.tagName === 'IMG') markTall(e.target); }, true);
-  document.querySelectorAll('img').forEach((img) => img.complete && markTall(img));
 
   // ----- Programme: the final programme (Programme AR/EN 261116), followed exactly in each language -----
   // {{key}} in a line is a person's name (a key of NAMES), written in that language and opening their card.
@@ -1248,12 +1158,10 @@ initAccordions(document);
     });
   };
 
-  const START = 0.26;
   let heroTotal = 0;
   const measure = () => {
     heroTotal = hero.offsetHeight - window.innerHeight;
   };
-  // Phones have no pinned scroll, so there the threads play on their own when the page opens
   const INTRO_DELAY = 250;
   const INTRO_LEN = 3600;
   const progress = () => {
@@ -1295,6 +1203,43 @@ initAccordions(document);
     document.querySelectorAll('.reveal').forEach((node) => io.observe(node));
   }
 
+  // A time-based spring carries the drawing towards the intro's progress, so the motion stays
+  // fluid at any frame rate. The loop runs only while something is still moving: see `frame`.
+  let last = performance.now();
+  let lastSway = 0;
+  let running = false;
+  const frame = (now) => {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    const target = progress();
+    const tau = now - loadedAt < 2600 ? 0.5 : 0.2; // a slower, softer arrival during the intro
+    current += (target - current) * (1 - Math.exp(-dt / tau));
+    if (Math.abs(target - current) < 0.0003) current = target;
+
+    const onScreen = window.scrollY < heroTotal + window.innerHeight * 2;
+    const swaying = ambient && current < 0.72 && now - lastSway > 33;
+    if (onScreen && (current !== lastDrawn || swaying)) {
+      if (swaying) lastSway = now;
+      redraw(now);
+    }
+
+    // The intro is the only thing that moves the threads. Once it has played out and the drawing
+    // has caught up, nothing can change again, so the loop stops rather than waking the main
+    // thread on every frame for the rest of the visit — that is what makes scrolling feel heavy.
+    if (target >= 1 && current === target) {
+      if (current !== lastDrawn) redraw(now); // land on the finished frame before stopping
+      running = false;
+      return;
+    }
+    requestAnimationFrame(frame);
+  };
+  const run = () => {
+    if (running || reduce) return;
+    running = true;
+    last = performance.now();
+    requestAnimationFrame(frame);
+  };
+
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
@@ -1303,36 +1248,14 @@ initAccordions(document);
       if (build()) {
         current = progress();
         redraw();
+        run(); // the rebuild may land mid-intro, so pick the motion back up
       }
     }, 120);
   });
 
   measure();
   if (!build()) return;
-  current = reduce ? progress() : 0; // ease in from empty on load (desktop: towards the scroll position; phones: the intro)
+  current = reduce ? progress() : 0; // ease in from empty on load
   redraw();
-
-  // Scroll sets the target; a time-based spring carries the drawing there, so wheel steps blend into one motion
-  if (!reduce) {
-    let last = performance.now();
-    let lastSway = 0;
-    const frame = (now) => {
-      const dt = Math.min(0.05, (now - last) / 1000);
-      last = now;
-      const target = progress();
-      const tau = now - loadedAt < 2600 ? 0.5 : 0.2; // a slower, softer arrival during the intro
-      current += (target - current) * (1 - Math.exp(-dt / tau));
-      if (Math.abs(target - current) < 0.0003) current = target;
-
-      const onScreen = window.scrollY < heroTotal + window.innerHeight * 2;
-      const moving = current !== lastDrawn;
-      const swaying = ambient && current < 0.72 && now - lastSway > 33;
-      if (onScreen && (moving || swaying)) {
-        if (swaying) lastSway = now;
-        redraw(now);
-      }
-      requestAnimationFrame(frame);
-    };
-    requestAnimationFrame(frame);
-  }
+  run();
 })();
