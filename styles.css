@@ -255,15 +255,12 @@ body[data-lang="en"] .copy-bottom {
   line-height: 1.35;
 }
 
-/* Dates: a bold, unmissable block */
+/* Dates: under the title, in gold */
 .dates {
-  display: inline-block;
-  margin: 0;
-  padding-top: 12px;
-  border-top: 4px solid var(--gold);
+  margin: 0.5em 0 0;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(26px, min(3.2vw, 6vh), 46px);
+  font-size: clamp(20px, min(2.4vw, 4.4vh), 34px);
   line-height: 1.2;
   color: var(--gold-deep);
 }
@@ -1528,9 +1525,12 @@ body[data-lang="en"] .books-track { direction: ltr; }
    How to attend, under the dates: three short columns (on campus,
    live stream, Zoom), each an icon, a label and one line.
    ================================================================ */
+.copy-bottom,
+body[data-lang="en"] .copy-bottom { left: 6vw; right: 6vw; width: auto; max-width: none; }
 .attend {
   display: flex;
-  margin: 20px 0 0;
+  justify-content: center;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -1569,14 +1569,13 @@ a.attend-detail:hover,
 .attend a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
 
 @media (max-width: 820px) {
-  .attend { margin-top: 16px; }
+  .attend { margin-top: 4px; }
   .attend-item { flex: 1 1 0; min-width: 0; padding-inline-end: 12px; margin-inline-end: 12px; }
   .attend-label { font-size: 14px; }
   .attend-detail { font-size: 13px; }
 }
 /* Short laptop screens: keep the row inside the first screen */
 @media (min-width: 821px) and (max-height: 640px) {
-  .attend { margin-top: 14px; }
   .attend-icons { margin-bottom: 3px; }
   .attend-detail { line-height: 1.3; }
 }
