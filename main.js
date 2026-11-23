@@ -120,7 +120,7 @@ const ABSTRACTS = [
       en: 'Some critical approaches trace the crisis of human rights to the detachment of human rights practices from grassroots movements, the professionalization of human rights work and the concentration of expertise and knowledge in the hands of a group of specialists and the separation of human rights work from social and popular movements, and, more broadly, the loss of their political character. Accordingly, these approaches call for the repoliticization of human rights work, its renewed connection with popular movements, and the building of transnational alliances. These proposals, however, raise a question that goes beyond how they might be implemented: can the crisis of human rights be explained by the distancing of human rights practice from its emancipatory horizon, or is there a deeper problem concerning the very form through which rights are constituted?\n\nThe global solidarity movement with Palestine offers a case through which to examine this question. Its large-scale mobilizations have connected the Palestinian struggle with the struggles of other societies against injustice, exploitation, and colonialism. They have also expanded the presence of the Palestinian cause in public debate and demonstrated the capacity to build forms of mobilization and collective action across borders. Nevertheless, a significant part of the movement’s demands continues to be directed towards international institutions whose decisions remain unimplemented, while those calling for the enforcement of the law face persecution and repression. This contradiction reveals the limits of relying on "legal legitimacy" as a pathway to political change.\n\nStarting from this problem, the paper examines the relationship between the crisis of human rights and the "legal form" itself. It draws on Evgeny Pashukanis’s analysis of the legal form to examine the relationship between the legal form, the legal subject, and relations of commodity exchange, as well as the role of the state in securing the conditions necessary for reproducing these relations. It also asks how this perspective might help us understand the limits of reducing rights to mere claims addressed to the state or the international system, and how rights might instead be understood as social relations constituted through participation and collective action.',
     } },
   { id: 'tawil', name: 'حياة الطويل وإسلام نصر', authors: ['حياة الطويل', 'إسلام نصر'], lang: 'ar',
-    title: { ar: 'الحقّ في الصحّة بين الإبادة والسوق: نحو تضامن أمميّ قائم على المنفعة المشتركة وحقوق إنسان تحرّريّة', en: 'The Right to Health between Genocide and the Market: Towards an Internationalist Solidarity based on Common Benefit and Emancipatory Human Rights' },
+    title: { ar: 'الحقّ في الصحّة بين الإبادة والسوق: نحو تضامن أمميّ قائم على المنفعة المشتركة وحقوق إنسان تحرّريّة', en: 'The Right to Health between Genocide and the Market: Towards International Solidarity based on Common Benefit and Emancipatory Human Rights' },
     gist: 'تجادل بأن تضامن العاملين الصحيين حول العالم مع زملائهم في غزة نموذج لتضامن قائم على مصلحة مشتركة لا إغاثة فقط.',
     abstract: {
       ar: 'كشفت حرب الإبادة على غزة عن الصورة القصوى لنزع الحق في الصحة، في ظل عجز منظومة حقوق الإنسان الدولية عن حمايته، وهذا النزع يتداخل مع النظام العالمي، ففي بلدان المتضامنين أنفسهم يُنتزع الحق ذاته بوسائل ناعمة منها الخصخصة، وتسليع الجسد، و"أمرضة" الحياة اليومية لخلق أسواق جديدة.\n\nتنطلق الورقة من أن التضامن مع فلسطين شكل احتجاجاً على الظرف العالمي برمّته، وتجادل بأن الحق في الصحة أحد أوضح تجليات "المنفعة المشتركة" التي تميّز التضامن عن التعاطف، فالمنطق الذي يجعل حياة الفلسطيني قابلة للإهدار هو، بدرجات وأدوات مختلفة، المنطق ذاته الذي يُخضع حياة الفقراء والعمال حول العالم لحسابات الربح. وتستند الورقة إلى نقد الرأسمالية الطبية، وإلى أطر والرشتاين وهارفي في قراءة النيوليبرالية بوصفها امتداداً للعلاقة الاستعمارية بين المركز والأطراف، وتبني على ما يخلص إليه نقد تسليع الصحة من أن السوق لا يكتفي بتوزيع الرعاية، بل يعيد تعريف من يستحقها ومن يمكن التخلي عنه.\n\nوتتخذ الورقة من تحركات العاملين الصحيين ونقاباتهم حول العالم تضامناً مع زملائهم في غزة حالةً دراسية، بوصفها نموذجاً لتضامن قائم على هوية مهنية ومصلحة مشتركة، يربط بين الدفاع عن المستشفيات في غزة والدفاع عن الصحة العامة في وجه الخصخصة والتقشف حول العالم، وتقارن بين خطاب هذه التحركات وخطاب العمل الإنساني التقليدي، لتبيّن الفرق بين تضامن يكتفي بإغاثة الضحية وتضامن يسائل البنى التي تنتجها.\n\nوتسعى الورقة إلى الإجابة عن الأسئلة الآتية: كيف كشفت الإبادة حدود منظومة حقوق الإنسان الليبرالية في صون الحقوق الاجتماعية والاقتصادية؟ وهل يستطيع التضامن مع فلسطين أن يعيد تعريف الحق في الصحة من حق "إغاثي" إلى حق تحرري يواجه تغوّل الشركات وقوى السوق؟ وما الشروط التنظيمية التي تحوّل تضامن القطاع الصحي من مبادرات متفرقة إلى حركة عالمية مستدامة؟',
@@ -148,7 +148,7 @@ const ABSTRACTS = [
       en: 'Gradual shifts in British policy towards Israel, alongside changing electoral dynamics surrounding support for Israel in the United States, raise questions about how solidarity acquires political influence. How has sustained grassroots and organized civil society mobilization contributed to these developments? Have Global South states’ legal and diplomatic initiatives generated additional pressures? What constrains the translation of these pressures into substantive challenges to Israeli impunity? This paper examines its questions through two constituent elements of solidarity: Global South state initiatives, grassroots and organized civil society mobilization internationally. Without presuming coordination, it investigates whether and how the effects of these movements reinforce one another in challenging Global North states’ support for Israeli settler colonialism. Legal initiatives, boycott and divestment campaigns, organizational withdrawals from commercial relationships, and electoral pressures provide sites for examining how demands travel among individuals, civil society and states.\n\nDrawing on feminist postcolonial critiques of international law and the global distribution of wealth, the paper locates these processes within the context of continuing relations of extraction and dependence. It argues that solidarity’s political possibilities are conditioned by the unequal distribution of resources and institutional power, which shapes both the capacity to exert pressure and the capacity to resist it. Within such constraints, international law and human rights offer a globally resonant language that can be leveraged for mobilization efforts. Inspired by international solidarity against apartheid in South Africa, the paper examines the conditions under which distinct pressures can contribute to making shifts in state policy, while distinguishing gradual institutional changes from the radical transformation of the material relationships sustaining Israeli impunity.',
     } },
   { id: 'ishaq-qassis', name: 'القسيس منذر اسحق ورفعت قسيس', authors: ['القسيس منذر اسحق', 'رفعت قسيس'], lang: 'ar',
-    title: { ar: 'دور المسيحيّين الفلسطينيّين في تحوّلات مواقف الكنائس الغربيّة تجاه القضيّة الفلسطينيّة: كايروس فلسطين نموذجاً', en: 'The Role of Palestinian Christians in Transforming Western Churches’ Positions on the Palestinian Cause: Kairos Palestine as a Model' },
+    title: { ar: 'دور المسيحيّين الفلسطينيّين في تحوّلات مواقف الكنائس الغربيّة تجاه القضيّة الفلسطينيّة: كايروس فلسطين نموذجاً', en: 'The Role of Palestinian Christians in Shifting the Stances of Western Churches Toward the Palestinian Cause: The Case of Kairos Palestine' },
     gist: 'يتناول دور حركة كايروس فلسطين ووثيقتيها في إعادة تشكيل الخطاب اللاهوتي الغربي وحشد التضامن الكنسي.',
     abstract: {
       ar: 'تتناول هذه الورقة أبرز التحوّلات التي شهدتها مواقف بعض الكنائس الغربية تجاه القضية الفلسطينية في السنوات الأخيرة، ولا سيما على صعيد الخطاب اللاهوتي والمواقف الكنسية والمناصرة من أجل العدالة وحقوق الشعب الفلسطيني. وتسلّط الورقة الضوء على دور المسيحيين الفلسطينيين في التأثير على هذه التحوّلات، مع التركيز على حركة كايروس فلسطين ووثيقتَيها الأولى والثانية، وكيف أسهمتا في إعادة تشكيل الخطاب اللاهوتي والكنسي حول فلسطين، وحشد التضامن والمناصرة داخل الكنائس والمجتمعات الغربية. كما تسعى الورقة إلى تقييم أثر هذه الجهود في تغيير المواقف الكنسية، واستشراف آفاق تطوير هذا الدور وتعزيزه في المستقبل.',
@@ -156,6 +156,9 @@ const ABSTRACTS = [
     } },
   { id: 'kruger', name: 'Thalia Kruger and Eman AlAsah', authors: ['Thalia Kruger', 'Eman AlAsah'], lang: 'en',
     title: { ar: 'أشكال التضامن في سبيل حقوق الإنسان: الفكر عبر-الإفريقيّ مثالاً', en: 'Specific Solidarities in Search of Human Rights: Pan-Africanism as One Example' },
+    gist: null },
+  { id: 'sultany', name: 'Nimer Sultany', lang: 'en',
+    title: { ar: 'التضامن وخطاب حقوق الإنسان في زمن الإبادة: رافعة للتحرر؟', en: 'Solidarity and Human Rights Discourse Amid Genocide: A Lever for Liberation?' },
     gist: null },
 ];
 
@@ -182,7 +185,7 @@ const OTHER_PARTICIPANTS = [
   // Session chairs, in programme order
   'Basem Izbidi', 'George Giacaman', 'Basil Farraj', 'Lena Meari', 'Rahaf Salahat',
   // Additional participants
-  'Nimer Sultany', 'Joyce Kashou',
+  'Joyce Kashou',
 ];
 const ALL_ENTRIES = [
   ...OTHER_PARTICIPANTS.map((name) => ({ id: null, name, lang: 'ar', noPaper: true })), // listed first (hosts)
@@ -451,7 +454,7 @@ const NAMES = {
   'Bayan M. Arqawi': ['بيان عرقاوي', 'Bayan M. Arqawi'],
   'Tareq Sadeq': ['طارق صادق', 'Tareq Sadeq'],
   'حسن ايوب': ['حسن أيّوب', 'Hasan Ayoub'],
-  'Stefania Vlachou': ['ستيفانيا ڤلاتشو', 'Stefania Vlachou'],
+  'Stefania Vlachou': ['ستيفانيا ڤلاخو', 'Stefania Vlachou'],
   'خالدة جرار': ['خالدة جرّار', 'Khalida Jarrar'],
   'Mohammad Allahham': ['محمد اللحّام', 'Mohammad Allahham'],
   'أسيل حسين': ['أسيل حسين', 'Aseel Hussain'],
@@ -827,11 +830,11 @@ const bioFor = (p, lang) => {
           en: { label: 'Session I:', title: 'How to Understand Solidarity and How it Works', chairLabel: 'Chair:' },
           papers: ['grimm', 'de-smet', 'jaaba'] },
         { time: '12:30', chair: 'George Giacaman',
-          ar: { label: 'الجلسة الثانية:', title: 'وقائع تضامنيّة', chairLabel: 'رئيس الجلسة:' },
-          en: { label: 'Session II:', title: 'Acts of Solidarity', chairLabel: 'Chair:' },
-          papers: ['kumar', 'kruger'] },
-        { time: '13:30', ar: 'غداء', en: 'Lunch' },
-        { time: '14:15', chair: 'Basil Farraj',
+          ar: { label: 'الجلسة الثانية:', title: 'أنماط تضامنيّة متجدّدة', chairLabel: 'رئيس الجلسة:' },
+          en: { label: 'Session II:', title: 'Emerging Forms of Solidarity', chairLabel: 'Chair:' },
+          papers: ['sultany', 'kumar', 'kruger'] },
+        { time: '14:00', ar: 'غداء', en: 'Lunch' },
+        { time: '14:45', chair: 'Basil Farraj',
           ar: { label: 'الجلسة الثالثة:', title: 'إرهاصات وتداعيات التضامن', chairLabel: 'رئيس الجلسة:' },
           en: { label: 'Session III:', title: 'The Precursors and Repercussions of Solidarity', chairLabel: 'Chair:' },
           papers: ['saadi', 'vlachou', 'jarrar', 'ayoub'] },
@@ -851,8 +854,8 @@ const bioFor = (p, lang) => {
           papers: ['allahham', 'husein', 'tawil', 'hindi-arqawi-sadeq'] },
         { time: '13:15', ar: 'غداء', en: 'Lunch' },
         { time: '14:00', chair: 'Rahaf Salahat',
-          ar: { label: 'الجلسة الخامسة:', title: 'أنماط تضامنيّة متجدّدة', chairLabel: 'رئيسة الجلسة:' },
-          en: { label: 'Session V:', title: 'Emerging Forms of Solidarity', chairLabel: 'Chair:' },
+          ar: { label: 'الجلسة الخامسة:', title: 'وقائع تضامنيّة', chairLabel: 'رئيسة الجلسة:' },
+          en: { label: 'Session V:', title: 'Acts of Solidarity', chairLabel: 'Chair:' },
           papers: ['checa-hidalgo', 'habboob-hindi', 'ishaq-qassis', 'tamimi'] },
       ],
     },
