@@ -207,7 +207,7 @@ const PROFILES = {
     photo: 'assets/people/jarrar.webp',
     cutout: true,
     bio: {
-      ar: 'باحثة متطوعة في معهد مواطن للديمقراطية وحقوق الإنسان، تعمل على بحث بعنوان "الأبعاد الطبقية والنوع اجتماعية للحركة الأسيرة وانعكاساتها في المشروع التحرري"، وأسيرة سابقة.',
+      ar: 'باحثة متطوعة في معهد مواطن للديمقراطية وحقوق الإنسان، تعمل على بحث بعنوان "الأبعاد الطبقية والنوع اجتماعية للحركة الأسيرة وانعكاساتها في المشروع التحرري،" وأسيرة سابقة.',
       en: 'A volunteer researcher at the Muwatin Institute, working on a study titled “The Class and Gender Dimensions of the Prisoner Movement and Their Reflections on the Liberation Project.” She is a former detainee in Israeli prisons.',
     },
   },
@@ -243,7 +243,7 @@ const PROFILES = {
     photo: 'assets/people/kruger.webp',
     cutout: true,
     bio: {
-      ar: 'عضو الهيئة الأكاديمية في القانون الدولي الخاص في مجموعة أبحاث القانون والتنمية في جامعة أنتويرب. تتركز اهتماماتها حول القضايا القانونية العابرة للحدود والدور الذي يمكن أن يلعبه القانون لتعزيز حماية حقوق الإنسان للأشخاص في المواقف المهمشة أو تعريضها للخطر. وفي هذا السياق، عملت في مجال قانون الدولي للأسرة، والعقود الدولية، وقانون الإجراءات الدولي.',
+      ar: 'عضو الهيئة الاكاديمية في القانون الدولي الخاص في مجموعة أبحاث القانون والتنمية في جامعة أنتويرب. تتركز اهتماماتها حول القضايا القانونية العابرة للحدود والدور الذي يمكن أن يلعبه القانون لتعزيز حماية حقوق الإنسان للأشخاص في المواقف المهمشة أو تعريضها للخطر. وفي هذا السياق، عملت في مجال قانون الدولي للأسرة، والعقود الدولية، وقانون الإجراءات الدولي.',
       en: 'Professor of Private International Law at the Law & Development Research Group of the University of Antwerp. Her interests are cross-border legal issues and the role the law can play to enhance or endanger the protection of human rights for people in marginalised positions. In this context she has worked in international family law as well as international contracts and international procedural law.',
     },
   },
@@ -285,14 +285,14 @@ const PROFILES = {
     cutout: true,
     bio: {
       ar: 'عضو الهيئة الأكاديمية في دائرة الفلسفة في كلية كينغز لندن، متخصص في الفلسفة الأخلاقية والقانونية والسياسية المعاصرة. شغل مناصب أكاديمية في جامعة كامبريدج والمعهد الجامعي الأوروبي. تتركز أبحاثه على التضامن، والمساواة الأخلاقية، وحقوق الإنسان. وهو مؤلف كتابي [Humanity without Dignity: Moral Equality, Respect, and Human Rights](http://www.hup.harvard.edu/catalog.php?isbn=9780674049215&content=reviews) (منشورات جامعة هارفارد، 2017)، وSolidarity: Nature, Grounds, and Value (منشورات جامعة مانشستر، 2024).',
-      en: 'Professor of Philosophy at King’s College London, specializing in contemporary moral, legal, and political philosophy. Held positions at the University of Cambridge and the European University Institute. His research focuses on solidarity, moral equality, and human rights. He is the author of [Humanity without Dignity: Moral Equality, Respect, and Human Rights](http://www.hup.harvard.edu/catalog.php?isbn=9780674049215&content=reviews) (Harvard University Press, 2017) and Solidarity: Nature, Grounds, and Value (Manchester University Press, 2024).',
+      en: 'Professor of Philosophy at King’s College London, specializing in contemporary moral, legal, and political philosophy. held positions at the University of Cambridge and the European University Institute. His research focuses on solidarity, moral equality, and human rights. He is the author of [Humanity without Dignity: Moral Equality, Respect, and Human Rights](http://www.hup.harvard.edu/catalog.php?isbn=9780674049215&content=reviews) (Harvard University Press, 2017) and Solidarity: Nature, Grounds, and Value (Manchester University Press, 2024).',
     },
   },
   'القسيس منذر اسحق': {
     photo: 'assets/people/isaac.webp',
     cutout: true,
     bio: {
-      ar: 'راعي كنيسة الرجاء الإنجيلية اللوثرية في رام الله، عضو مجلس إدارة المبادرة المسيحية الفلسطينية "كايروس فلسطين". نال شهادة الدكتوراة في دراسات الكتاب المقدس من مركز أوكسفورد للدراسات الارسالية في بريطانيا، وكتب أطروحته عن موضوع لاهوت أرض الميعاد. من أحدث منشوراته "المسيح بين الأنقاض: الإيمان والكتاب المقدس والإبادة الجماعية في غزة" (2025).',
+      ar: 'راعي كنيسة الرجاء الإنجيلية اللوثرية في رام الله، عضو مجلس إدارة المبادرة المسيحية الفلسطينية "كايروس فلسطين." نال شهادة الدكتوراة في دراسات الكتاب المقدس من مركز أوكسفورد للدراسات الارسالية في بريطانيا، وكتب أطروحته عن موضوع لاهوت أرض الميعاد. من أحدث منشوراته "المسيح بين الأنقاض: الإيمان والكتاب المقدس والإبادة الجماعية في غزة (2025)."',
       en: 'Pastor of the Evangelical Lutheran Church of Hope in Ramallah and a board member of the Palestinian Christian initiative Kairos Palestine. He holds a PhD in Biblical Studies from the Oxford Centre for Mission Studies in the United Kingdom, where his dissertation focused on the theology of the Promised Land. His recent publications include Christ in the Rubble: Faith, the Bible, and the Genocide in Gaza (2025).',
     },
   },
@@ -316,7 +316,7 @@ const PROFILES = {
     photo: 'assets/people/hindi-mediavilla.webp',
     cutout: true,
     bio: {
-      ar: 'عضو الهيئة الأكاديمية في قسم الدراسات السامية بجامعة غرناطة. تناولت أطروحتها للدكتوراه العلاقة بين النسوية والقومية في العراق. وهي عضو في مجموعة البحث "الدراسات العربية المعاصرة"، وباحثة في مشروع "التغييرات التشريعية في المغرب العربي". كما شاركت في حركات التضامن مع فلسطين والعراق، وهي عضو في الشبكة الجامعية من أجل فلسطين (RUxP) في إسبانيا.',
+      ar: 'عضو الهيئة الأكاديمية في قسم الدراسات السامية بجامعة غرناطة. تناولت أطروحتها للدكتوراه العلاقة بين النسوية والقومية في العراق. وهي عضو في مجموعة البحث "الدراسات العربية المعاصرة،" وباحثة في مشروع "التغييرات التشريعية في المغرب العربي." كما شاركت في حركات التضامن مع فلسطين والعراق، وهي عضو في الشبكة الجامعية من أجل فلسطين (RUxP) في إسبانيا.',
       en: 'Senior Lecturer in the Department of Semitic Studies at the University of Granada. Her doctoral thesis examined the relationship between feminisms and nationalisms in Iraq. She is a member of the research group Contemporary Arab Studies (HUM-108) and a researcher on the project Legislative Changes in the Maghreb. She has been involved in solidarity movements with Palestine and Iraq and is a member of the University Network for Palestine (RUxP) in the Spanish State.',
     },
   },
@@ -340,7 +340,7 @@ const PROFILES = {
     photo: 'assets/people/farraj.webp',
     cutout: true,
     bio: {
-      ar: 'مدير معهد إبراهيم أبو لغد للدراسات الدولية، وعضو الهيئة الأكاديمية في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت. تركز أبحاثه على السجناء السياسيين وعنف السجون وممارسات السجناء لمواجهة أنظمة السجون، كما يتطرق إلى تبادل الخبرات بين الأنظمة السجنيّة عالميًا.',
+      ar: 'مدير معهد إبراهيم أبو لغد للدراسات الدولية، وعضو الهيئة الاكاديمية في دائرة الفلسفة والدراسات الثقافية في جامعة بيرزيت. تركز أبحاثه على السجناء السياسيين وعنف السجون وممارسات السجناء لمواجهة أنظمة السجون، كما يتطرق إلى تبادل الخبرات بين الأنظمة السجنيّة عالميًا.',
       en: 'The director of the Ibrahim Abu-Lughod Institute of International Studies and Faculty member in Philosophy and Cultural Studies at Birzeit University. His research focuses on political prisoners, carceral violence, and prisoners’ confrontation practices against carceral regimes. His work also investigates the circulation of knowledge and practices across various carceral regimes.',
     },
   },
@@ -356,7 +356,7 @@ const PROFILES = {
     photo: 'assets/people/giacaman.webp',
     cutout: true,
     bio: {
-      ar: 'عضو هيئة تدريس معتمد في جامعة بيرزيت. عمل سابقا كرئيس لدائرة الفلسفة والدراسات الثقافية وكعميد لكلية الآداب، وكعميد مؤسس لكلية الدراسات العليا في نفس الجامعة. متخصص في الفلسفة وتاريخها بما في ذلك الفلسفة الإسلامية مع اهتمام خاص بالغزالي وابن رشد. له عدة دراسات منشورة في دوريات متخصصة ومؤلف و/أو محرر لأربعة كتب، ويكتب التحليل السياسي وحول قضايا مجتمعية لعدد من وسائل الإعلام الفلسطينية والعربية والأجنبية.',
+      ar: 'عضو هيئة تدريس معتمد في جامعة بيرزيت. عمل سابقا كرئيس لدائرة الفلسفة والدراسات الثقافية وكعميد لكلية الآداب، وكعميد مؤسس لكلية الدراسات العليا في نفس الجامعة. متخصص في الفلسفة وتاريخها بما في ذلك الفلسفة الإسلامية مع اهتمام خاص بالغزالي وابن رشد. له عدة دراسات منشورة في دوريات متخصصة ومؤلف و/او محرر لأربعة كتب، ويكتب التحليل السياسي وحول قضايا مجتمعية لعدد من وسائل الإعلام الفلسطينية والعربية والأجنبية.',
       en: 'Faculty member at Birzeit University. Served in the past as Chair of the Department of Philosophy and Cultural Studies, and Dean of the Faculty of Arts, and Founding Dean, Faculty of Graduate Studies at BZU. Specializes in Philosophy and its history including Islamic Philosophy with special interest in Ghazali and Averroes. He has published several studies in specialized journals, and author and/or editor of four books, and writes on current issues for Palestinian, Arab and international papers and media outlets.',
     },
   },
@@ -396,7 +396,7 @@ const PROFILES = {
     photo: 'assets/people/kumar.webp?v=2',
     cutout: true,
     bio: {
-      ar: 'باحث في مركز الدراسات العربية والأفريقية، وكلية دراسات اللغات والآداب والدراسات الثقافية، بجامعة جواهر لال نهرو، نيودلهي. يعمل في مجال الأدب المقارن ما بعد الاستعمار في الهند وفلسطين، مع التركيز على روايات غسان كنفاني والكاتب الهندي الماركسي بهيشام ساهني.',
+      ar: 'باحث في مركز الدراسات العربية والأفريقية، وكلية دراسات اللغات والآداب والدراسات الثقافية، بجامعة جواهر لال نهرو، نيودلهي. يعمل في مجال الأدب المقارن ما بعد الاستعمار في الهند وفلسطين، مع التركيز على روايات غسان كنفاني والكاتب الهندي الماركسي بهيشام ساهني',
       en: 'Research Scholar at the Centre of Arabic and African Studies, and the School of Language, Literature and Culture Studies, in Jawaharlal Nehru University, New Delhi, India. Works in the field of postcolonial comparative literature, focusing on India and Palestine, with particular emphasis on the novels of Ghassan Kanafani and Indian Marxist writer Bhisham Sahni.',
     },
   },
@@ -412,7 +412,7 @@ const PROFILES = {
     photo: 'assets/people/allahham.webp',
     cutout: true,
     bio: {
-      ar: 'طالب دكتوراه في السنة الثانية في برنامج حقوق الإنسان والسياسة العالمية والاستدامة: المنظورات القانونية والفلسفية، في المدرسة الجامعية العليا سانت آنا للدراسات المتقدمة، بيزا، إيطاليا.',
+      ar: 'طالب دكتوراه في السنة الثانية في برنامج حقوق الإنسان والسياسة العالمية والاستدامة: المنظورات القانونية والفلسفية، في المدرسة الجامعية العليا سانت آنا للدراسات المتقدمة، بيزا، إيطاليا',
       en: 'Second-year PhD Candidate in Human Rights, Global Politics and Sustainability: Legal and Philosophical Perspectives at Sant\'Anna School of Advanced Studies, Pisa, Italy.',
     },
   },
@@ -420,8 +420,8 @@ const PROFILES = {
     photo: 'assets/people/altaweel.webp',
     cutout: true,
     bio: {
-      ar: 'خريجة علوم سياسية من جامعة الخليل بتقدير امتياز، لديها خبرة في إعداد أوراق السياسات والعمل المجتمعي مع مؤسسات فلسطينية. تهتم بقضايا النيوليبرالية وتحولات النظام الدولي وحركات التضامن والعدالة الاجتماعية.',
-      en: 'A political science graduate from Hebron University, with distinction. Has experience in drafting policy papers and engaging in community work with Palestinian organizations. Her interests lie in issues surrounding neoliberalism, shifts in the international order, solidarity movements, and social justice.',
+      ar: 'خريجة علوم سياسية من جامعة الخليل بتقدير امتياز، لدي خبرة في إعداد أوراق السياسات والعمل المجتمعي مع مؤسسات فلسطينية. أهتم بقضايا النيوليبرالية وتحولات النظام الدولي وحركات التضامن والعدالة الاجتماعية.',
+      en: 'A political science graduate from Hebron University, with distinction. Has experience in drafting policy papers and engaging in community work with Palestinian organizations. My interests lie in issues surrounding neoliberalism, shifts in the international order, solidarity movements, and social justice.',
     },
   },
   'إسلام نصر': {
@@ -457,7 +457,7 @@ const PROFILES = {
   'Yara Al Hindi': {
     bio: {
       ar: 'باحثة مهتمة بتقديم العلوم ضمن سياقاتها المختلفة. حاصلة على درجة البكالوريوس في التمويل الاكتواري من جامعة بيرزيت، ولديها خبرة مهنية في قطاع التكنولوجيا المالية.',
-      en: 'Researcher with an interest in contextualizing science. Holds a bachelor’s degree in Actuarial Finance from Birzeit University and has professional experience in the financial technology industry.',
+      en: 'Researcher with an interest in contextualizing science. Holds a bachelor’s degree in Actuarial Finance from Birzeit University and has professional experience in the financial technology industry',
     },
   },
   'Stefania Vlachou': {
