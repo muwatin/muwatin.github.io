@@ -37,6 +37,11 @@ const initAccordions = (root = document) => {
   });
 };
 
+// Concept note: "Read more" under the opening paragraph opens the note, like the row above it
+document.querySelectorAll('.concept-more').forEach((btn) => {
+  btn.addEventListener('click', () => btn.parentElement.querySelector('.accordion-trigger').click());
+});
+
 // Papers, in programme order. Titles are given in both languages exactly as in the final programme
 // (Programme AR/EN 261116); `gist` is the summary of the submitted abstract, in its original language (`lang`).
 // Optional `abstract: { ar, en }` holds the full text in both languages (Full abstracts translated 261118; blank line
@@ -1302,7 +1307,8 @@ initAccordions(document);
   run();
 })();
 
-// Accompanying activities: the book strip fades at whichever end still has covers beyond it.
+// Accompanying activities: the covers are sized to fit the screen, and the strip fades at whichever
+// end still has covers beyond it.
 // scrollLeft runs 0..max in English and -max..0 in Arabic; the fades are physical (left / right).
 (() => {
   const track = document.querySelector(".books-track");
@@ -1317,9 +1323,21 @@ initAccordions(document);
     track.style.setProperty("--fade-left", atLeft ? "0px" : fade);
     track.style.setProperty("--fade-right", atRight ? "0px" : fade);
   };
+  // Cover height: whatever lets the whole section (heading, text, covers) fit the screen under the top
+  // bar, between 170px and the covers' own 380px; on a phone, narrow enough that the next cover peeks in.
+  const section = track.closest("section");
+  const topbar = document.querySelector(".topbar");
+  const fit = () => {
+    const pad = (el, side) => parseFloat(getComputedStyle(el)["padding" + side]) || 0;
+    const above = track.getBoundingClientRect().top - section.getBoundingClientRect().top;
+    const free = window.innerHeight - (topbar ? topbar.offsetHeight : 0) - above
+      - pad(track, "Top") - pad(track, "Bottom") - pad(section, "Bottom");
+    track.style.setProperty("--cover-h", Math.round(Math.max(170, Math.min(380, window.innerWidth * 0.8, free))) + "px");
+  };
+  fit();
   sync();
   track.addEventListener("scroll", sync, { passive: true });
-  window.addEventListener("resize", sync);
-  document.addEventListener("langchange", () => { track.scrollLeft = 0; sync(); });
+  window.addEventListener("resize", () => { fit(); sync(); });
+  document.addEventListener("langchange", () => { track.scrollLeft = 0; fit(); sync(); });
   track.querySelectorAll("img").forEach((img) => img.addEventListener("load", sync, { once: true }));
 })();

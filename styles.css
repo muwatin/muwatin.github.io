@@ -1138,7 +1138,33 @@ body[data-lang="ar"] .abstracts { direction: rtl; }
 #about .prose { max-width: none; }
 #about .prose h3 { text-align: center; }
 /* The opening passage is always visible; the expand row below it carries the rest */
-.concept-lede { max-width: 820px; margin: 0 auto 10px; }
+/* Concept note: the expand / download row on top, then the opening paragraph. Until the note is
+   opened, the paragraph's last lines fade out over a "Read more", so it reads as the start of a longer
+   text. The script only needs the panel to stay the trigger's next sibling; the grid sets the order. */
+.accordion.has-download > .concept-lede { grid-column: 1 / -1; grid-row: 2; margin: 18px 0 0; }
+.accordion.has-download > .concept-more { grid-column: 1 / -1; grid-row: 3; }
+.accordion.has-download > .accordion-panel { grid-row: 4; }
+.concept-lede {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 3.4em), transparent);
+          mask-image: linear-gradient(to bottom, #000 calc(100% - 3.4em), transparent);
+}
+.concept-more {
+  justify-self: center;
+  margin: 2px 0 22px;
+  padding: 6px 14px;
+  border: 0;
+  background: none;
+  color: var(--wine);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.concept-more::after { content: " ↓"; }
+.concept-more:hover { text-decoration: underline; text-underline-offset: 4px; }
+.concept-more:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+/* Once the note is open the paragraph simply runs on into the rest */
+.accordion:has(> .accordion-trigger[aria-expanded="true"]) > .concept-lede { -webkit-mask-image: none; mask-image: none; }
+.accordion:has(> .accordion-trigger[aria-expanded="true"]) > .concept-more { display: none; }
 
 /* Abstract cards: solid navy (same as the section), outlined so they still read as cards */
 .abstract-card,
@@ -1445,7 +1471,7 @@ body[data-lang="en"] [data-i18n="ar"] { display: none !important; }
    end fades out while more covers wait beyond it, so they slide in and
    out of view. In Arabic the first cover sits on the right.
    ================================================================ */
-#activities.block { background: var(--sand); padding: 56px 0 60px; }
+#activities.block { background: var(--sand); padding: 40px 0 36px; scroll-margin-top: 72px; }
 #activities > [data-i18n] { padding-inline: 8vw; }
 #activities h2 { font-size: clamp(26px, 2.6vw, 38px); margin-bottom: 0.35em; }
 #activities h2,
@@ -1457,8 +1483,8 @@ body[data-lang="en"] [data-i18n="ar"] { display: none !important; }
   display: flex;
   justify-content: safe center;   /* centred on a screen wide enough for all six, otherwise from the start */
   gap: clamp(18px, 2vw, 32px);
-  margin: 28px 0 0;
-  padding: 10px 8vw 22px;
+  margin: 20px 0 0;
+  padding: 10px 8vw 18px;
   list-style: none;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1479,7 +1505,8 @@ body[data-lang="en"] .books-track { direction: ltr; }
 .books-track img {
   display: block;
   width: auto;
-  height: clamp(250px, 26vw, 380px);   /* the covers are 380 x 420, so this never enlarges them past their size */
+  /* --cover-h is set by main.js so the section fits the screen under the top bar; the covers are 380 x 420 */
+  height: var(--cover-h, clamp(200px, 22vw, 300px));
   border-radius: 4px;
   box-shadow: 0 10px 24px rgba(30, 27, 23, 0.24);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
@@ -1488,9 +1515,8 @@ body[data-lang="en"] .books-track { direction: ltr; }
 .books-track:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
 
 @media (max-width: 640px) {
-  #activities.block { padding: 44px 0 48px; }
+  #activities.block { padding: 36px 0 32px; }
   .books-track { gap: 14px; padding-inline: 6vw; scroll-padding-inline: 6vw; }
-  .books-track img { height: 260px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .books-track { scroll-behavior: auto; }
