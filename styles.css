@@ -1483,8 +1483,8 @@ body[data-lang="en"] [data-i18n="ar"] { display: none !important; }
   display: flex;
   justify-content: safe center;   /* centred on a screen wide enough for all six, otherwise from the start */
   gap: clamp(18px, 2vw, 32px);
-  margin: 20px 0 0;
-  padding: 10px 8vw 18px;
+  margin: 4px 0 0;
+  padding: 22px 8vw 38px;   /* room for the cover shadows, which the scrolling strip would otherwise clip */
   list-style: none;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1508,10 +1508,10 @@ body[data-lang="en"] .books-track { direction: ltr; }
   /* --cover-h is set by main.js so the section fits the screen under the top bar; the covers are 380 x 420 */
   height: var(--cover-h, clamp(200px, 22vw, 300px));
   border-radius: 4px;
-  box-shadow: 0 10px 24px rgba(30, 27, 23, 0.24);
+  box-shadow: 0 8px 18px rgba(30, 27, 23, 0.22);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
 }
-.books-track img:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(30, 27, 23, 0.3); }
+.books-track img:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(30, 27, 23, 0.28); }
 .books-track:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
 
 @media (max-width: 640px) {
