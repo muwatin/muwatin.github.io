@@ -1439,88 +1439,58 @@ body[data-lang="ar"] [data-i18n="en"],
 body[data-lang="en"] [data-i18n="ar"] { display: none !important; }
 
 /* ================================================================
-   Accompanying activities: the book fair. A compact strip of covers
-   that scrolls sideways — swipe, the arrows, or the keyboard. The
-   track keeps the page's reading direction, so in Arabic the first
-   cover sits on the right. The section sits on the same warm sand as
-   the concept note, and each end of the strip fades out where more
-   covers are waiting, so they slide in and out of view.
+   Accompanying activities: the book fair. The covers are the
+   spotlight: a full-width strip that scrolls sideways (swipe, trackpad,
+   wheel or keyboard), on the same warm sand as the concept note. Each
+   end fades out while more covers wait beyond it, so they slide in and
+   out of view. In Arabic the first cover sits on the right.
    ================================================================ */
-#activities.block { background: var(--sand); }
+#activities.block { background: var(--sand); padding: 56px 0 60px; }
+#activities > [data-i18n] { padding-inline: 8vw; }
+#activities h2 { font-size: clamp(26px, 2.6vw, 38px); margin-bottom: 0.35em; }
 #activities h2,
 #activities .lede { text-align: center; margin-inline: auto; }
-.books {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 32px;
-  /* The arrows are physical: ‹ stays on the left and › on the right in both languages.
-     Only the covers inside the track follow the reading direction. */
-  direction: ltr;
-}
-body[data-lang="ar"] .books-track { direction: rtl; }
-body[data-lang="en"] .books-track { direction: ltr; }
+#activities .lede { max-width: 720px; margin-bottom: 0; }
+
+/* The strip runs the full width of the screen; the first cover lines up with the text above */
 .books-track {
   display: flex;
-  gap: 18px;
-  flex: 1 1 auto;
-  min-width: 0;
-  margin: 0;
-  padding: 4px 2px 14px;
+  justify-content: safe center;   /* centred on a screen wide enough for all six, otherwise from the start */
+  gap: clamp(18px, 2vw, 32px);
+  margin: 28px 0 0;
+  padding: 10px 8vw 22px;
   list-style: none;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x proximity;
+  scroll-padding-inline: 8vw;
   overscroll-behavior-x: contain;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(30, 27, 23, 0.25) transparent;
+  scrollbar-width: none;           /* swipe, trackpad, wheel or keyboard; no bar under the covers */
   /* --fade-left / --fade-right are set by main.js: 0px at an end with nothing more to show */
   --fade-left: 0px;
   --fade-right: 0px;
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-left), #000 calc(100% - var(--fade-right)), transparent 100%);
           mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-left), #000 calc(100% - var(--fade-right)), transparent 100%);
 }
+.books-track::-webkit-scrollbar { display: none; }
+body[data-lang="ar"] .books-track { direction: rtl; }
+body[data-lang="en"] .books-track { direction: ltr; }
 .books-track li { flex: 0 0 auto; scroll-snap-align: start; }
 .books-track img {
   display: block;
   width: auto;
-  height: 210px;
+  height: clamp(250px, 26vw, 380px);   /* the covers are 380 x 420, so this never enlarges them past their size */
   border-radius: 4px;
-  box-shadow: 0 6px 16px rgba(30, 27, 23, 0.22);
+  box-shadow: 0 10px 24px rgba(30, 27, 23, 0.24);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
 }
-.books-track img:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(30, 27, 23, 0.3); }
-.books-track::-webkit-scrollbar { height: 6px; }
-.books-track::-webkit-scrollbar-thumb { background: rgba(30, 27, 23, 0.25); border-radius: 3px; }
-.books-track::-webkit-scrollbar-track { background: transparent; }
-.books-track:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
-
-.books-nav {
-  flex: none;
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  padding: 0;
-  border: 1px solid rgba(30, 27, 23, 0.35);
-  border-radius: 50%;
-  background: none;
-  color: var(--navy);
-  font-size: 26px;
-  line-height: 1;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, opacity 0.2s;
-}
-.books-nav:hover { background: var(--navy); color: var(--cream); }
-.books-nav:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.books-nav[disabled] { opacity: 0.3; cursor: default; }
-.books-nav[disabled]:hover { background: none; color: var(--navy); }
+.books-track img:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(30, 27, 23, 0.3); }
+.books-track:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
 
 @media (max-width: 640px) {
-  .books-track img { height: 170px; }
-  .books-track { gap: 14px; }
-  .books-nav { display: none; }   /* swipe instead; the arrows only crowd a phone */
+  #activities.block { padding: 44px 0 48px; }
+  .books-track { gap: 14px; padding-inline: 6vw; scroll-padding-inline: 6vw; }
+  .books-track img { height: 260px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .books-track { scroll-behavior: auto; }

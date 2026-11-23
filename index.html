@@ -12,7 +12,7 @@
   <link rel="preload" href="assets/fonts/cairo-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/tajawal-400-arabic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/tajawal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=82">
+  <link rel="stylesheet" href="styles.css?v=83">
 </head>
 <body data-lang="ar">
 
@@ -152,12 +152,12 @@
     <section id="program" class="block reveal">
       <div data-i18n="ar">
         <h2>البرنامج</h2>
-        <p class="lede">يُعقد المؤتمر في حرم جامعة بيرزيت، في قاعة رقم 243 في معهد مواطن، وعبر الفضاء الافتراضيّ. أسماء المشاركين تفتح بطاقاتهم، وعناوين الأوراق تفتح ملخصاتها.</p>
+        <p class="lede">يُعقد المؤتمر في حرم جامعة بيرزيت، في قاعة رقم 243 في معهد مواطن، وعبر الفضاء الافتراضيّ.</p>
         <p class="section-download"><a class="download-btn" href="assets/programme-ar.pdf" download="Muwatin-31-Programme-AR.pdf"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg><span class="dl-long">تحميل البرنامج (PDF)</span><span class="dl-short">تحميل PDF</span></a></p>
       </div>
       <div data-i18n="en" lang="en" dir="ltr">
         <h2>Programme</h2>
-        <p class="lede">Held at Birzeit University (Hall 243 – Muwatin Institute) and online. Names open each participant’s card; paper titles open the abstract.</p>
+        <p class="lede">Held at Birzeit University (Hall 243 – Muwatin Institute) and online.</p>
         <p class="section-download"><a class="download-btn" href="assets/programme-en.pdf" download="Muwatin-31-Programme-EN.pdf"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg><span class="dl-long">Download the programme (PDF)</span><span class="dl-short">Download PDF</span></a></p>
       </div>
 
@@ -190,7 +190,7 @@
       <div class="participants" id="participants-list"></div>
     </section>
 
-    <!-- The book fair running alongside the conference: covers scroll sideways, arrows or swipe. -->
+    <!-- The book fair running alongside the conference: a full-width strip of covers that scrolls sideways. -->
     <section id="activities" class="block reveal">
       <div data-i18n="ar">
         <h2>النشاطات المرافقة</h2>
@@ -201,18 +201,14 @@
         <p class="lede">On the conference, some of Muwatin’s publication will be available for sale at special price with a 20% reduction. An additional 20% reduction will be made for students (presenting a student card). The books on sale include latest Muwatin publications</p>
       </div>
 
-      <div class="books">
-        <button class="books-nav books-left" type="button" aria-label="تمرير إلى اليسار / Scroll left"><span aria-hidden="true" dir="ltr">‹</span></button>
-        <ul class="books-track" tabindex="0">
-          <li><img src="assets/books/book-1.webp" width="380" height="420" loading="lazy" decoding="async" alt="وقع الإبادة في غزّة على مستقبل العالم وقراءة القضيّة الفلسطينيّة — وقائع مؤتمر مواطن الثلاثين"></li>
-          <li><img src="assets/books/book-2.webp" width="380" height="420" loading="lazy" decoding="async" alt="التفكير الاستراتيجي في زمن الوحوش العملاقة وحروبها: مكانة الحق وآفاق التحرر — وقائع مؤتمر مواطن السنوي التاسع والعشرين"></li>
-          <li><img src="assets/books/book-3.webp" width="380" height="420" loading="lazy" decoding="async" alt="العدالة الانتقالية: قضايا وتحديات — بابلو دي غريف"></li>
-          <li><img src="assets/books/book-4.webp" width="380" height="420" loading="lazy" decoding="async" alt="فاعلو التغيير المجتمعي: تضييق مساحات العمل واستراتيجيات الصمود — وقائع مؤتمر مواطن السنوي الثامن والعشرين"></li>
-          <li><img src="assets/books/book-5.webp" width="380" height="420" loading="lazy" decoding="async" alt="الاقتصاد السياسي للهيمنة والتحرر في فلسطين — وقائع مؤتمر مواطن السنوي السابع والعشرين"></li>
-          <li><img src="assets/books/book-6.webp" width="380" height="420" loading="lazy" decoding="async" alt="متى تعود الابتسامة إلى عالمنا؟ — وقائع مؤتمر مواطن السنوي السادس والعشرين"></li>
-        </ul>
-        <button class="books-nav books-right" type="button" aria-label="تمرير إلى اليمين / Scroll right"><span aria-hidden="true" dir="ltr">›</span></button>
-      </div>
+      <ul class="books-track" tabindex="0" aria-label="إصدارات معهد مواطن / Muwatin publications">
+        <li><img src="assets/books/book-1.webp" width="380" height="420" loading="lazy" decoding="async" alt="وقع الإبادة في غزّة على مستقبل العالم وقراءة القضيّة الفلسطينيّة — وقائع مؤتمر مواطن الثلاثين"></li>
+        <li><img src="assets/books/book-2.webp" width="380" height="420" loading="lazy" decoding="async" alt="التفكير الاستراتيجي في زمن الوحوش العملاقة وحروبها: مكانة الحق وآفاق التحرر — وقائع مؤتمر مواطن السنوي التاسع والعشرين"></li>
+        <li><img src="assets/books/book-3.webp" width="380" height="420" loading="lazy" decoding="async" alt="العدالة الانتقالية: قضايا وتحديات — بابلو دي غريف"></li>
+        <li><img src="assets/books/book-4.webp" width="380" height="420" loading="lazy" decoding="async" alt="فاعلو التغيير المجتمعي: تضييق مساحات العمل واستراتيجيات الصمود — وقائع مؤتمر مواطن السنوي الثامن والعشرين"></li>
+        <li><img src="assets/books/book-5.webp" width="380" height="420" loading="lazy" decoding="async" alt="الاقتصاد السياسي للهيمنة والتحرر في فلسطين — وقائع مؤتمر مواطن السنوي السابع والعشرين"></li>
+        <li><img src="assets/books/book-6.webp" width="380" height="420" loading="lazy" decoding="async" alt="متى تعود الابتسامة إلى عالمنا؟ — وقائع مؤتمر مواطن السنوي السادس والعشرين"></li>
+      </ul>
     </section>
   </main>
 
@@ -243,7 +239,7 @@
           <li><a href="https://x.com/MuwatinInst" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.2L5.6 21h-3l7.1-8.1L2.2 3h6.2l4.3 5.7zm-1 16.2h1.7L7.3 4.7H5.5z"/></svg></a></li>
           <li><a href="https://www.youtube.com/channel/UCZz_URbHf_JhKBpTkQ1ehEw" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a></li>
           <li><a href="mailto:muwatin@birzeit.edu" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zm1.6 1.4L12 12.6l7.4-5.2z" fill-rule="evenodd"/></svg></a></li>
-        </ul>
+      </ul>
         <p class="footer-copy" data-i18n="ar">جميع الحقوق © معهد مواطن للديمقراطية وحقوق الإنسان، 2019-2026.</p>
         <p class="footer-copy" data-i18n="en" lang="en" dir="ltr">© 2019–2026 Muwatin Institute for Democracy and Human Rights. All rights reserved.</p>
         <p class="footer-legal"><a href="privacy.html"><span data-i18n="ar">سياسة الخصوصية</span><span data-i18n="en" lang="en" dir="ltr">Privacy Policy</span></a><span aria-hidden="true"> · </span><a href="disclaimer.html"><span data-i18n="ar">إخلاء المسؤولية</span><span data-i18n="en" lang="en" dir="ltr">Disclaimer</span></a></p>
@@ -251,6 +247,6 @@
     </div>
   </footer>
 
-  <script src="main.js?v=105"></script>
+  <script src="main.js?v=106"></script>
 </body>
 </html>

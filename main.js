@@ -1302,36 +1302,24 @@ initAccordions(document);
   run();
 })();
 
-// Accompanying activities: the arrows step the book strip by roughly one screenful, and the
-// strip fades at whichever end still has covers beyond it.
-// They are physical, not logical: the left arrow always scrolls left, in both languages.
-// scrollLeft runs 0..max in English and -max..0 in Arabic, which is what the ends check reads.
+// Accompanying activities: the book strip fades at whichever end still has covers beyond it.
+// scrollLeft runs 0..max in English and -max..0 in Arabic; the fades are physical (left / right).
 (() => {
   const track = document.querySelector(".books-track");
   if (!track) return;
-  const left = document.querySelector(".books-left");
-  const right = document.querySelector(".books-right");
-
-  const step = () => Math.max(track.clientWidth * 0.8, 200);
-  left.addEventListener("click", () => track.scrollBy({ left: -step() }));
-  right.addEventListener("click", () => track.scrollBy({ left: step() }));
-
-  // Grey out an arrow once there is nothing more that way
   const sync = () => {
     const max = track.scrollWidth - track.clientWidth;
     const x = track.scrollLeft;
     const rtl = getComputedStyle(track).direction === "rtl";
-    left.disabled = rtl ? x <= -max + 4 : x <= 4;
-    right.disabled = rtl ? x >= -4 : x >= max - 4;
-    // Fade an end only while there are more covers beyond it, so they dissolve in and out of view
-    const fade = Math.min(72, track.clientWidth * 0.12) + "px";
-    track.style.setProperty("--fade-left", left.disabled ? "0px" : fade);
-    track.style.setProperty("--fade-right", right.disabled ? "0px" : fade);
+    const atLeft = max <= 4 || (rtl ? x <= -max + 4 : x <= 4);
+    const atRight = max <= 4 || (rtl ? x >= -4 : x >= max - 4);
+    const fade = Math.min(140, track.clientWidth * 0.1) + "px";
+    track.style.setProperty("--fade-left", atLeft ? "0px" : fade);
+    track.style.setProperty("--fade-right", atRight ? "0px" : fade);
   };
   sync();
   track.addEventListener("scroll", sync, { passive: true });
   window.addEventListener("resize", sync);
   document.addEventListener("langchange", () => { track.scrollLeft = 0; sync(); });
-  // the covers load lazily, so the scroll width only settles once they arrive
   track.querySelectorAll("img").forEach((img) => img.addEventListener("load", sync, { once: true }));
 })();
