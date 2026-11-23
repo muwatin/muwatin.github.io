@@ -1559,6 +1559,8 @@ body[data-lang="en"] .copy-bottom { left: 6vw; right: 6vw; width: auto; max-widt
 .attend-platforms { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; }
 .attend-platforms a { display: inline-flex; align-items: center; gap: 6px; }
 .attend-label { font-weight: 800; font-size: 15px; color: var(--ink); }
+a.attend-label { text-decoration: none; }
+a.attend-label:hover { color: var(--wine); }
 .attend-detail { font-size: 14px; line-height: 1.45; color: var(--muted); }
 a.attend-detail,
 .attend-detail a { color: inherit; text-decoration: underline; text-decoration-color: rgba(107, 30, 46, 0.35); text-underline-offset: 3px; }
