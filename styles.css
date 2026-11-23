@@ -1134,7 +1134,7 @@ body[data-lang="ar"] .abstracts { direction: rtl; }
 #participants h2,
 #program h2 { text-align: center; }
 #program .lede { text-align: center; margin-inline: auto; }
-#about .accordion { max-width: 820px; margin-inline: auto; }
+#about .accordion { max-width: 820px; margin-inline: auto; border-bottom: 0; }   /* no closing rule under "Read more" */
 #about .prose { max-width: none; }
 #about .prose h3 { text-align: center; }
 /* The opening passage is always visible; the expand row below it carries the rest */
