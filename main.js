@@ -1036,7 +1036,7 @@ initAccordions(document);
     const mobile = mobileQuery.matches;
     ambient = !reduce;
 
-    const Y0 = H * (mobile ? 0.5 : 0.56); // keep in step with --cable-y in the CSS
+    const Y0 = H * (mobile ? 0.5 : 0.62); // keep in step with --cable-y in the CSS
     const band = H * (mobile ? 0.36 : 0.17);
     const X0 = W * (mobile ? 0.5 : 0.46); // where the threads have fully gathered
     const XA = X0 - W * 0.14; // the twist begins to appear here, while the taper is still closing

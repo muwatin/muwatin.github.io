@@ -201,7 +201,7 @@ a[data-i18n], span[data-i18n] { display: inline-block; }
   z-index: 1;
 }
 /* Title and dates hug the cable: --cable-y must match Y0 in main.js */
-.stage { --cable-y: 56%; --gap: clamp(68px, 11vh, 104px); }
+.stage { --cable-y: 62%; --gap: clamp(68px, 11vh, 104px); }
 .copy-top { bottom: calc(100% - var(--cable-y) + var(--gap)); }
 .copy-bottom { top: calc(var(--cable-y) + var(--gap)); }
 
@@ -1555,11 +1555,9 @@ body[data-lang="en"] .copy-bottom { left: 6vw; right: 6vw; width: auto; max-widt
   color: var(--wine);
 }
 .attend-icons svg { width: 23px; height: 23px; }
-/* Live stream: each platform name with its own logo beside it */
+/* Live stream: the two platform names side by side */
 .attend-platforms { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; }
 .attend-platforms a { display: inline-flex; align-items: center; gap: 6px; }
-.attend-platforms img { display: block; width: auto; height: 16px; }
-.attend-platforms img[src*="facebook"] { height: 17px; }
 .attend-label { font-weight: 800; font-size: 15px; color: var(--ink); }
 .attend-detail { font-size: 14px; line-height: 1.45; color: var(--muted); }
 a.attend-detail,
