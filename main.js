@@ -565,7 +565,6 @@ const familyKey = (person, lang) => {
 const byFamily = (lang) => (p, q) =>
   familyKey(p.person, lang).localeCompare(familyKey(q.person, lang), lang === 'ar' ? 'ar' : 'en');
 
-// The first lines of the bio on a photo card, in both languages (the toggle shows one; CSS trims it to a few lines)
 // The opening of a bio for a card: cut at a word boundary so it fits beside the photo (the popup has the rest)
 const cardSnippet = (text, max = 85) => {
   if (text.length <= max) return text;
@@ -824,7 +823,7 @@ const bioFor = (p, lang) => {
     return `${names.slice(0, -1).join(', ')}, and ${names[names.length - 1]}`;
   };
 
-  // The photo sits in the bottom-left corner and the text flows around her outline, using the space above the head.
+  // The photo sits in the bottom-left corner and the text flows around the person's outline, using the space above the head.
   // A float can't be pinned to the bottom, so an invisible spacer above it is sized to push it down
   // until its bottom lines up with the end of the text.
   const fitFloat = () => {

@@ -77,14 +77,11 @@
   --ink: #1E1B17;
   --wine: #6B1E2E;
   --navy: #1F2F4D;
-  --slate: #5E7A8C;
-  --sage: #7A8F7A;
   --green: #1B8A3F; /* Muwatin green */
   --muted: #6E6558;
   --gold: #B8801C;
   --gold-light: #E6BF6E;
   --gold-deep: #8C5F10; /* gold for text on light backgrounds (4.2:1 on sand) */
-  --white: #FFFFFF;
   --sand: #E9DDC8; /* first screen: a deeper tone so About reads as a new surface */
   /* Swap this stack when Muwatin's preferred display font is available */
   --font-display: 'Cairo', 'Tajawal', system-ui, sans-serif;
@@ -180,7 +177,6 @@ a[data-i18n], span[data-i18n] { display: inline-block; }
   right: 0;
   z-index: 0;
   height: 100vh;
-  background: var(--sand);
   overflow: hidden;
   contain: layout paint;
   /* Its own layer, like the top bar. On standard (non-high-DPI) screens Chrome otherwise keeps
@@ -339,7 +335,7 @@ body[data-lang="en"] .copy-bottom {
 }
 .accordion.has-download > .accordion-trigger { grid-column: 1; grid-row: 1; }
 .accordion.has-download > .download-btn { grid-column: 2; grid-row: 1; white-space: nowrap; }
-.accordion.has-download > .accordion-panel { grid-column: 1 / -1; grid-row: 2; }
+.accordion.has-download > .accordion-panel { grid-column: 1 / -1; }
 .download-btn .dl-short { display: none; }
 @media (max-width: 560px) {
   .accordion.has-download > .download-btn { padding: 8px 12px; font-size: 14px; }
@@ -383,7 +379,6 @@ body[data-lang="en"] .copy-bottom {
 /* Participants (cream) */
 .participants {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 14px;
   margin-top: 40px;
 }
@@ -396,9 +391,7 @@ body[data-lang="en"] .copy-bottom {
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 1px 3px rgba(30, 27, 23, 0.06);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
-.participant-card:hover { box-shadow: 0 6px 18px rgba(30, 27, 23, 0.1); transform: translateY(-2px); }
 .person-btn {
   display: flex;
   gap: 16px;
@@ -430,13 +423,11 @@ body[data-lang="en"] .copy-bottom {
   text-align: center;
   background: rgba(244, 237, 225, 0.09);
   border: 1px solid rgba(244, 237, 225, 0.32);
-  border-top: 3px solid var(--gold);
   border-radius: 8px;
   padding: 28px;
   scroll-margin-top: 90px;
 }
 .abstract-card .paper-title {
-  margin: 0 0 12px;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 20px;
@@ -446,26 +437,18 @@ body[data-lang="en"] .copy-bottom {
   text-wrap: balance;
 }
 .abstract-card .name {
-  margin: 0 0 16px;
-  padding-bottom: 16px;
   font-size: 15px;
   color: var(--gold-light);
-  border-bottom: 1px solid rgba(244, 237, 225, 0.18);
-  width: 60%;
 }
 
 /* Floating profile card */
 .profile-dialog {
-  width: min(420px, 92vw);
-  max-height: 88vh;
-  padding: 36px 30px 28px;
   border: 0;
   border-radius: 14px;
   background: var(--cream);
   color: var(--ink);
   text-align: center;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-  overflow: auto;
 }
 .profile-dialog[open] { animation: pop 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
 .profile-dialog::backdrop { background: rgba(30, 27, 23, 0.55); backdrop-filter: blur(3px); }
@@ -537,7 +520,7 @@ body[data-lang="en"] .copy-bottom {
   font-size: 48px;
 }
 .profile-name { margin: 0 0 4px; font-size: 24px; color: var(--wine); }
-.profile-bio { margin: 0 0 20px; line-height: 1.75; font-size: 16px; }
+.profile-bio { line-height: 1.75; }
 
 main { position: relative; z-index: 1; }
 
@@ -632,7 +615,6 @@ footer.site-footer {
   .accordion-panel, .accordion-trigger::after { transition: none; }
   html { scroll-behavior: auto; }
   .profile-dialog[open] { animation: none; }
-  .participant-card:hover { transform: none; }
 }
 
 /* Phones: title, then the threads, then the dates; no pinned scroll */
@@ -672,22 +654,15 @@ body[data-lang="en"] [data-reveal] { transform-origin: 0 50%; }
   .brand-sub { display: none; }
 }
 
-/* Participant with a cutout photo: light-blue card, big name on top, photo in the bottom-left corner */
+/* Participant card with a cutout photo: big name on top, photo in the bottom-left corner */
 .participant-card.has-cutout {
   position: relative;
-  grid-row: span 2;
-  min-height: 250px;
   padding: 0;
-  overflow: hidden;
-  background: linear-gradient(160deg, #DCEBF3 0%, #BFD8E6 100%);
-  border-color: rgba(31, 47, 77, 0.15);
 }
-.has-cutout .person-btn { display: block; height: 100%; min-height: 250px; padding: 22px 22px 0; }
+.has-cutout .person-btn { height: 100%; }
 .has-cutout .person-btn .name {
-  display: block;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(26px, 2.6vw, 34px);
   line-height: 1.2;
   color: var(--wine);
 }
@@ -695,8 +670,6 @@ body[data-lang="en"] [data-reveal] { transform-origin: 0 50%; }
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 170px;
-  height: 190px;
   object-fit: cover;
   object-position: 50% 0;
   pointer-events: none;
@@ -705,56 +678,26 @@ body[data-lang="en"] [data-reveal] { transform-origin: 0 50%; }
 /* Profile popup with a cutout: same look, larger */
 .profile-dialog.has-cutout {
   position: fixed;
-  min-height: 360px;
-  padding: 30px 28px 0;
-  background: linear-gradient(160deg, #DCEBF3 0%, #BFD8E6 100%);
   text-align: start;
 }
-.profile-dialog.has-cutout .profile-name { font-size: clamp(30px, 6vw, 40px); line-height: 1.15; font-weight: 900; margin-bottom: 8px; }
+.profile-dialog.has-cutout .profile-name { font-weight: 900; }
 .profile-dialog.has-cutout .profile-cutout {
   position: absolute;
-  left: 0;
   bottom: 0;
-  width: 210px;
-  height: 260px;
   object-fit: cover;
   object-position: 50% 0;
 }
-.profile-dialog.has-cutout .profile-bio { margin-left: 200px; font-size: 15px; }
-.profile-dialog.has-cutout .profile-bio { margin-bottom: 120px; }
-.profile-dialog.has-cutout .profile-abstract { position: absolute; right: 22px; bottom: 20px; }
 
-/* Poster-style neutral look (overrides the earlier blue): warm greige, faint ink-line texture */
-.participant-card.has-cutout,
-.profile-dialog.has-cutout {
-  background:
-    radial-gradient(circle at 85% 15%, rgba(107, 30, 46, 0.06) 0 18%, transparent 19%),
-    radial-gradient(circle at 20% 90%, rgba(31, 47, 77, 0.07) 0 22%, transparent 23%),
-    linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%);
-}
-.participant-card.has-cutout { grid-column: span 2; grid-row: span 2; border-color: rgba(30, 27, 23, 0.2); }
+/* Photo cards: a slightly stronger outline; one column on phones */
+.participant-card.has-cutout { border-color: rgba(30, 27, 23, 0.2); }
 @media (max-width: 600px) { .participant-card.has-cutout { grid-column: auto; } }
 
 /* Popup: what they will speak on takes the place of a bio */
 .profile-kicker { display: block; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--wine); margin-bottom: 4px; }
-.profile-dialog.has-cutout .profile-bio { margin-bottom: 90px; }
 
-/* Cutout cards: no circle at the top; one soft disc behind the person, and a little depth on the photo */
-.participant-card.has-cutout,
-.profile-dialog.has-cutout {
-  background:
-    radial-gradient(circle at 24% 88%, rgba(107, 30, 46, 0.13) 0 21%, transparent 22%),
-    linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%);
-}
-.profile-dialog.has-cutout {
-  background:
-    radial-gradient(circle at 25% 84%, rgba(107, 30, 46, 0.14) 0 30%, transparent 31%),
-    linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%);
-}
+/* A little depth on the cutout photos */
 .has-cutout .cutout,
 .profile-dialog.has-cutout .profile-cutout { filter: drop-shadow(6px 4px 10px rgba(30, 27, 23, 0.32)); }
-
-.profile-dialog.has-cutout { min-height: 420px; }
 
 /* The grids keep the same order in both languages; only each card's inner alignment follows the language */
 .participants, .abstracts { direction: ltr; }
@@ -762,54 +705,38 @@ body[data-lang="ar"] .participant-card, body[data-lang="ar"] .abstract-card { di
 body[data-lang="en"] .participant-card, body[data-lang="en"] .abstract-card { direction: ltr; }
 
 /* Bio sits under the name, above what they will speak on; long text reads better aligned to the start */
-.profile-bio { text-align: start; font-size: 15px; margin: 6px 0 22px; padding-bottom: 18px; border-bottom: 1px solid rgba(30, 27, 23, 0.12); }
-.profile-dialog.has-cutout .profile-bio { margin: 6px 0 20px; }
+.profile-bio { text-align: start; }
 
 /* Person popup: name, bio, and a small "Speaking on" link to their abstract. It never scrolls: it grows wider instead. */
-.profile-dialog { width: min(640px, 94vw); max-height: none; overflow: visible; padding: 36px 32px 28px; }
+.profile-dialog { width: min(640px, 94vw); max-height: none; padding: 36px 32px 28px; }
 .profile-bio { border-bottom: 0; padding-bottom: 0; margin: 8px 0 20px; font-size: 16px; }
 
 /* With a cutout photo: photo on the left, text in its own column beside it, no overlap */
 .profile-dialog.has-cutout {
-  width: min(780px, 96vw);
-  min-height: 340px;
-  padding: 36px 36px 30px 270px;
   background:
     radial-gradient(circle at 17% 80%, rgba(107, 30, 46, 0.14) 0 22%, transparent 23%),
     linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%);
 }
-.profile-dialog.has-cutout .profile-cutout { width: 250px; height: 300px; left: 4px; }
-.profile-dialog.has-cutout .profile-name { margin-bottom: 10px; }
-.profile-dialog.has-cutout .profile-bio { margin: 0 0 18px; font-size: 16px; }
 @media (max-width: 640px) {
-  .profile-dialog.has-cutout { padding: 30px 24px 24px; min-height: 0; background: linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%); }
-  .profile-dialog.has-cutout .profile-cutout { position: static; display: block; width: 170px; height: 200px; margin: 0 auto 12px; }
+  .profile-dialog.has-cutout { background: linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%); }
+  .profile-dialog.has-cutout .profile-cutout { position: static; display: block; margin: 0 auto 12px; }
 }
 
-/* Abstract cards: no gold line on top */
-.abstract-card { border-top: 1px solid rgba(244, 237, 225, 0.32); }
-
-/* Narrower, a little taller: popup with a cutout photo */
-.profile-dialog.has-cutout { width: min(600px, 94vw); min-height: 400px; padding: 36px 32px 30px 222px; }
+/* Photo size in the popup */
 .profile-dialog.has-cutout .profile-cutout { width: 210px; height: 265px; left: 0; }
-.profile-dialog.has-cutout .profile-name { font-size: clamp(28px, 5vw, 36px); }
 @media (max-width: 640px) {
-  .profile-dialog.has-cutout { padding: 30px 24px 24px; min-height: 0; }
+  .profile-dialog.has-cutout { min-height: 0; }
   .profile-dialog.has-cutout .profile-cutout { width: 170px; height: 200px; }
 }
 
 /* Participants: slightly narrower columns, so the photo card (two columns) is less wide */
 .participants { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-/* Photo card: no disc behind her, and the first few lines of the bio beside the photo */
+/* Photo card: the first few lines of the bio beside the photo */
 .participant-card.has-cutout { background: linear-gradient(160deg, #EAE5DC 0%, #DDD6CA 100%); }
 .has-cutout .person-btn .card-bio {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
   overflow: hidden;
-  margin-top: 10px;
-  margin-left: 175px;
-  font-size: 15px;
   line-height: 1.6;
   color: var(--ink);
   font-weight: 400;
@@ -817,14 +744,11 @@ body[data-lang="en"] .participant-card, body[data-lang="en"] .abstract-card { di
 body[data-lang="ar"] .has-cutout .card-bio[data-i18n="en"],
 body[data-lang="en"] .has-cutout .card-bio[data-i18n="ar"] { display: none; }
 @media (max-width: 600px) { .has-cutout .person-btn .card-bio { -webkit-line-clamp: 6; margin-left: 165px; } }
-.has-cutout .person-btn .card-bio { -webkit-line-clamp: 4; }
-.has-cutout .person-btn { padding-bottom: 64px; }
 
 /* Participants: the script sets the columns and each card's span (photo card = one and a half cards) */
 .participant-card { min-width: 0; }
 .participant-card .name { overflow-wrap: anywhere; }
 .has-cutout .person-btn { padding: 20px; min-height: 0; }
-.has-cutout .person-btn .name { font-size: clamp(24px, 2.2vw, 30px); }
 .has-cutout .cutout { width: 150px; height: 180px; }
 .has-cutout .person-btn .card-bio { margin-left: 140px; -webkit-line-clamp: 4; font-size: 15px; }
 .has-cutout .card-more {
@@ -839,9 +763,8 @@ body[data-lang="en"] .has-cutout .card-bio[data-i18n="ar"] { display: none; }
 .has-cutout .card-more [data-i18n] { display: inline; }
 body[data-lang="ar"] .has-cutout .card-more [data-i18n="en"],
 body[data-lang="en"] .has-cutout .card-more [data-i18n="ar"] { display: none; }
-.participant-card.has-cutout { min-height: 200px; }
 
-.has-cutout .person-btn .name { margin-left: 140px; position: relative; z-index: 1; }
+.has-cutout .person-btn .name { position: relative; z-index: 1; }
 
 /* No decorative circles anywhere: plain backgrounds for photo cards and popups */
 .participant-card.has-cutout,
@@ -849,12 +772,8 @@ body[data-lang="en"] .has-cutout .card-more [data-i18n="ar"] { display: none; }
 
 .profile-photo { object-position: 50% 25%; }
 
-.profile-dialog.has-cutout { width: min(600px, 94vw); min-height: 400px; }
-
 /* Photo cards: the name on top, then the whole photo (never cropped) in the left corner, and the bio
    wrapping around the person's outline. The photo is a float whose shape is the photo itself. */
-.participant-card.has-cutout .person-btn { display: flow-root; height: 100%; padding: 20px 20px 0; }
-.participant-card.has-cutout .person-btn .name { margin: 0 0 6px; text-align: center; }
 .participant-card.has-cutout .person-btn .card-bio { display: block; margin: 0; overflow: visible; -webkit-line-clamp: unset; }
 .participant-card.has-cutout .person-btn .card-more { margin: 6px 0 16px; }
 
@@ -881,7 +800,6 @@ body[data-lang="en"] .has-cutout .card-more [data-i18n="ar"] { display: none; }
 body[data-lang="ar"] .profile-next, body[data-lang="en"] .profile-prev { left: -64px; }
 body[data-lang="ar"] .profile-prev, body[data-lang="en"] .profile-next { right: -64px; }
 @media (max-width: 760px) {
-  .profile-nav { top: auto; bottom: -76px; margin-top: 0; }
   body[data-lang="ar"] .profile-next, body[data-lang="en"] .profile-prev { left: calc(50% - 64px); }
   body[data-lang="ar"] .profile-prev, body[data-lang="en"] .profile-next { right: calc(50% - 64px); }
 }
@@ -894,7 +812,7 @@ body[data-lang="ar"] .profile-prev, body[data-lang="en"] .profile-next { right: 
   body[data-lang="en"] .profile-next { left: 52px; right: auto; }
 }
 
-/* ===== Photo popup, v2: name centered on top; text flows around the photo's outline ===== */
+/* ===== Photo popup: name centered on top; text flows around the photo's outline ===== */
 .profile-dialog.has-cutout { width: min(640px, 94vw); min-height: 0; padding: 28px 32px 0 0; }
 .profile-dialog .profile-name { text-align: center; }
 .profile-dialog.has-cutout .profile-name {
@@ -935,22 +853,17 @@ body[data-lang="ar"] .profile-prev, body[data-lang="en"] .profile-next { right: 
   transition: background .2s;
 }
 .profile-paper-card:hover { background: rgba(255, 255, 255, 0.85); }
-.profile-paper-card .profile-kicker { display: block; margin-bottom: 6px; color: var(--green); font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+.profile-paper-card .profile-kicker { display: block; }
 .profile-paper-quote {
   display: block;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 19px;
-  line-height: 1.45;
-  color: var(--wine);
-  text-align: start;
 }
-.profile-paper-go { display: inline-flex; gap: 6px; margin-top: 10px; font-size: 14px; font-weight: 700; color: var(--green); }
+.profile-paper-go { gap: 6px; }
 .profile-paper-go [aria-hidden] { transition: transform .2s; }
 body[data-lang="ar"] .profile-paper-card:hover .profile-paper-go [aria-hidden] { transform: translateX(-4px); }
 body[data-lang="en"] .profile-paper-card:hover .profile-paper-go [aria-hidden] { transform: translateX(4px); }
 /* the small popup (no photo) uses the same block, centered under the name */
-.profile-dialog:not(.has-cutout) .profile-paper-card { margin: 12px 0 0; }
 .profile-dialog:not(.has-cutout) .profile-bio { text-align: start; }
 
 /* Phones: name, then the photo, then the text (no wrapping) */
@@ -980,7 +893,7 @@ body[data-lang="en"] .profile-paper-card:hover .profile-paper-go [aria-hidden] {
 .has-cutout .person-btn { display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; }
 .has-cutout .card-more { align-self: stretch; }
 
-/* ===== "Speaking on", v3: no box, no quotation marks. Centered, the title in green, "More" underneath ===== */
+/* ===== "Speaking on": no box, no quotation marks. Centered, the title in green, "More" underneath ===== */
 .profile-paper-card,
 .profile-paper-card:hover {
   display: block;
@@ -1133,7 +1046,6 @@ body[data-lang="en"] #participants-list { direction: ltr; }
 
 /* Abstract cards: title and speakers only; the whole card opens the abstract */
 button.abstract-card { width: 100%; font: inherit; color: inherit; cursor: pointer; justify-content: center; transition: background-color .2s; }
-button.abstract-card:hover { background-color: rgba(244, 237, 225, 0.16); }
 button.abstract-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .abstract-card-inner { display: flex !important; flex-direction: column; align-items: center; gap: 12px; }
 body[data-lang="ar"] .abstract-card-inner[data-i18n="en"],
@@ -1142,8 +1054,7 @@ body[data-lang="en"] .abstract-card-inner[data-i18n="ar"] { display: none !impor
 .abstract-card .name { display: block; margin: 0; padding: 0; border: 0; width: auto; }
 
 /* Abstract popup: title in Muwatin green, the speakers, then the abstract */
-.profile-dialog.abstract-dialog { width: min(640px, 94vw); padding: 40px 40px 32px; }
-.abstract-dialog .profile-kicker { color: var(--muted); font-weight: 500; text-align: center; }
+.abstract-dialog .profile-kicker { text-align: center; }
 .abstract-title { margin: 6px 0 10px; font-family: var(--font-display); font-weight: 800; font-size: 22px; line-height: 1.45; color: var(--green); text-wrap: balance; }
 .abstract-names { margin: 0 0 18px; font-weight: 700; color: var(--wine); }
 .abstract-text { text-align: start; font-size: 16px; line-height: 1.8; }
@@ -1204,7 +1115,7 @@ body[data-lang="ar"] .abstracts { direction: rtl; }
 button.abstract-card { background-color: var(--navy); border: 1px solid rgba(244, 237, 225, 0.32); }
 button.abstract-card:hover { background-color: rgba(244, 237, 225, 0.08); }
 
-/* ===== Abstract popup, final: a sheet of paper on the dark backdrop =====
+/* ===== Abstract popup: a sheet of paper on the dark backdrop =====
    Long abstracts make the sheet longer and the whole view scrolls like a page (no box scrolling inside a box). */
 .profile-dialog.abstract-dialog {
   position: fixed;
@@ -1230,7 +1141,6 @@ button.abstract-card:hover { background-color: rgba(244, 237, 225, 0.08); }
 .abstract-sheet {
   position: relative;
   width: min(720px, 100%);
-  margin: 0 auto;
   padding: 56px 64px 52px;
   border-radius: 6px;
   background: #FDFBF7;
@@ -1283,7 +1193,7 @@ body[data-lang="ar"] .abstract-dialog .profile-next, body[data-lang="en"] .abstr
 body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstract-dialog .profile-next { right: 24px; left: auto; }
 @media (max-width: 760px) {
   .profile-dialog.abstract-dialog { padding: 0; }
-  .abstract-sheet { width: 100%; min-height: 100%; padding: 64px 22px 40px; border-radius: 0; box-shadow: none; }
+  .abstract-sheet { width: 100%; padding: 64px 22px 40px; border-radius: 0; box-shadow: none; }
   .abstract-head { margin-bottom: 28px; }
   .abstract-dialog .abstract-text { font-size: 16px; }
   /* Phones: arrows in the sheet's top corner, opposite the close button; they scroll away with the page */
@@ -1389,9 +1299,8 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-/* Talal Shahwan: the photo itself is now trimmed to his outline and mirrored,
-   so he faces into the card like the others. He only needs to run a little
-   taller than the default to match their presence. */
+/* Talal Shahwan: the photo is trimmed to the outline and mirrored so it faces into
+   the card like the others, and runs a little taller than the default to match. */
 .participant-card.has-cutout .person-btn .card-figure .cutout[src*="shahwan"] { height: 205px; }
 
 /* Download button under the Abstracts and Participants headings
@@ -1427,9 +1336,6 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
 .reveal .participant-card:not(.shown),
 .reveal .abstract-card:not(.shown) { opacity: 0; transform: translateY(20px) scale(0.98); }
 
-/* A little more life on hover: the card lifts a touch further than before and
-   the cutout leans in, anchored at its bottom-left so it stays flush with the
-   card's edge rather than detaching from it. */
 /* Hover: the whole card lifts and its photo casts a longer shadow, so the
    cutout reads as standing off the card. The photo itself is never scaled —
    zooming a cutout on hover looks cheap and breaks its footing on the edge. */
