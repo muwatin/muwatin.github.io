@@ -916,9 +916,6 @@ const bioFor = (p, lang) => {
   if (participantsEl) {
     const renderParticipants = (lang) => {
       const ordered = participantCards.slice().sort(byFamily(lang));
-      // --i is the card's place in the list; the stylesheet turns it into the
-      // entrance delay so the grid cascades instead of landing all at once
-      ordered.forEach((x, i) => x.card.style.setProperty('--i', i));
       participantsEl.replaceChildren(...ordered.map((x) => x.card));
       PEOPLE.length = 0;
       for (const x of ordered) PEOPLE.push({ person: x.person, a: x.a });
@@ -989,7 +986,7 @@ const bioFor = (p, lang) => {
     const rankOf = (el) => (rank.has(el.id.slice(4)) ? rank.get(el.id.slice(4)) : Infinity);
     [...abstractsEl.children]
       .sort((a, b) => rankOf(a) - rankOf(b))
-      .forEach((el, i) => { el.style.setProperty('--i', i); abstractsEl.appendChild(el); });
+      .forEach((el) => abstractsEl.appendChild(el));
   }
 
   const withNames = (line, lang) => esc(line).replace(/\{\{(.+?)\}\}/g, (_, key) => personLink(key.replace(/&amp;/g, '&'), lang));
@@ -1343,6 +1340,26 @@ initAccordions(document);
       { threshold: 0, rootMargin: '0px 0px -8% 0px' }
     );
     document.querySelectorAll('.reveal').forEach((node) => io.observe(node));
+
+    // Cards enter one by one as they come into view (see "Entrance choreography" in the CSS).
+    // Cards that arrive in the same moment ripple in 70 ms apart, at most four steps.
+    const cardIo = new IntersectionObserver(
+      (entries) => {
+        entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left)
+          .forEach((e, k) => {
+            const card = e.target;
+            const delay = Math.min(k, 4) * 70;
+            card.style.setProperty('--d', `${delay}ms`);
+            card.classList.add('shown');
+            cardIo.unobserve(card);
+            setTimeout(() => { card.classList.add('settled'); card.style.removeProperty('--d'); }, delay + 550);
+          });
+      },
+      { threshold: 0, rootMargin: '0px 0px -5% 0px' }
+    );
+    document.querySelectorAll('.reveal .participant-card, .reveal .abstract-card').forEach((card) => cardIo.observe(card));
   }
 
   // A time-based spring carries the drawing towards the intro's progress, so the motion stays

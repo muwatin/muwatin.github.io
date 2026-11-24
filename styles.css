@@ -142,6 +142,7 @@ a[data-i18n], span[data-i18n] { display: inline-block; }
   align-items: center;
   padding: 16px 5vw;
   background: rgba(253, 251, 247, 0.96); /* off-white, neutral against every section */
+  will-change: transform; /* its own layer, so scrolling doesn't repaint the page (see .stage) */
 }
 .brand-block {
   flex: 1 1 0;
@@ -182,8 +183,10 @@ a[data-i18n], span[data-i18n] { display: inline-block; }
   background: var(--sand);
   overflow: hidden;
   contain: layout paint;
-  /* No will-change here: the stage is fixed and never transformed, so promoting it only
-     held a screen-sized layer in GPU memory for the whole visit. */
+  /* Its own layer, like the top bar. On standard (non-high-DPI) screens Chrome otherwise keeps
+     fixed elements in the page's layer, and every scroll step repaints the whole screen
+     (photos and shadows included): measured at 1366×768, that made wheel scrolling stutter. */
+  will-change: transform;
 }
 
 /* The threads use the whole screen; the title sits above the cable and the dates below it */
@@ -1409,26 +1412,20 @@ body[data-lang="ar"] .abstract-dialog .profile-prev, body[data-lang="en"] .abstr
 
 /* ================================================================
    Entrance choreography
-   The cards in a section cascade in instead of the whole grid landing
-   at once. Each card's delay comes from --i, its place in the list,
-   which the script sets; the delay is capped so a long list still
-   finishes quickly rather than crawling to the end.
-
-   This runs on the first scroll into a section only. The cards exist
-   before .in is added, so the transition has a starting state to run
-   from. When the language toggle rebuilds the list, the new cards are
-   created already matching .reveal.in — and a transition never runs on
-   an element's first style — so the cascade does not replay on toggle.
+   Each card fades up as it comes into view (the script adds .shown), so a
+   card is never still blank when the reader reaches it. Cards arriving
+   together ripple in, a short step apart (--d, set by the script). Once a
+   card has arrived the script adds .settled, which drops the entrance
+   timing so hovering answers at once. Each card enters once per visit;
+   the language toggle moves cards, it doesn't replay their entrance.
    ================================================================ */
-.reveal .participant-card,
-.reveal .abstract-card {
-  opacity: 0;
-  transform: translateY(28px) scale(0.97);
-  transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: calc(min(var(--i, 0), 14) * 85ms);
+.reveal .participant-card:not(.settled),
+.reveal .abstract-card:not(.settled) {
+  transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--d, 0ms);
 }
-.reveal.in .participant-card,
-.reveal.in .abstract-card { opacity: 1; transform: none; }
+.reveal .participant-card:not(.shown),
+.reveal .abstract-card:not(.shown) { opacity: 0; transform: translateY(20px) scale(0.98); }
 
 /* A little more life on hover: the card lifts a touch further than before and
    the cutout leans in, anchored at its bottom-left so it stays flush with the
