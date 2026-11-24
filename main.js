@@ -13,12 +13,16 @@
     document.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
   };
 
-  apply(saved === 'en' ? 'en' : 'ar');
+  // A shared link carries the language it was shared in (?lang=en); it wins over the saved choice for this visit
+  const fromLink = new URLSearchParams(location.search).get('lang');
+  apply(fromLink === 'en' || fromLink === 'ar' ? fromLink : saved === 'en' ? 'en' : 'ar');
 
   btn.addEventListener('click', () => {
     const next = body.dataset.lang === 'ar' ? 'en' : 'ar';
     apply(next);
     localStorage.setItem('muwatin-lang', next);
+    // The reader chose a language: drop the one the link came with, so a reload keeps their choice
+    if (fromLink) history.replaceState(null, '', location.pathname + location.hash);
   });
 })();
 
@@ -592,8 +596,8 @@ const bioFor = (p, lang) => {
   const participantsEl = document.getElementById('participants-list');
   const dirOf = (lang) => (lang === 'ar' ? 'rtl' : 'ltr');
   const T = {
-    ar: { speaking: 'المداخلة', abstract: 'الملخص', close: 'إغلاق', prev: 'السابق', next: 'التالي', readAbstract: 'الملخص', back: 'العودة إلى', prevAbs: 'الملخص السابق', nextAbs: 'الملخص التالي' },
-    en: { speaking: 'Intervention', abstract: 'Abstract', close: 'Close', prev: 'Previous participant', next: 'Next participant', readAbstract: 'Abstract', back: 'Back to', prevAbs: 'Previous abstract', nextAbs: 'Next abstract' },
+    ar: { speaking: 'المداخلة', abstract: 'الملخص', close: 'إغلاق', prev: 'السابق', next: 'التالي', readAbstract: 'الملخص', back: 'العودة إلى', prevAbs: 'الملخص السابق', nextAbs: 'الملخص التالي', share: 'مشاركة الرابط', copied: 'تم نسخ الرابط' },
+    en: { speaking: 'Intervention', abstract: 'Abstract', close: 'Close', prev: 'Previous participant', next: 'Next participant', readAbstract: 'Abstract', back: 'Back to', prevAbs: 'Previous abstract', nextAbs: 'Next abstract', share: 'Share link', copied: 'Link copied' },
   };
   const uiLang = () => document.body.dataset.lang || 'ar';
   const esc = escName; // same escaping as the name helpers above
@@ -609,6 +613,57 @@ const bioFor = (p, lang) => {
   dlg.className = 'profile-dialog';
   document.body.appendChild(dlg);
   dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+
+  // ----- Links to a single abstract or person -----
+  // An open popup puts its own link in the address bar (#abstract-<id> / #participant-<name>), so copying
+  // the address or pressing the share button gives a link that opens the same popup. Closing it puts back
+  // the address the page had before.
+  const slug = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const personSlug = (person) => slug(nameIn(person, 'en')) || encodeURIComponent(person);
+  const linkFor = (hash) => `${location.origin}${location.pathname}?lang=${uiLang()}#${hash}`;
+  const POPUP_HASH = /^#(abstract|participant)-/;
+  let homeUrl = null; // the address before a popup replaced it
+  const setUrl = (hash) => {
+    if (homeUrl === null) {
+      // Arrived through a shared link: closing the popup leaves the reader on that section, not on the link
+      const h = location.hash.replace(/^#abstract-.*/, '#abstracts').replace(/^#participant-.*/, '#participants');
+      homeUrl = location.pathname + location.search + h;
+    }
+    history.replaceState(null, '', linkFor(hash));
+  };
+  dlg.addEventListener('close', () => {
+    if (homeUrl !== null) history.replaceState(null, '', homeUrl);
+    homeUrl = null;
+  });
+  const shareIcon = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/><path d="M7 10H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-1"/></svg>';
+  const shareBtn = (ui) => `<button class="profile-share" type="button" aria-label="${ui.share}" title="${ui.share}">${shareIcon}<span class="profile-share-done" role="status">${ui.copied}</span></button>`;
+  const copyText = async (text) => {
+    try { await navigator.clipboard.writeText(text); return; } catch (_) { /* older browsers: fall through */ }
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;opacity:0';
+    dlg.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+  };
+  // Phones and tablets get their own share sheet; elsewhere the link is copied
+  const bindShare = (title) => {
+    const btn = dlg.querySelector('.profile-share');
+    if (!btn) return;
+    btn.addEventListener('click', async () => {
+      const url = location.href;
+      if (navigator.share && window.matchMedia('(pointer: coarse)').matches) {
+        try { await navigator.share({ title, url }); } catch (_) { /* dismissed */ }
+        return;
+      }
+      await copyText(url);
+      btn.classList.add('is-done');
+      clearTimeout(btn.doneTimer);
+      btn.doneTimer = setTimeout(() => btn.classList.remove('is-done'), 2000);
+    });
+  };
 
   // Previous / next arrows; `list` is the sequence to step through
   const addNav = (labels, go) => {
@@ -662,6 +717,7 @@ const bioFor = (p, lang) => {
     dlg.innerHTML = p.cutout
       ? `
       <button class="profile-close" type="button" aria-label="${ui.close}">×</button>
+      ${shareBtn(ui)}
       ${nameTag}
       <div class="profile-body">
         <span class="profile-float-spacer"></span>
@@ -671,6 +727,7 @@ const bioFor = (p, lang) => {
       </div>`
       : `
       <button class="profile-close" type="button" aria-label="${ui.close}">×</button>
+      ${shareBtn(ui)}
       ${avatar}
       ${nameTag}
       ${bioTag}
@@ -686,6 +743,8 @@ const bioFor = (p, lang) => {
       dlg.onkeydown = null;
     }
     dlg.querySelector('.profile-paper-card')?.addEventListener('click', (e) => { e.preventDefault(); openAbstract(a, person); });
+    setUrl(`participant-${personSlug(person)}`);
+    bindShare(shown);
     show();
     const img = dlg.querySelector('.profile-body .profile-cutout');
     if (img) { fitFloat(); if (!img.complete) img.addEventListener('load', fitFloat, { once: true }); }
@@ -733,6 +792,7 @@ const bioFor = (p, lang) => {
     dlg.innerHTML = `
       <article class="abstract-sheet">
         <button class="profile-close" type="button" aria-label="${ui.close}">×</button>
+        ${shareBtn(ui)}
         ${from ? `<button class="abstract-back" type="button"><span aria-hidden="true" dir="ltr">${lang === 'ar' ? '›' : '‹'}</span> ${ui.back} ${esc(nameIn(from, lang))}</button>` : ''}
         <header class="abstract-head">
           <span class="profile-kicker">${ui.abstract}</span>
@@ -748,6 +808,8 @@ const bioFor = (p, lang) => {
     dlg.querySelector('.abstract-back')?.addEventListener('click', () => openProfile(from, a));
     const idx = ABSTRACTS.indexOf(a);
     addNav([ui.prevAbs, ui.nextAbs], (step) => openAbstract(ABSTRACTS[(idx + step + ABSTRACTS.length) % ABSTRACTS.length]));
+    setUrl(`abstract-${a.id}`);
+    bindShare(t ? t.text : document.title);
     show();
   };
 
@@ -995,6 +1057,27 @@ const bioFor = (p, lang) => {
       if (title) openAbstract(byId[title.dataset.abs]);
     });
   }
+
+  // A shared link (#abstract-<id> or #participant-<name>): take the page to that section and open the popup,
+  // so closing it leaves the reader beside the card. Also handles a link pasted into an already open tab.
+  const openFromHash = () => {
+    if (!POPUP_HASH.test(location.hash)) return;
+    const [, kind, key] = decodeURIComponent(location.hash).match(/^#(abstract|participant)-(.+)$/);
+    let card = null;
+    let open = null;
+    if (kind === 'abstract' && byId[key]) {
+      card = document.getElementById(`abs-${key}`);
+      open = () => openAbstract(byId[key]);
+    } else if (kind === 'participant') {
+      const x = participantCards.find((c) => personSlug(c.person) === key);
+      if (x) { card = x.card; open = () => openProfile(x.person, x.a); }
+    }
+    if (!open) return;
+    card?.scrollIntoView({ block: 'center', behavior: 'instant' });
+    open();
+  };
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
 })();
 
 initAccordions(document);

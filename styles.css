@@ -481,6 +481,39 @@ body[data-lang="en"] .copy-bottom {
   cursor: pointer;
 }
 .profile-close:hover { color: var(--wine); }
+/* Share: beside the close button; copies the popup's own link (or opens the phone's share sheet) */
+.profile-share {
+  position: absolute;
+  top: 8px;
+  inset-inline-end: 56px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  z-index: 1;
+}
+.profile-share:hover, .profile-share.is-done { color: var(--wine); }
+.profile-share:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 6px; }
+.profile-share-done {
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 50%;
+  transform: translate(-50%, -4px);
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+}
+.profile-share.is-done .profile-share-done { opacity: 1; transform: translate(-50%, 0); }
 .profile-photo {
   display: block;
   width: 112px;
@@ -1240,6 +1273,7 @@ button.abstract-card:hover { background-color: rgba(244, 237, 225, 0.08); }
 .abstract-dialog .abstract-text p:last-child { margin-bottom: 0; }
 .abstract-dialog .abstract-text.is-empty { text-align: center; color: var(--muted); font-style: italic; }
 .abstract-sheet .profile-close { top: 12px; inset-inline-end: 14px; }
+.abstract-sheet .profile-share { top: 12px; inset-inline-end: 58px; }
 /* Previous / next: fixed at the sides of the screen, so they stay put while a long abstract scrolls */
 .abstract-dialog .profile-nav { position: fixed; top: 50%; color: var(--cream); }
 body[data-lang="ar"] .abstract-dialog .profile-next, body[data-lang="en"] .abstract-dialog .profile-prev { left: 24px; right: auto; }
