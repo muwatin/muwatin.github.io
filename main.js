@@ -909,12 +909,12 @@ const bioFor = (p, lang) => {
     }
   }
 
-  // Participants: one even grid, everyone in a single list ordered alphabetically by family name, in the
-  // page language (re-sorting on toggle). Photo cards and placeholder cards are the same size; the popup's
-  // previous / next step through the same order.
+  // Participants: one even grid ordered alphabetically by family name, in the page language (re-sorting on
+  // toggle), with people who have no photo yet at the end. The popup's previous / next step through the same order.
   if (participantsEl) {
     const renderParticipants = (lang) => {
-      const ordered = participantCards.slice().sort(byFamily(lang));
+      const alpha = byFamily(lang);
+      const ordered = participantCards.slice().sort((p, q) => (q.photo - p.photo) || alpha(p, q));
       participantsEl.replaceChildren(...ordered.map((x) => x.card));
       PEOPLE.length = 0;
       for (const x of ordered) PEOPLE.push({ person: x.person, a: x.a });
